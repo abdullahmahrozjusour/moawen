@@ -1,0 +1,51 @@
+.bg-splash {
+    --background: url('/assets/imgs/wrapper-bg.png') no-repeat center center #031841;
+    --background-size: cover;
+  }
+  .input-outlined {
+    --border-color: transparent;
+    border: 1px solid #BAC7D5;
+    background-color: #fff;
+    --color: #697D95;
+    border-radius: 15px;
+    min-height: 48px;
+    --padding-start: 16px;
+    --padding-end: 16px;
+  
+    &.no-float {
+      --padding-top: 5px;
+      --padding-bottom: 0;
+      --padding-start: 5px;
+      --padding-end: 5px;
+      text-align: center;
+      &.sc-ion-input-md-h {
+        --padding-top: 0px;
+      }
+    }
+  
+    &.sc-ion-input-md-h {
+      --padding-top: 15px;
+   
+    }
+  }
+  ::ng-deep .input-label-placement-floating.sc-ion-input-md-h .label-text-wrapper.sc-ion-input-md{
+    -webkit-transform: translateY(0%) scale(1);
+      transform: translateY(0%) scale(1);
+  }
+  ion-button.btn-def {
+    --padding-top: 0.6em;
+    --padding-bottom: 0.35em;
+    font-weight: 600;
+    --border-radius: 60px;
+    min-height: 37px;
+  }
+
+  ion-checkbox {
+    --size: 20px;
+     --color: #0F1D2E;
+  }
+  
+  ion-checkbox::part(container) {
+    border-radius: 3px;
+    border: 2px solid #BAC7D5;
+  }
