@@ -7,6 +7,8 @@ module.exports = {
     colors: {  
       'tahiti': '#509FBA', 
       'white': '#ffffff', 
+      'primary': '#031841',
+      'secondary': '#539AB7'
     },
     fontFamily: {
       acumin: ['Acumin Variable Concept', 'sans-serif'],

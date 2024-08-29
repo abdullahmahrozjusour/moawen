@@ -1,19 +1,73 @@
-<!-- <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
-  </ion-toolbar>
-</ion-header> -->
-
-<ion-content [fullscreen]="true">
-  <!-- <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header> -->
-  <div class="flex h-full w-full bg-slate-50">
-    <h1>Dashboard</h1>
+ <ion-content [fullscreen]="true"> 
+  <div class="grid grid-cols-2 gap-3 h-full w-full bg-slate-50 p-4 content-baseline">
+    <div class="col-span-2" (click)="navigateToTab3()">
+      <div class="bg-blend-normal flex items-end p-4 justify-end">
+        <ion-button color="success" class="btn-def capitalize text-sm" >Hire Now</ion-button>
+      </div>
+    </div>
+    <div class="flex flex-col items-center justify-between p-2 d-card">
+      <div class="text-white font-roboto font-medium text-sm">Your Profile</div>
+      <div> 
+        <img src="/assets/imgs/avatar-colored.png" alt="">
+      </div>
+      <div class="text-xs italic">Sarah Ghanim</div>
+      <ion-button color="primary" class="btn-def capitalize text-xs !font-normal" style="    min-height: 27px;--padding-start: 1.5rem; --padding-end:1.5rem; --border-style: solid;  --border-width: 1px;  " [routerLink]="['']">Edit Profile</ion-button>
+    </div>
+    <div class="flex flex-col items-center justify-between p-2 d-card">
+      <div class="text-white font-roboto font-medium text-center text-sm">Recruitment Tracking</div>
+      <div class="mt-2">
+        <img src="/assets/imgs/icons/map-icon.png" alt="">
+      </div>
+      <div></div>
+      <ion-button color="primary" class="btn-def capitalize text-xs !font-normal" style="min-height: 27px;--padding-start: 1.5rem; --padding-end:1.5rem; --border-style: solid;  --border-width: 1px;" [routerLink]="['']">View all</ion-button>
+    </div>
+    <div class="flex flex-col items-center justify-between p-2 d-card">
+      <div class="text-white font-roboto font-medium text-center text-sm">Your Workers</div>
+      <div class="mt-2">
+        <img src="/assets/imgs/icons/workers-icon.png" alt="">
+      </div>
+      <div></div>
+      <ion-button color="primary" class="btn-def capitalize text-xs !font-normal" style="min-height: 27px;--padding-start: 1.5rem; --padding-end:1.5rem; --border-style: solid;  --border-width: 1px;" [routerLink]="['']">View all</ion-button>
+    </div>
+    <div class="flex flex-col items-center justify-between p-2 d-card">
+      <div class="text-white font-roboto font-medium text-center text-sm">Complaints</div>
+      <div class="mt-2">
+        <img src="/assets/imgs/icons/complaint-icon.png" alt="">
+      </div>
+      <div></div>
+      <ion-button color="primary" class="btn-def capitalize text-xs !font-normal" style="min-height: 27px;--padding-start: 0.2rem; --padding-end:0.2rem;     --border-style: solid;  --border-width: 1px;" [routerLink]="['']">Register a Complaint</ion-button>
+    </div>
+    <div class="col-span-2 ">
+      <div class="flex justify-between blue-bg py-2 px-3">
+        <div class="text-white">
+          <div>Your Wallet</div>
+          <div class="text-3xl font-roboto font-bold italic">QAR 1500</div>
+        </div>
+        <div class="flex items-end flex-col justify-end">
+          <ion-button fill="outline" color="light" class="btn-def capitalize text-xs !font-normal" style="min-height: 27px;--padding-start: 1rem; --padding-top:0.5rem; --padding-bottom:0.5rem; --padding-end:1rem; --border-width:1px" [routerLink]="['']">View Transactions</ion-button>
+        </div>
+      </div>
+    </div>
+    <div class="col-span-2">
+      <div class="text-center font-roboto font-semibold text-primary mb-1">Your Hiring Request</div>
+      <div class="flex justify-between bg-[#AED036] py-2 px-3 rounded-md items-center">
+        <div class="flex gap-4 items-center">
+          <img src="/assets/imgs/male-avatar.jpg" class="rounded-full h-12 w-12 object-cover" alt="">
+          <div class="text-primary">
+            <div class="text-md font-roboto font-medium flex flex-col leading-3">Driver <span class="text-xs font-normal">India/Male</span></div>
+          </div>
+        </div>
+        <div class="flex gap-4 items-center">
+          <div class="bg-white p-4 flex items-center justify-center text-center rounded-full font-roboto font-medium text-primary h-8 w-8">4</div>
+          <span>
+            <img src="/assets/imgs/icons/right-chev.png" alt="">
+          </span>
+        </div>
+      </div>
+      <div class="flex justify-center mt-4">
+        <ion-button color="primary" class="btn-def capitalize text-xs !font-normal" style="    min-height: 35px;--padding-start: 1.5rem; --padding-end:1.5rem; " [routerLink]="['']">Your Shortlist</ion-button>
+      </div>
+    </div>
   </div>
-
+  
 </ion-content>

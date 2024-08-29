@@ -1,17 +1,38 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 3
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="grid grid-cols-1 gap-3 h-full w-full bg-slate-50 p-4 content-center">
+    <div>
+      <div class="text-secondary font-semibold font-roboto text-lg">Meet Your Match: <span class="block text-primary font-medium text-base">Effortless Recruitment Begins
+          Here</span></div>
+    </div>
+    <div class="text-center text-primary font-medium text-base mt-2">Select Type</div>
+    <div class="flex flex-col items-center justify-between p-3 green-bg gap-3">
+      <div class="text-white font-roboto font-medium text-base">Submit Recruitment Application</div>
+      <div>
+        <img src="/assets/imgs/icons/visa.png" alt="">
+      </div>
+      <ion-button color="primary" class="btn-def capitalize text-xs !font-normal"
+        style="    min-height: 35px;--padding-start: 3rem; --padding-end:3rem;  --border-style: solid;  --border-width: 1px;"
+        [routerLink]="['']">Select</ion-button>
+    </div>
+    <div class="flex flex-col items-center justify-between p-3 blue-bg gap-3">
+      <div class="text-white font-roboto font-medium text-base">Browse Workers</div>
+      <div>
+        <img src="/assets/imgs/icons/tr-workers.png" alt="">
+      </div>
+      <ion-button color="primary" class="btn-def capitalize text-xs !font-normal"
+        style="    min-height: 35px;--padding-start: 3rem; --padding-end:3rem;  --border-style: solid;  --border-width: 1px;"
+        [routerLink]="['']">Select</ion-button>
+    </div>
+    <div class="flex flex-col items-center justify-between p-3 dark-bg gap-3">
+      <div class="text-white font-roboto font-medium text-base">Browse By Agency</div>
+      <div>
+        <img src="/assets/imgs/icons/travel-agency.png" alt="">
+      </div>
+      <ion-button color="primary" class="btn-def capitalize text-xs !font-normal"
+        style="    min-height: 35px;--padding-start: 3rem; --padding-end:3rem;  --border-style: solid;  --border-width: 1px;"
+        [routerLink]="['']">Select</ion-button>
+    </div>
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+  </div>
+
 </ion-content>
