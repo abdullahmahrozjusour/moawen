@@ -1,0 +1,23 @@
+.input-outlined {
+    --border-color: #BAC7D5;
+    --border-radius: 8px;
+    --background: #EEEEEE;
+    &.ios {
+        border-radius: 8px;
+        --padding-start: 16px;
+        --padding-end: 16px;
+        // border: 1px solid #BAC7D5;
+    }
+
+
+    &.sc-ion-input-md-h {
+        --padding-top: 15px;
+
+    }
+}
+.cstm-input{
+    @apply bg-[#EEEEEE] px-4 rounded-[8px] min-h-[44px] flex justify-between items-center border-[#BAC7D5] border;
+}
+.tag{
+    @apply bg-white px-2 py-1 rounded-xl flex justify-between gap-2 text-sm font-roboto items-center;
+}

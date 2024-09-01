@@ -45,27 +45,42 @@
 
 @import './assets/fonts/fonts.scss';
 
-html,body{
+html,
+body {
     --ion-font-family: 'Acumin Variable Concept'
 }
+
 .container-center {
     text-align: center;
-  
+
     position: absolute;
     left: 0;
     right: 0;
     top: 50%;
     transform: translateY(-50%);
-  }
-  ion-button.btn-def {
+}
+
+ion-button.btn-def {
     --padding-top: 0.6em;
     --padding-bottom: 0.35em;
     font-weight: 600;
     --border-radius: 60px;
     min-height: 37px;
-    &.outline{
+
+    &.outline {
         --border-width: 1px;
         --border-style: solid;
         --border-color: #fff;
     }
-  }
+}
+
+ion-tab-bar#primary-tabs {
+    --background: #fff;
+    width: 90%;
+    margin: 0 auto 1rem;
+    box-shadow: 0 0 12px 0 rgb(0 0 0 / 20%);
+    border-radius: 10px;
+    ion-tab-button {
+        --background: #fff;
+    }
+}
