@@ -9,7 +9,7 @@ import {HttpHandler} from '@angular/common/http';
 @Injectable()
 export class CoreService {
     // readonly appVars = AppVars;
-    protected __url: string = 'http://moaween.test/api/ju/v1/';
+    protected __url: string = 'https://dwptest.jusour.qa/api/ju/v1/';
 
     constructor(
         protected http: HttpClient

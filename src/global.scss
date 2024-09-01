@@ -84,3 +84,11 @@ ion-tab-bar#primary-tabs {
         --background: #fff;
     }
 }
+.custom-otp-field{
+    .ng-otp-input-wrapper{
+      @apply grid grid-cols-6 gap-2;
+      input{
+        @apply mr-0;
+      }
+    }
+  }
