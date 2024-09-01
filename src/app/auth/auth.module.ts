@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
@@ -9,13 +9,22 @@ import { AuthPageRoutingModule } from './auth-routing.module';
 import { AuthPage } from './auth.page';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { CoreService } from '../services/core.service'; 
+import {HttpHeaders, HttpParams, HttpResponse} from "@angular/common/http";
+import {HttpClient, HttpHandler} from '@angular/common/http';
+
+
+import { NgOtpInputModule } from 'ng-otp-input';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     IonicModule,
-    AuthPageRoutingModule
+    AuthPageRoutingModule,
+    NgOtpInputModule
+    
   ],
   exports: [
     LoginComponent,
@@ -25,6 +34,10 @@ import { RegisterComponent } from './register/register.component';
     AuthPage, 
     LoginComponent,
     RegisterComponent
+  ],
+  providers:[
+    CoreService,
+    
   ]
 })
 export class AuthPageModule { }
