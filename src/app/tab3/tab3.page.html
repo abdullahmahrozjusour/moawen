@@ -1,6 +1,6 @@
 <ion-content [fullscreen]="true">
-  <div class="grid grid-cols-1 gap-3 h-full w-full bg-slate-50 p-4 content-center">
-    <div>
+  <div class="grid grid-cols-1 gap-3 h-full w-full bg-slate-50 p-4 content-center overflow-auto">
+    <div class="mt-4">
       <div class="text-secondary font-semibold font-roboto text-lg">Meet Your Match: <span class="block text-primary font-medium text-base">Effortless Recruitment Begins
           Here</span></div>
     </div>
@@ -12,7 +12,7 @@
       </div>
       <ion-button color="primary" class="btn-def capitalize text-xs !font-normal"
         style="    min-height: 35px;--padding-start: 3rem; --padding-end:3rem;  --border-style: solid;  --border-width: 1px;"
-        [routerLink]="['']">Select</ion-button>
+        [routerLink]="['submit-application']">Select</ion-button>
     </div>
     <div class="flex flex-col items-center justify-between p-3 blue-bg gap-3">
       <div class="text-white font-roboto font-medium text-base">Browse Workers</div>
@@ -34,5 +34,5 @@
     </div>
 
   </div>
-
+  
 </ion-content>

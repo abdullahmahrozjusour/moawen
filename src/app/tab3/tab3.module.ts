@@ -7,6 +7,8 @@ import { ExploreContainerComponentModule } from '../explore-container/explore-co
 
 import { Tab3PageRoutingModule } from './tab3-routing.module';
 import { SubmitApplicationComponent } from './submit-application/submit-application.component';
+import { SuccessComponent } from './success/success.component';
+import { BrowsLocalComponent } from './brows-local/brows-local.component';
 
 @NgModule({
   imports: [
@@ -16,7 +18,7 @@ import { SubmitApplicationComponent } from './submit-application/submit-applicat
     ExploreContainerComponentModule,
     Tab3PageRoutingModule,
   ],
-  exports:[SubmitApplicationComponent],
-  declarations: [Tab3Page, SubmitApplicationComponent]
+  exports:[SubmitApplicationComponent,SuccessComponent,BrowsLocalComponent,BrowsLocalComponent],
+  declarations: [Tab3Page, SubmitApplicationComponent,SuccessComponent, BrowsLocalComponent,BrowsLocalComponent]
 })
 export class Tab3PageModule {}

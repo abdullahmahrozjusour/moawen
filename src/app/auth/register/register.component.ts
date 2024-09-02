@@ -5,6 +5,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CoreService } from '../../services/core.service';
 
 import { NgOtpInputComponent, NgOtpInputConfig } from 'ng-otp-input';
+import { HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-register',
@@ -44,10 +45,14 @@ export class RegisterComponent  implements OnInit {
       "mobileNumber": this.form.value.mobileNo,
       "type": "customer"
     }
+
+    console.log(data.qid, 'Data qid');
+    console.log(data.name, 'Data qid');
     
-    this.coreSer.post('generate-otp', { params: data }).subscribe((res) => {
-      console.log(res);
-      alert('Sms Sent');
+    
+    this.coreSer.post('generate-otp', { params: data }).subscribe({
+      next: resp => console.log('Next |Done', JSON.stringify(resp)),
+      error: errpr => console.log(JSON.stringify(errpr))
     })
 
 
@@ -62,8 +67,8 @@ export class RegisterComponent  implements OnInit {
     }
 
     this.coreSer.post('sign-up', { params: data }).subscribe((res) => {
-      console.log(res);
-      alert('Sms Sent');
+      // console.log(res);
+      console.log('API DONE.....!!!');
     })
   }
 

@@ -16,6 +16,8 @@ export class CoreService {
     ) {
     }
 
+    
+     
 
     get(path: string, args?: { params: any; }): Observable<any> {
         return this.http.get(this.__url + path, {
@@ -24,7 +26,15 @@ export class CoreService {
     }
 
     post(path: string, args?: { params: any; }): Observable<any> {
-        return this.http.post<any>(this.__url + path, args && args.params || null);
+        console.log('this is in post')
+       const  httpOptions = {
+            headers: new HttpHeaders({
+              'Accept': 'application/json, text/plain',
+              'Content-Type': 'application/json'
+            })
+          };
+          console.log('this is in post after')
+        return this.http.post<any>(this.__url + path, args && args.params || null, httpOptions);
     }
     patch(path: string, args?: { params: any; }): Observable<any> {
         return this.http.patch(this.__url + path, args && args.params || null);

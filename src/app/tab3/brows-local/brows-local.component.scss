@@ -28,3 +28,8 @@
         @apply leading-3;
     }
 }
+.card{
+    background: url('/assets/imgs/card-light.jpg') no-repeat right bottom;
+    background-size: cover;
+    border-radius: 10px;
+}
