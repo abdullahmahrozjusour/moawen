@@ -92,3 +92,10 @@ ion-tab-bar#primary-tabs {
       }
     }
   }
+
+  ion-radio.radio-mw{
+    border:2px solid transparent;
+    &.radio-checked{
+        border-color: #0C1624;
+    } 
+}

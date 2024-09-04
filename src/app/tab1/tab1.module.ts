@@ -6,6 +6,9 @@ import { Tab1Page } from './tab1.page';
 import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
 
 import { Tab1PageRoutingModule } from './tab1-routing.module';
+import { ShortListComponent } from './short-list/short-list.component';
+import { ViewWorkerComponent } from './view-worker/view-worker.component';
+import { WorkerContractComponent } from './worker-contract/worker-contract.component';
 
 @NgModule({
   imports: [
@@ -15,6 +18,7 @@ import { Tab1PageRoutingModule } from './tab1-routing.module';
     ExploreContainerComponentModule,
     Tab1PageRoutingModule
   ],
-  declarations: [Tab1Page]
+  exports: [ShortListComponent,ViewWorkerComponent, WorkerContractComponent],
+  declarations: [Tab1Page,ShortListComponent, ViewWorkerComponent, WorkerContractComponent]
 })
 export class Tab1PageModule {}

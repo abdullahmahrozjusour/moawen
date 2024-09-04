@@ -20,7 +20,7 @@
       </div>
       <ion-button color="primary" class="btn-def capitalize text-xs !font-normal" style="min-height: 27px;--padding-start: 1.5rem; --padding-end:1.5rem; --border-style: solid;  --border-width: 1px;" [routerLink]="['']">View all</ion-button>
     </div>
-    <div class="flex flex-col items-center justify-between p-2 d-card">
+    <div class="flex flex-col items-center justify-between p-2 d-card" [routerLink]="'your-shortlist'">
       <div class="text-white font-roboto font-medium text-center text-sm">Your Workers</div>
       <div class="mt-2">
         <img src="/assets/imgs/icons/workers-icon.png" alt="">
@@ -63,7 +63,7 @@
         </div>
       </div>
       <div class="flex justify-center mt-4">
-        <ion-button color="primary" class="btn-def capitalize text-xs !font-normal" style="    min-height: 35px;--padding-start: 1.5rem; --padding-end:1.5rem; " [routerLink]="['']">Your Shortlist</ion-button>
+        <ion-button color="primary" class="btn-def capitalize text-xs !font-normal" [routerLink]="['your-shortlist']" style="min-height: 35px;--padding-start: 1.5rem; --padding-end:1.5rem; ">Your Shortlist</ion-button>
       </div>
     </div>
   </div>

@@ -1,40 +1,22 @@
 <ion-header class="ion-no-border">
   <ion-toolbar style="--background: #fff; --border-color: #fff;">
-    <div class="p-4">
-      <div class="cstm-input">
-        <div class="flex gap-1">
-          <div class="tag">
-            <span>Islam</span>
-            <ion-icon name="close"></ion-icon>
-          </div>
-          <div class="tag">
-            <span>Islam</span>
-            <ion-icon name="close"></ion-icon>
-          </div>
-          <div class="tag">
-            <span>Islam</span>
-            <ion-icon name="close"></ion-icon>
-          </div>
-        </div>
-        <div>
-          <span class="bg-white px-2 rounded h-8 flex items-center justify-between text-xl">
-            <ion-icon name="add-sharp"></ion-icon>
-          </span>
-        </div>
-      </div>
-    </div>
+
+    <ion-buttons slot="start">
+      <ion-button class="capitalize text-tahiti text-lg p-2" style="--color:#509FBA;"> Your Shortlist </ion-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end">
+      <ion-icon name="options" class="text-lg px-2"></ion-icon>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <div class="grid grid-cols-1 gap-3 pt-0 h-full w-full bg-slate-50 p-4 content-start overflow-auto"> 
-    <div class="card px-3 py-2 flex  flex-col" style="--background: url('/assets/imgs/card-light.jpg');">
+  <div class="grid grid-cols-1 gap-3 h-full w-full bg-slate-50 p-4 content-start overflow-auto">
+    <div class="card px-3 py-2 flex  flex-col" style="--background: url('/assets/imgs/card-green-bg.jpg');">
       <div class="flex gap-4">
         <div>
           <img src="/assets/imgs/avatar-color.png" alt="">
-          <div class="flex justify-center mt-1">
-            <span
-              class="text-xs text-primary border bg-[#44D357] rounded-lg px-1 w-10 inline-block text-center font-semibold border-white mx-auto">95%</span>
-          </div>
+
         </div>
         <div class="w-full">
           <div class="flex justify-between gap-2 w-full">
@@ -47,25 +29,20 @@
             </div>
           </div>
           <div class="text-xs mt-3">Male / Islam / Under 30 / No Kids / Single</div>
-        </div> 
+        </div>
       </div>
       <div class="flex justify-end">
         <ion-button color="primary" class="btn-def capitalize text-xs !font-semibold"
-          style="min-height: 35px;--padding-start: 1.5rem; --padding-end:1.5rem; "
-           >View</ion-button>
+          style="min-height: 35px;--padding-start: 1.5rem; --padding-end:1.5rem;" (click)="navigateToViewWorker()" >View</ion-button>
         <ion-button color="light" class="btn-def capitalize text-xs !font-semibold"
-          style="min-height: 35px;--padding-start: 1.5rem; --padding-end:1.5rem; "
-           >Hire</ion-button>
+          style="min-height: 35px;--padding-start: 1.5rem; --padding-end:1.5rem; ">Hire</ion-button>
       </div>
     </div>
-    <div class="card px-3 py-2 flex  flex-col" style="--background: url('/assets/imgs/card-light.jpg');">
+    <div class="card px-3 py-2 flex  flex-col" style="--background: url('/assets/imgs/card-green-bg.jpg');">
       <div class="flex gap-4">
         <div>
           <img src="/assets/imgs/avatar-color.png" alt="">
-          <div class="flex justify-center mt-1">
-            <span
-              class="text-xs text-primary border bg-[#44D357] rounded-lg px-1 w-10 inline-block text-center font-semibold border-white mx-auto">95%</span>
-          </div>
+
         </div>
         <div class="w-full">
           <div class="flex justify-between gap-2 w-full">
@@ -78,25 +55,20 @@
             </div>
           </div>
           <div class="text-xs mt-3">Male / Islam / Under 30 / No Kids / Single</div>
-        </div> 
+        </div>
       </div>
       <div class="flex justify-end">
         <ion-button color="primary" class="btn-def capitalize text-xs !font-semibold"
-          style="min-height: 35px;--padding-start: 1.5rem; --padding-end:1.5rem; "
-           >View</ion-button>
+          style="min-height: 35px;--padding-start: 1.5rem; --padding-end:1.5rem; " (click)="navigateToViewWorker()">View</ion-button>
         <ion-button color="light" class="btn-def capitalize text-xs !font-semibold"
-          style="min-height: 35px;--padding-start: 1.5rem; --padding-end:1.5rem; "
-           >Hire</ion-button>
+          style="min-height: 35px;--padding-start: 1.5rem; --padding-end:1.5rem; ">Hire</ion-button>
       </div>
     </div>
     <div class="card px-3 py-2 flex  flex-col" style="--background: url('/assets/imgs/card-light.jpg');">
       <div class="flex gap-4">
         <div>
           <img src="/assets/imgs/avatar-color.png" alt="">
-          <div class="flex justify-center mt-1">
-            <span
-              class="text-xs text-primary border bg-[#44D357] rounded-lg px-1 w-10 inline-block text-center font-semibold border-white mx-auto">95%</span>
-          </div>
+
         </div>
         <div class="w-full">
           <div class="flex justify-between gap-2 w-full">
@@ -109,25 +81,20 @@
             </div>
           </div>
           <div class="text-xs mt-3">Male / Islam / Under 30 / No Kids / Single</div>
-        </div> 
+        </div>
       </div>
       <div class="flex justify-end">
         <ion-button color="primary" class="btn-def capitalize text-xs !font-semibold"
-          style="min-height: 35px;--padding-start: 1.5rem; --padding-end:1.5rem; "
-           >View</ion-button>
+          style="min-height: 35px;--padding-start: 1.5rem; --padding-end:1.5rem; " (click)="navigateToViewWorker()" >View</ion-button>
         <ion-button color="light" class="btn-def capitalize text-xs !font-semibold"
-          style="min-height: 35px;--padding-start: 1.5rem; --padding-end:1.5rem; "
-           >Hire</ion-button>
+          style="min-height: 35px;--padding-start: 1.5rem; --padding-end:1.5rem; ">Hire</ion-button>
       </div>
-    </div>
+    </div> 
     <div class="card px-3 py-2 flex  flex-col" style="--background: url('/assets/imgs/card-light.jpg');">
       <div class="flex gap-4">
         <div>
           <img src="/assets/imgs/avatar-color.png" alt="">
-          <div class="flex justify-center mt-1">
-            <span
-              class="text-xs text-primary border bg-[#44D357] rounded-lg px-1 w-10 inline-block text-center font-semibold border-white mx-auto">95%</span>
-          </div>
+
         </div>
         <div class="w-full">
           <div class="flex justify-between gap-2 w-full">
@@ -140,25 +107,19 @@
             </div>
           </div>
           <div class="text-xs mt-3">Male / Islam / Under 30 / No Kids / Single</div>
-        </div> 
+        </div>
       </div>
       <div class="flex justify-end">
         <ion-button color="primary" class="btn-def capitalize text-xs !font-semibold"
-          style="min-height: 35px;--padding-start: 1.5rem; --padding-end:1.5rem; "
-           >View</ion-button>
+          style="min-height: 35px;--padding-start: 1.5rem; --padding-end:1.5rem; " (click)="navigateToViewWorker()" >View</ion-button>
         <ion-button color="light" class="btn-def capitalize text-xs !font-semibold"
-          style="min-height: 35px;--padding-start: 1.5rem; --padding-end:1.5rem; "
-           >Hire</ion-button>
+          style="min-height: 35px;--padding-start: 1.5rem; --padding-end:1.5rem; ">Hire</ion-button>
       </div>
-    </div>
+    </div> 
     <div class="card px-3 py-2 flex  flex-col" style="--background: url('/assets/imgs/card-light.jpg');">
       <div class="flex gap-4">
         <div>
-          <img src="/assets/imgs/avatar-color.png" alt="">
-          <div class="flex justify-center mt-1">
-            <span
-              class="text-xs text-primary border bg-[#44D357] rounded-lg px-1 w-10 inline-block text-center font-semibold border-white mx-auto">95%</span>
-          </div>
+          <img src="/assets/imgs/avatar-color.png" alt=""> 
         </div>
         <div class="w-full">
           <div class="flex justify-between gap-2 w-full">
@@ -171,16 +132,14 @@
             </div>
           </div>
           <div class="text-xs mt-3">Male / Islam / Under 30 / No Kids / Single</div>
-        </div> 
+        </div>
       </div>
       <div class="flex justify-end">
         <ion-button color="primary" class="btn-def capitalize text-xs !font-semibold"
-          style="min-height: 35px;--padding-start: 1.5rem; --padding-end:1.5rem; "
-           >View</ion-button>
+          style="min-height: 35px;--padding-start: 1.5rem; --padding-end:1.5rem; " (click)="navigateToViewWorker()" >View</ion-button>
         <ion-button color="light" class="btn-def capitalize text-xs !font-semibold"
-          style="min-height: 35px;--padding-start: 1.5rem; --padding-end:1.5rem; "
-           >Hire</ion-button>
+          style="min-height: 35px;--padding-start: 1.5rem; --padding-end:1.5rem; ">Hire</ion-button>
       </div>
-    </div>
+    </div> 
   </div>
 </ion-content>

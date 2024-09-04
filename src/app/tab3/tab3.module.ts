@@ -9,7 +9,7 @@ import { Tab3PageRoutingModule } from './tab3-routing.module';
 import { SubmitApplicationComponent } from './submit-application/submit-application.component';
 import { SuccessComponent } from './success/success.component';
 import { BrowsLocalComponent } from './brows-local/brows-local.component';
-
+ 
 @NgModule({
   imports: [
     IonicModule,
@@ -18,7 +18,7 @@ import { BrowsLocalComponent } from './brows-local/brows-local.component';
     ExploreContainerComponentModule,
     Tab3PageRoutingModule,
   ],
-  exports:[SubmitApplicationComponent,SuccessComponent,BrowsLocalComponent,BrowsLocalComponent],
-  declarations: [Tab3Page, SubmitApplicationComponent,SuccessComponent, BrowsLocalComponent,BrowsLocalComponent]
+  exports: [SubmitApplicationComponent, SuccessComponent, BrowsLocalComponent, BrowsLocalComponent ],
+  declarations: [Tab3Page, SubmitApplicationComponent, SuccessComponent, BrowsLocalComponent, BrowsLocalComponent ]
 })
-export class Tab3PageModule {}
+export class Tab3PageModule { }

@@ -4,6 +4,7 @@ import { Tab3Page } from './tab3.page';
 import { SubmitApplicationComponent } from './submit-application/submit-application.component';
 import { SuccessComponent } from './success/success.component';
 import { BrowsLocalComponent } from './brows-local/brows-local.component';
+import { ShortListComponent } from '../tab1/short-list/short-list.component';
 
 const routes: Routes = [
   {

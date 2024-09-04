@@ -1,0 +1,67 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar style="--background: #fff; --border-color: #fff;">
+
+    <ion-title class="text-center text-base font-semibold text-primary">Agreement Details</ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <div class="overflow-auto px-4">
+    <div class="card-grey font-roboto">
+      <div class="p-2 rounded-lg flex justify-between gap-2">
+        <div class="flex gap-3 ">
+          <img src="/assets/imgs/avatar-color.png" alt="">
+          <div class="text-left font-roboto font-semibold text-black text-lg leading-6 mt-2">
+            Akshay Kumar
+            <span class="font-normal block text-sm leading-4">Availability: 45 Days <br> Total Exp: 4 years</span> 
+          </div>
+        </div>
+        <div>
+          <img src="/assets/imgs/flag-india.png" alt="">
+        </div>
+      </div>
+      <div class="flex justify-center gap-1 mt-2">
+        <div class="font-bold text-primary font-roboto text-sm text-center border-[#B8BBCC] border px-4 py-2 rounded-xl">
+          QAR 10000
+          <span class="text-xs block font-medium">Recruitment Cost</span>
+        </div>
+        <div class="font-bold text-primary font-roboto text-sm text-center border-[#B8BBCC] border px-4 py-2 rounded-xl">
+          QAR 10000
+          <span class="text-xs block font-medium">Per Month Salary</span>
+        </div>
+      </div>
+      <div class="flex justify-center gap-4 mt-3">
+        <ion-checkbox labelPlacement="end" style="--border-radius: 50%" class="text-sm font-bold text-primary">Replacement</ion-checkbox>
+        <ion-checkbox labelPlacement="end" style="--border-radius: 50%" class="text-sm font-bold text-primary">Ticket Provided</ion-checkbox>
+      </div>
+      <div class="px-5 py-4 flex flex-col gap-y-3 ">
+        <div class="bg-white rounded-lg py-2 px-3 text-center text-primary">
+          <div class="text-black font-medium mb-2">Please read the Contract carefully and agree before Hiring</div>
+          <ion-button color="success" class="btn-def capitalize text-xs !font-semibold"
+          style="min-height: 35px;--padding-start: 1rem; --padding-end:1rem; ">View Contract</ion-button>
+        </div>
+
+        <div class="">
+          <ion-checkbox labelPlacement="end" style="--border-radius: 0" class="text-sm font-medium font-roboto text-primary "><span>Click here to agree to Jusour's terms & <br> conditions on hiring requests</span></ion-checkbox>
+         </div>
+         <p class="text-xs font-medium font-roboto text-primary ">In order to secure this profile as your recruit, you need to pay minimum 50% of the offer price</p>
+         <div class="flex justify-center">
+          <div >
+            <ion-radio-group value="custom-checked" class="flex justify-center gap-2">
+              <ion-radio value="custom" labelPlacement="end" aria-label="Custom checkbox" class="bg-white radio-mw rounded-lg py-2 px-2 text-xs font-semibold">QAR 5000 (50%)</ion-radio>
+              <ion-radio value="custom-checked" labelPlacement="end" aria-label="Custom checkbox that is checked" class="bg-white radio-mw rounded-lg py-2 px-2  text-xs font-semibold">QAR 10000 (100%)</ion-radio>
+            </ion-radio-group>
+          </div>
+         </div>
+         <div class="flex gap-2 justify-center">
+          <ion-button color="primary" class="btn-def capitalize text-xs !font-semibold"
+            style="min-height: 35px;--padding-start: 1rem; --padding-end:1rem;">DOWNLOAD CV</ion-button>
+          <ion-button color="success" class="btn-def capitalize text-xs !font-semibold"
+            style="min-height: 35px;--padding-start: 1rem; --padding-end:1rem; ">CONFIRM & PAY</ion-button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>
