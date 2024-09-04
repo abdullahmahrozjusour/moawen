@@ -9,6 +9,10 @@ const routes: Routes = [
   {
     path: 'home',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+  },
+  {
+    path: 'shared',
+    loadChildren: () => import('./shared/shared.module').then( m => m.SharedPageModule)
   }
   // {
   //   path: 'contact',

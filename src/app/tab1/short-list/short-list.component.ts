@@ -12,6 +12,9 @@ export class ShortListComponent  implements OnInit {
   navigateToViewWorker() {
     this.navCtrl.navigateRoot('/home/tab1/view-worker');
   }
+  navigateToWorkerContract() {
+    this.navCtrl.navigateRoot('/home/tab1/worker-contract');
+  }
 
   ngOnInit() {}
 

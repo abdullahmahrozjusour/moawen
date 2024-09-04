@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-brows-local',
@@ -7,8 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BrowsLocalComponent  implements OnInit {
 
-  constructor() { }
+  constructor(private navCtrl: NavController) {}
 
+  navigateToViewWorker() {
+    this.navCtrl.navigateRoot('/home/tab1/view-worker');
+  }
+  navigateToWorkerContract() {
+    this.navCtrl.navigateRoot('/home/tab1/worker-contract');
+  }
   ngOnInit() {}
 
 }
