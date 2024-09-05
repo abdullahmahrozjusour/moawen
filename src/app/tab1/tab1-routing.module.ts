@@ -5,6 +5,7 @@ import { ShortListComponent } from './short-list/short-list.component';
 import { ViewWorkerComponent } from './view-worker/view-worker.component';
 import { WorkerContractComponent } from './worker-contract/worker-contract.component';
 import { TrackingListComponent } from './tracking-list/tracking-list.component';
+import { WorkerStatusComponent } from './worker-status/worker-status.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path: 'tracking-list',
     component: TrackingListComponent
+  },
+  {
+    path: 'worker-status',
+    component: WorkerStatusComponent
   },
   
 ];

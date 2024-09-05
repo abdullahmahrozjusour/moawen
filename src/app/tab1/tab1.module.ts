@@ -11,6 +11,7 @@ import { ViewWorkerComponent } from './view-worker/view-worker.component';
 import { WorkerContractComponent } from './worker-contract/worker-contract.component';
 import { SharedPageModule } from '../shared/shared.module';
 import { TrackingListComponent } from './tracking-list/tracking-list.component';
+import { WorkerStatusComponent } from './worker-status/worker-status.component';
 
 @NgModule({
   imports: [
@@ -21,7 +22,7 @@ import { TrackingListComponent } from './tracking-list/tracking-list.component';
     Tab1PageRoutingModule,
     SharedPageModule
   ],
-  exports: [ShortListComponent,ViewWorkerComponent, WorkerContractComponent, TrackingListComponent],
-  declarations: [Tab1Page,ShortListComponent, ViewWorkerComponent, WorkerContractComponent, TrackingListComponent]
+  exports: [ShortListComponent,ViewWorkerComponent, WorkerContractComponent, TrackingListComponent, WorkerStatusComponent],
+  declarations: [Tab1Page,ShortListComponent, ViewWorkerComponent, WorkerContractComponent, TrackingListComponent, WorkerStatusComponent]
 })
 export class Tab1PageModule {}

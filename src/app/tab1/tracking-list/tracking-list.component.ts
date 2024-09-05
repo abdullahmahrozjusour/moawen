@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-tracking-list',
@@ -7,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TrackingListComponent  implements OnInit {
 
-  constructor() { }
+  constructor(private navCtrl:NavController) { }
+  navigateToWorkerStatus() {
+    this.navCtrl.navigateRoot('/home/tab1/worker-status');
+  }
 
   ngOnInit() {}
 
