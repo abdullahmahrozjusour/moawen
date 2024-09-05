@@ -1,0 +1,63 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar style="--background: #fff; --border-color: #fff;">
+    <ion-icon slot="end" name="close-sharp" class="text-lg text-primary"
+      (click)="cancel()"></ion-icon>
+    <ion-title class="text-center text-sm font-medium text-primary ">
+      <div class="flex items-center justify-center text-sm">Choose a payment method</div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="px-2 flex flex-col h-full">
+    <div class=" px-2 py-4   font-roboto  text-primary  ">
+      <div class="flex gap-1 justify-between items-center bg-[#F8F8FA] px-2 py-1 rounded-lg mb-1 h-[50px]">
+        <div class="flex gap-1 items-center">
+          <div
+            class="bg-white border-[#D9D9D9] border rounded w-[43px] text-[#800000] text-center text-sm font-semibold font-roboto">
+            QPay
+          </div>
+          <div class="font-roboto text-[#474A56] text-sm">Debit Card</div>
+        </div>
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </div>
+      <div class="flex gap-1 justify-between items-center bg-[#F8F8FA] px-2 py-1 rounded-lg mb-1 h-[50px]">
+        <div class="flex gap-1 items-center">
+          <div class="flex flex-col justify-center text-center items-center">
+            <img src="/assets/imgs/icons/VISA-logo.png" alt="">
+            <img src="/assets/imgs/icons/mastercard-icon.png" alt="">
+          </div>
+          <div class="font-roboto text-[#474A56] text-sm">Credit Card</div>
+        </div>
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </div>
+      <div class="flex gap-1 justify-between items-center bg-[#F8F8FA] px-2 py-1 rounded-lg mb-1 h-[50px]">
+        <div class="flex gap-1 items-center">
+          <div
+            class="bg-white border-[#D9D9D9] border rounded w-[43px]  min-h-[22px] flex justify-center items-center">
+            <svg width="31" height="14" viewBox="0 0 31 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M4.25366 2.79366C4.83114 2.84158 5.40861 2.5062 5.76954 2.08099C6.12445 1.6438 6.35905 1.05689 6.29889 0.458008C5.78758 0.481963 5.15597 0.793384 4.79504 1.23057C4.4642 1.60787 4.18147 2.21873 4.25366 2.79366ZM11.1243 10.5078V1.17114H14.6433C16.46 1.17114 17.7292 2.41683 17.7292 4.23744C17.7292 6.05805 16.4359 7.31571 14.5952 7.31571H12.58V10.5078H11.1243ZM6.2933 2.908C5.78455 2.87885 5.32034 3.06032 4.94538 3.20691C4.70409 3.30124 4.49976 3.38112 4.34431 3.38112C4.16986 3.38112 3.95709 3.29697 3.7182 3.20248C3.40518 3.07868 3.04731 2.93714 2.67202 2.94393C1.81182 2.95591 1.01177 3.44101 0.572647 4.21357C-0.329663 5.7587 0.338047 8.04644 1.21028 9.3041C1.63737 9.92694 2.14868 10.6097 2.82241 10.5857C3.11881 10.5746 3.33202 10.4845 3.55267 10.3913C3.80671 10.284 4.0706 10.1725 4.48266 10.1725C4.88043 10.1725 5.13279 10.2811 5.37503 10.3853C5.60537 10.4844 5.82657 10.5796 6.15494 10.5737C6.85273 10.5618 7.29186 9.9509 7.71895 9.32806C8.17985 8.65958 8.3824 8.00718 8.41313 7.90817L8.41673 7.89672C8.416 7.89599 8.4103 7.89339 8.40026 7.88881C8.24618 7.81859 7.06855 7.28184 7.05725 5.84254C7.04591 4.63446 7.99132 4.02236 8.14015 3.92601C8.1492 3.92014 8.15531 3.91619 8.15807 3.91413C7.55653 3.02778 6.61813 2.93195 6.2933 2.908ZM20.3869 10.579C21.3012 10.579 22.1494 10.1178 22.5344 9.38718H22.5645V10.5071H23.9119V5.85974C23.9119 4.51224 22.8291 3.64386 21.1629 3.64386C19.6169 3.64386 18.474 4.52422 18.4319 5.73397H19.7432C19.8515 5.15904 20.3869 4.78174 21.1208 4.78174C22.011 4.78174 22.5103 5.19497 22.5103 5.95556V6.4706L20.6937 6.5784C19.0033 6.68021 18.089 7.36893 18.089 8.5667C18.089 9.77645 19.0334 10.579 20.3869 10.579ZM20.7781 9.47148C20.0021 9.47148 19.5088 9.10017 19.5088 8.53123C19.5088 7.94432 19.984 7.60296 20.8924 7.54906L22.5105 7.44725V7.97426C22.5105 8.84864 21.7646 9.47148 20.7781 9.47148ZM28.3815 10.873C27.798 12.508 27.1303 13.047 25.7107 13.047C25.6024 13.047 25.2415 13.035 25.1572 13.011V11.8911C25.2475 11.9031 25.47 11.9151 25.5843 11.9151C26.228 11.9151 26.5889 11.6456 26.8115 10.9449L26.9438 10.5317L24.4775 3.73429H25.9994L27.7138 9.25003H27.7439L29.4583 3.73429H30.938L28.3815 10.873ZM12.579 2.392H14.2573C15.5205 2.392 16.2424 3.06275 16.2424 4.24256C16.2424 5.42236 15.5205 6.0991 14.2513 6.0991H12.579V2.392Z"
+                fill="black" />
+            </svg>
+
+          </div>
+          <div class="font-roboto text-[#474A56] text-sm">Apply Pay</div>
+        </div>
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </div>
+      <div class="text-[#14263D] font-roboto text-xs mt-4 mb-3">
+        <span class="text-[#697D95] block">NOTE:</span>
+        This transaction may reflect as “QPAY Secure” in your statement.
+      </div>
+      <div (click)="openPaymentCardModal()"
+        class="flex justify-between items-center text-[#273B4A] py-3 px-4 rounded-lg border-[#031841] border-2 mb-4">
+        <span>Add new card details</span>
+        <ion-icon name="add-sharp" class="text-[#273B4A] text-lg"></ion-icon>
+      </div>
+      <ion-button expand="block" color="success" class="font-semibold text-Base capitalize tracking-normal	"
+        (click)="openConfirmModal()">Confirm</ion-button>
+
+    </div>
+  </div>
+</ion-content>

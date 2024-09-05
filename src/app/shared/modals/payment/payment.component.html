@@ -1,3 +1,36 @@
-<p>
-  payment works!
-</p>
+<ion-header class="ion-no-border">
+  <ion-toolbar style="--background: #fff; --border-color: #fff;">
+    <ion-icon slot="end" name="close-sharp" class="text-lg text-primary"
+    (click)="cancel()"></ion-icon>
+    <ion-title class="text-center text-lg font-medium text-primary ">
+      <div class="flex items-center justify-center"><ion-icon name="card-outline"
+          class="text-2xl me-2"></ion-icon> Payment</div>
+    </ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="px-2 flex flex-col h-full">
+    <div class=" px-2 py-4   font-roboto  text-primary  ">
+      <div>
+        <div class="flex items-center mb-1">
+          <ion-icon name="information-circle"></ion-icon>
+          <span class="text-sm"> Amount to be Paid</span>
+        </div>
+        <ion-input fill="outline" placeholder="Enter text"></ion-input>
+      </div>
+      <ion-checkbox labelPlacement="end" class="text-sm text-primary mt-3 font-semibold">Pay from
+        Wallet</ion-checkbox>
+      <div class="flex gap-3 my-2 items-start">
+        <ion-icon name="alert-circle" class="text-5xl flex items-start"></ion-icon>
+        <span class="font-medium text-sm">If the amount exceeds Wallet's Balance, the remaining amount will be
+          deducted from the Bank.</span>
+      </div>
+      <!-- (click)="modalPayment.dismiss()" -->
+      <ion-button expand="block" color="success" class="font-semibold text-Base capitalize tracking-normal" (click)="openPaymentMethodModal()"
+         >Pay</ion-button>
+
+    </div>
+  </div>
+</ion-content>

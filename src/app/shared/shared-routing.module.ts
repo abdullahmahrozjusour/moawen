@@ -2,10 +2,10 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
-  {
-    path: '',
-    // component: SharedPage
-  }
+  // {
+  //   path: '',
+  //   // component: SharedPage
+  // }
 ];
 
 @NgModule({

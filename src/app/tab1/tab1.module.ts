@@ -9,6 +9,8 @@ import { Tab1PageRoutingModule } from './tab1-routing.module';
 import { ShortListComponent } from './short-list/short-list.component';
 import { ViewWorkerComponent } from './view-worker/view-worker.component';
 import { WorkerContractComponent } from './worker-contract/worker-contract.component';
+import { SharedPageModule } from '../shared/shared.module';
+import { TrackingListComponent } from './tracking-list/tracking-list.component';
 
 @NgModule({
   imports: [
@@ -16,9 +18,10 @@ import { WorkerContractComponent } from './worker-contract/worker-contract.compo
     CommonModule,
     FormsModule,
     ExploreContainerComponentModule,
-    Tab1PageRoutingModule
+    Tab1PageRoutingModule,
+    SharedPageModule
   ],
-  exports: [ShortListComponent,ViewWorkerComponent, WorkerContractComponent],
-  declarations: [Tab1Page,ShortListComponent, ViewWorkerComponent, WorkerContractComponent]
+  exports: [ShortListComponent,ViewWorkerComponent, WorkerContractComponent, TrackingListComponent],
+  declarations: [Tab1Page,ShortListComponent, ViewWorkerComponent, WorkerContractComponent, TrackingListComponent]
 })
 export class Tab1PageModule {}

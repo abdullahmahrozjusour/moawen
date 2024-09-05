@@ -1,0 +1,41 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar style="--background: #fff; --border-color: #fff;">
+    <ion-icon slot="end" name="close-sharp" class="text-lg text-primary" (click)="cancel()"></ion-icon>
+    <ion-title class="text-center text-lg font-medium text-primary ">
+      <div class="flex items-center justify-center"><ion-icon name="card-outline" class="text-2xl me-2"></ion-icon> Add
+        Payment Card</div>
+    </ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <form (ngSubmit)="onSubmit()" #paymentForm="ngForm" >
+
+    <div class="flex flex-col gap-3 px-4">
+      <div>
+        <ion-input label="Enter Card Number" type="text" [(ngModel)]="cardNumber" name="cardNumber"
+          placeholder="1234 5678 9012 3456" required pattern="\d{16}" (ionInput)="formatCardNumber($event)"
+          class="input-outlined" label-placement="floating" fill="outline"></ion-input>
+      </div>
+  
+      <div>
+        <ion-input type="text" label="Enter Card Holder Name" [(ngModel)]="cardholderName" name="cardholderName" placeholder="John Doe" required
+          class="input-outlined" label-placement="floating" fill="outline"></ion-input>
+      </div>
+  
+      <div>
+        <ion-input type="text" label="Enter Exp Date" [(ngModel)]="expirationDate" name="expirationDate" placeholder="MM/YY" required
+          pattern="\d{2}/\d{2}" class="input-outlined" label-placement="floating" fill="outline"></ion-input>
+      </div>
+  
+      <div>
+        <ion-input type="text" label="Enter CVV" [(ngModel)]="cvv" name="cvv" placeholder="123" required pattern="\d{3,4}"
+          class="input-outlined" label-placement="floating" fill="outline"></ion-input>
+      </div>
+   
+  
+      <ion-button color="success" class="btn-def capitalize text-lg w-full" (click)="cancel()">Add Card</ion-button>
+    </div>
+  </form>
+</ion-content>

@@ -4,6 +4,7 @@ import { Tab1Page } from './tab1.page';
 import { ShortListComponent } from './short-list/short-list.component';
 import { ViewWorkerComponent } from './view-worker/view-worker.component';
 import { WorkerContractComponent } from './worker-contract/worker-contract.component';
+import { TrackingListComponent } from './tracking-list/tracking-list.component';
 
 const routes: Routes = [
   {
@@ -21,7 +22,12 @@ const routes: Routes = [
   {
     path: 'worker-contract',
     component: WorkerContractComponent
-  }
+  },
+  {
+    path: 'tracking-list',
+    component: TrackingListComponent
+  },
+  
 ];
 
 @NgModule({

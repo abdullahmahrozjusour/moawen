@@ -1,0 +1,20 @@
+<ion-content [fullscreen]="true" class="bg-success">
+  <div class="flex flex-col items-center h-full justify-center">
+    <div class="flex p-4 justify-center flex-col items-center text-center">
+      <div class="flex justify-center">
+        <img src="/assets/imgs/check-rounded.png" alt="">
+      </div>
+      <div class="text-primary font-roboto font-bold text-xl mt-4">
+        {{title}}
+      </div>
+      
+      <div class="mt-4 text-sm font-roboto font-semibold text-primary">
+        {{message}}
+      </div>
+    </div>
+    <div class="flex justify-center mt-12">
+      <ion-button color="success" class="btn-def capitalize text-xs !font-semibold"
+        style="min-height: 35px;--padding-start: 1.5rem; --padding-end:1.5rem; " (click)="navigateToBrows()">Proceed</ion-button>
+    </div>
+  </div>
+</ion-content>
