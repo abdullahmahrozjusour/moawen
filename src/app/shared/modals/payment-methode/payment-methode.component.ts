@@ -29,7 +29,7 @@ export class PaymentMethodeComponent implements OnInit {
       componentProps: {
         title: `Your have successfully completed`,
         message: `your payment on 08/06/2024 at 8:23 pm.
-                  Your Recruitment request has been placed with us recruitment no. #007. \n 
+                  Your Recruitment request has been placed with us recruitment no. #007. \n
                   Your payment Receipt no is . #4214`,
       }
     });
