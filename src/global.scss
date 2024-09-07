@@ -47,7 +47,8 @@
 
 html,
 body {
-    --ion-font-family: 'Acumin Variable Concept'
+    --ion-font-family: 'Acumin Variable Concept';
+     
 }
 
 .container-center {
@@ -98,4 +99,8 @@ ion-tab-bar#primary-tabs {
     &.radio-checked{
         border-color: #0C1624;
     } 
+}
+.input-outlined, .tag, .cstm-input{
+    --color: #697D95;
+    color: #697D95;
 }
