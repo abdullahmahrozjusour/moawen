@@ -14,6 +14,6 @@ export class Tab1Page {
     this.navCtrl.navigateRoot('/home/tab3');
   }
   navigateToWorkers() {
-    this.navCtrl.navigateRoot('/home/tab3/brows-local');
+    this.navCtrl.navigateRoot('/home/tab2');
   }
 }

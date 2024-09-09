@@ -1,0 +1,268 @@
+<ion-content>
+  <div class="overflow-auto px-4">
+    <div class="py-3 sticky top-2 bg-white text-black  font-roboto text-lg leading-4 tracking-tight">
+      WORKER PROFILE : <span class="text-secondary font-semibold">AKSHAY KUMAR</span>
+    </div>
+    <div class="mt-4">
+      <div class="p-3 rounded-lg  bg-[#539AB7]">
+        <div class="flex justify-between gap-2">
+          <div>
+            <img src="/assets/imgs/avatar-color.png" alt="">
+          </div>
+          <div class="flex flex-col justify-center items-center">
+            <div class="text-center font-roboto font-semibold text-black text-xl leading-6 mt-2 text-[#19255B]">
+              Akshay Kumar
+              <span class="font-normal block text-sm leading-4 italic">Driver, India </span>
+            </div>
+          </div>
+          <div>
+            <!-- <ion-icon name="close" color="light" (click)="cancel()"></ion-icon> -->
+          </div>
+        </div>
+        <div class="w-[225px] mt-4 mb-2 flex gap-2">
+          <div class="text-[#19255B] text-sm font-semibold flex flex-col gap-1">
+            <div>Application Ref No</div>
+            <div>Profession</div>
+            <div>Current Location</div>
+            <div>Cost of Recruitment</div>
+            <div>Monthly Salary</div>
+            <div>Phone no</div>
+            <div>Passport number</div>
+          </div>
+          <div class="text-sm font-roboto text-white flex flex-col gap-1">
+            <div>: 12342</div>
+            <div>: Driver</div>
+            <div>: Qatar</div>
+            <div>: 8000 QAR</div>
+            <div>: 3000 QAR</div>
+            <div>: 9713 7311</div>
+            <div>: A20004000</div>
+          </div>
+        </div>
+        <div (click)="toggleClass()"
+          class="text-center flex items-center justify-center text-xs text-white font-roboto gap-1">
+          @if(isActive){
+          Show less
+          <ion-icon name="chevron-up-outline" class="font-base"></ion-icon>
+          }
+          @else{
+          Show more
+          <ion-icon name="chevron-down-outline" class="font-base"></ion-icon>
+          }
+        </div>
+      </div>
+
+      <div class=" flex-col gap-3 mt-4 " [ngClass]="{'flex': isActive, 'hidden': !isActive}">
+        <div class="card-grey">
+          <div class="text-center text-black   py-3 font-roboto font-semibold">Main Agreement Information </div>
+          <div class="w-[285px] mx-auto  mb-2 flex gap-2">
+            <div class="text-[#252A31] text-sm font-semibold flex flex-col gap-1">
+              <div>Availability (In Days)</div>
+              <div>Replacement During Probation</div>
+              <div>Joining Air Fare Included?</div>
+            </div>
+            <div class="text-sm font-roboto font-semibold text-[#4F5E71] flex flex-col gap-1">
+              <div>45 Days</div>
+              <div>Yes</div>
+              <div>Yes</div>
+            </div>
+          </div>
+          <div class="flex justify-center gap-2 mb-3">
+            <ion-button color="primary" class="btn-def font-roboto capitalize text-xs !font-medium tracking-tight"
+              style="min-height: 32x;--padding-start: 0.75rem; --padding-end:0.75rem; --padding-top: 0.2rem; --padding-bottom: 0.2rem">
+              REQUEST REPLACEMENT</ion-button>
+            <ion-button color="primary" class="btn-def font-roboto capitalize text-xs !font-medium tracking-tight"
+              style="min-height: 32x;--padding-start: 0.75rem; --padding-end:0.75rem; --padding-top: 0.2rem; --padding-bottom: 0.2rem">
+              CANCEL PROCESS</ion-button>
+          </div>
+        </div>
+        <div class="card-grey">
+          <div class="text-center text-black pt-3  font-roboto font-semibold">Main Agreement Information </div>
+          <div class="w-[250px] mx-auto mt-4 mb-2 flex gap-2">
+            <div class="text-[#252A31] text-sm font-semibold flex flex-col gap-1">
+              <div>Name</div>
+              <div>Phone</div>
+              <div>Email</div>
+              <div>Address</div>
+            </div>
+            <div class="text-sm font-roboto font-semibold text-[#4F5E71] flex flex-col gap-1">
+              <div>: Manpower LTD</div>
+              <div>: 9713 7311</div>
+              <div>: man.power&#64;gmail.com</div>
+              <div>: Zone 10, street 45, Bldg 1</div>
+            </div>
+          </div>
+        </div>
+        <div class="border-[#BAC7D5] border bg-[#F5F7F9] rounded-lg px-4 py-3 flex justify-between items-center">
+          <div>
+            <div class="font-roboto text-sm font-semibold text-[#252A31]">
+              <ion-icon name="alert-circle-sharp"></ion-icon>
+              NOC
+            </div>
+          </div>
+          <div>
+            <ion-button color="success" class="btn-def capitalize text-xs !font-bold font-roboto"
+              style="min-height: 25px;--padding-start: 1rem; --padding-end:1rem; --padding-top: 0.75rem; --padding-bottom: 0.5rem;">DOWNLOAD
+              <ion-icon slot="end" name="cloud-download-outline"></ion-icon></ion-button>
+          </div>
+        </div>
+        <div class="border-[#BAC7D5] border bg-[#F5F7F9] rounded-lg px-4 py-3 flex justify-between items-center">
+          <div>
+            <div class="font-roboto text-sm font-semibold text-[#252A31]">
+              <ion-icon name="alert-circle-sharp"></ion-icon>
+              Worker QID
+            </div>
+          </div>
+          <div>
+            <ion-button color="success" class="btn-def capitalize text-xs !font-bold font-roboto"
+              style="min-height: 25px;--padding-start: 1rem; --padding-end:1rem; --padding-top: 0.75rem; --padding-bottom: 0.5rem;">DOWNLOAD
+              <ion-icon slot="end" name="cloud-download-outline"></ion-icon></ion-button>
+          </div>
+        </div>
+        <div class="border-[#BAC7D5] border bg-[#F5F7F9] rounded-lg px-4 py-3 flex justify-between items-center">
+          <div>
+            <div class="font-roboto text-sm font-semibold text-[#252A31]">
+              <ion-icon name="alert-circle-sharp"></ion-icon>
+              Worker Passport
+            </div>
+          </div>
+          <div>
+            <ion-button color="success" class="btn-def capitalize text-xs !font-bold font-roboto"
+              style="min-height: 25px;--padding-start: 1rem; --padding-end:1rem; --padding-top: 0.75rem; --padding-bottom: 0.5rem;">DOWNLOAD
+              <ion-icon slot="end" name="cloud-download-outline"></ion-icon></ion-button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="grid grid-cols-2 gap-2 my-3">
+      <ion-button color="primary" class="btn-def font-roboto capitalize text-base !font-medium tracking-tight"
+        style="min-height: 45px;--padding-start: 0.75rem; --padding-end:0.75rem; --padding-top: 0.3rem; --padding-bottom: 0.3rem">
+        View Agreement</ion-button>
+      <ion-button color="success" class="btn-def font-roboto capitalize text-base !font-medium tracking-tight"
+        style="min-height: 45px;--padding-start: 0.75rem; --padding-end:0.75rem; --padding-top: 0.3rem; --padding-bottom: 0.3rem">
+        Download CV</ion-button>
+    </div>
+
+    <ion-accordion-group>
+      <ion-accordion value="first" class="mb-2">
+        <ion-item slot="header" color="light">
+          <div class="flex w-full justify-between font-roboto items-center">
+            <div class="text-primary font-semibold">QAR 500</div>
+            <div class="text-xs text-primary leading-3">
+              Paid
+              <span class="block text-[8px]">02-03-2024 | 11:30 am</span>
+            </div>
+            <ion-button color="primary" class="btn-def font-roboto capitalize text-[10px] !font-medium tracking-tight"
+              style="min-height: 23px;--padding-start: 0.5rem; --padding-end:0.5rem; --padding-top: 0.3rem; --padding-bottom: 0.3rem">
+              Download CV</ion-button>
+          </div>
+        </ion-item>
+        <div class="ion-padding" slot="content">
+          <div class="flex justify-between">
+            <div class="flex flex-col gap-2">
+              <div class="font-roboto text-black leading-4 text-sm">
+                Transaction ID
+                <span class="block text-[#273B4A]">9843782305910-38</span>
+              </div>
+              <div class="font-roboto text-black leading-4 text-sm">
+                Description
+                <span class="block text-[#273B4A]">Once the customer pays the cost</span>
+              </div>
+              <div class="font-roboto text-black leading-4 text-sm">
+                Date & Time
+                <span class="block text-[#273B4A]">02-03-2024 10:35 am</span>
+              </div>
+            </div>
+            <div>
+              <div class="font-roboto text-black leading-4 text-sm text-right">
+                Application No.
+                <span class="block text-[#273B4A]">4237623</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ion-accordion>
+      <ion-accordion value="second" class="mb-2">
+        <ion-item slot="header" color="light">
+          <div class="flex w-full justify-between font-roboto items-center">
+            <div class="text-primary font-semibold">QAR 500</div>
+            <div class="text-xs text-primary leading-3">
+              Paid
+              <span class="block text-[8px]">02-03-2024 | 11:30 am</span>
+            </div>
+            <ion-button color="primary" class="btn-def font-roboto capitalize text-[10px] !font-medium tracking-tight"
+              style="min-height: 23px;--padding-start: 0.5rem; --padding-end:0.5rem; --padding-top: 0.3rem; --padding-bottom: 0.3rem">
+              Download CV</ion-button>
+          </div>
+        </ion-item>
+        <div class="ion-padding" slot="content">
+          <div class="flex justify-between">
+            <div class="flex flex-col gap-2">
+              <div class="font-roboto text-black leading-4 text-sm">
+                Transaction ID
+                <span class="block text-[#273B4A]">9843782305910-38</span>
+              </div>
+              <div class="font-roboto text-black leading-4 text-sm">
+                Description
+                <span class="block text-[#273B4A]">Once the customer pays the cost</span>
+              </div>
+              <div class="font-roboto text-black leading-4 text-sm">
+                Date & Time
+                <span class="block text-[#273B4A]">02-03-2024 10:35 am</span>
+              </div>
+            </div>
+            <div>
+              <div class="font-roboto text-black leading-4 text-sm text-right">
+                Application No.
+                <span class="block text-[#273B4A]">4237623</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ion-accordion>
+      <ion-accordion value="third" class="mb-2">
+        <ion-item slot="header" color="light">
+          <div class="flex w-full justify-between font-roboto items-center">
+            <div class="text-primary font-semibold">QAR 500</div>
+            <div class="text-xs text-primary leading-3">
+              Paid
+              <span class="block text-[8px]">02-03-2024 | 11:30 am</span>
+            </div>
+            <ion-button color="primary" class="btn-def font-roboto capitalize text-[10px] !font-medium tracking-tight"
+              style="min-height: 23px;--padding-start: 0.5rem; --padding-end:0.5rem; --padding-top: 0.3rem; --padding-bottom: 0.3rem">
+              Download CV</ion-button>
+          </div>
+        </ion-item>
+        <div class="ion-padding" slot="content">
+          <div class="flex justify-between">
+            <div class="flex flex-col gap-2">
+              <div class="font-roboto text-black leading-4 text-sm">
+                Transaction ID
+                <span class="block text-[#273B4A]">9843782305910-38</span>
+              </div>
+              <div class="font-roboto text-black leading-4 text-sm">
+                Description
+                <span class="block text-[#273B4A]">Once the customer pays the cost</span>
+              </div>
+              <div class="font-roboto text-black leading-4 text-sm">
+                Date & Time
+                <span class="block text-[#273B4A]">02-03-2024 10:35 am</span>
+              </div>
+            </div>
+            <div>
+              <div class="font-roboto text-black leading-4 text-sm text-right">
+                Application No.
+                <span class="block text-[#273B4A]">4237623</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ion-accordion>
+    </ion-accordion-group>
+    <div class="flex justify-center my-3">
+      <ion-button color="primary" class="btn-def font-roboto capitalize text-base !font-medium tracking-tight"
+        style="min-height: 45px;--padding-start: 0.75rem; --padding-end:0.75rem; --padding-top: 0.3rem; --padding-bottom: 0.3rem">
+        Show Previous</ion-button>
+    </div>
+  </div>
+</ion-content>
