@@ -105,6 +105,7 @@ ion-tab-bar#primary-tabs {
     color: #697D95;
 }
 .line{
+    
     position: relative;
     &:before {
         content: '';
@@ -116,4 +117,12 @@ ion-tab-bar#primary-tabs {
         left: 40px;
         z-index: 0;
     }
+    
+    
+}
+.mw-icon{
+    @apply relative;
+}
+.mw-circle{
+    @apply border-[#9EAFC2] border items-center ;
 }
