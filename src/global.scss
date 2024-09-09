@@ -48,7 +48,7 @@
 html,
 body {
     --ion-font-family: 'Acumin Variable Concept';
-     
+
 }
 
 .container-center {
@@ -75,38 +75,53 @@ ion-button.btn-def {
     }
 }
 
+.outline-def {
+    --border-width: 1px;
+    --border-style: solid;
+    --border-color: #BAC7D5;
+    border: 1px solid #BAC7D5;
+}
+
 ion-tab-bar#primary-tabs {
     --background: #fff;
     width: 90%;
     margin: 0 auto 1rem;
     box-shadow: 0 0 12px 0 rgb(0 0 0 / 20%);
     border-radius: 10px;
+
     ion-tab-button {
         --background: #fff;
     }
 }
-.custom-otp-field{
-    .ng-otp-input-wrapper{
-      @apply grid grid-cols-6 gap-2;
-      input{
-        margin-right: 0 !important;
-      }
-    }
-  }
 
-  ion-radio.radio-mw{
-    border:2px solid transparent;
-    &.radio-checked{
-        border-color: #0C1624;
-    } 
+.custom-otp-field {
+    .ng-otp-input-wrapper {
+        @apply grid grid-cols-6 gap-2;
+
+        input {
+            margin-right: 0 !important;
+        }
+    }
 }
-.input-outlined, .cstm-input{
+
+ion-radio.radio-mw {
+    border: 2px solid transparent;
+
+    &.radio-checked {
+        border-color: #0C1624;
+    }
+}
+
+.input-outlined,
+.cstm-input {
     --color: #697D95;
     color: #697D95;
 }
-.line{
-    
+
+.line {
+
     position: relative;
+
     &:before {
         content: '';
         position: absolute;
@@ -117,15 +132,18 @@ ion-tab-bar#primary-tabs {
         left: 40px;
         z-index: 0;
     }
-    
-    
+
+
 }
-.mw-icon{
+
+.mw-icon {
     @apply relative;
 }
-.mw-circle{
-    @apply border-[#9EAFC2] border items-center ;
+
+.mw-circle {
+    @apply border-[#9EAFC2] border items-center;
 }
-.card-grey{
+
+.card-grey {
     @apply bg-[#E8EDF1] rounded-lg;
 }

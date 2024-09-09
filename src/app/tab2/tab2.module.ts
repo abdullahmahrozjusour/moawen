@@ -7,6 +7,7 @@ import { ExploreContainerComponentModule } from '../explore-container/explore-co
 
 import { Tab2PageRoutingModule } from './tab2-routing.module';
 import { WorkerProfileComponent } from './worker-profile/worker-profile.component';
+import { ReplacementFormComponent } from './replacement-form/replacement-form.component';
 
 @NgModule({
   imports: [
@@ -16,7 +17,7 @@ import { WorkerProfileComponent } from './worker-profile/worker-profile.componen
     ExploreContainerComponentModule,
     Tab2PageRoutingModule
   ],
-  declarations: [Tab2Page,WorkerProfileComponent],
-  exports: [WorkerProfileComponent]
+  declarations: [Tab2Page,WorkerProfileComponent, ReplacementFormComponent],
+  exports: [WorkerProfileComponent, ReplacementFormComponent]
 })
 export class Tab2PageModule {}

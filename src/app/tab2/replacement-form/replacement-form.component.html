@@ -1,0 +1,40 @@
+<ion-content class="bg-success">
+  <div class="overflow-auto ">
+    <div class="flex justify-between p-3 sticky top-3">
+      <div class="text-secondary font-semibold font-roboto text-lg leading-4">
+        Replacement
+      </div>
+      <ion-icon name="close" (click)="cancel()"></ion-icon>
+    </div>
+    <div>
+      <ion-list [inset]="true" class="bg-trans">
+        <ion-item class="bg-trans">
+          <ion-checkbox color="success" class="bg-trans" justify="start" labelPlacement="end" style="--border-radius: 50%">The worker refuses to work</ion-checkbox>
+        </ion-item>
+        <ion-item class="bg-trans">
+          <ion-checkbox color="success" class="bg-trans" justify="start" labelPlacement="end" style="--border-radius: 50%">The worker is unfit</ion-checkbox>
+        </ion-item>
+        <ion-item class="bg-trans">
+          <ion-checkbox color="success" class="bg-trans" justify="start" labelPlacement="end" style="--border-radius: 50%">Agency violates the terms & conditions of
+            the agreement with the customer </ion-checkbox>
+        </ion-item>
+        <ion-item class="bg-trans">
+          <ion-checkbox color="success" class="bg-trans" justify="start" labelPlacement="end" style="--border-radius: 50%">Other</ion-checkbox>
+        </ion-item>
+      </ion-list>
+
+      <ion-list [inset]="true" class="outline-def">
+        <ion-item>
+          <ion-textarea label="Describe why you want to
+          replace the worker" labelPlacement="floating" rows="5"></ion-textarea>
+        </ion-item>
+      </ion-list>
+
+      <div class="px-4 flex justify-center">
+        <ion-button (click)="navigateToShortlist()" color="success" class="btn-def capitalize text-base !font-semibold font-roboto tracking-tight"
+        style="min-height: 44px;--padding-start: 2.5rem; --padding-end:2.5rem; --padding-top: 0.75rem; --padding-bottom: 0.75rem;">Submit
+      </ion-button>
+      </div>
+    </div>
+  </div>
+</ion-content>

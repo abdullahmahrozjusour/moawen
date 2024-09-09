@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { ModalController, NavController } from '@ionic/angular';
+import { ReplacementFormComponent } from '../replacement-form/replacement-form.component';
 
 @Component({
   selector: 'app-worker-profile',
@@ -8,7 +9,7 @@ import { NavController } from '@ionic/angular';
 })
 export class WorkerProfileComponent  implements OnInit {
 
-  constructor(private navCtrl: NavController) {}
+  constructor(private modalController: ModalController) {}
 
   // navigateToTab3() {
   //   this.navCtrl.navigateRoot('/home/tab3');
@@ -17,6 +18,12 @@ export class WorkerProfileComponent  implements OnInit {
 
   toggleClass() {
     this.isActive = !this.isActive;
+  }
+  async openReplacementReq() {
+    const modal = await this.modalController.create({
+      component: ReplacementFormComponent
+    });
+    return await modal.present();
   }
   ngOnInit() {}
 
