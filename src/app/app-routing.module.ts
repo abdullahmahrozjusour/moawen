@@ -13,7 +13,15 @@ const routes: Routes = [
   {
     path: 'shared',
     loadChildren: () => import('./shared/shared.module').then( m => m.SharedPageModule)
+  },  {
+    path: 'wallet',
+    loadChildren: () => import('./wallet/wallet.module').then( m => m.WalletPageModule)
+  },
+  {
+    path: 'profile',
+    loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
   }
+
   // {
   //   path: 'contact',
   //   loadChildren: () => import('./contact/contact.module').then( m => m.ContactPageModule)

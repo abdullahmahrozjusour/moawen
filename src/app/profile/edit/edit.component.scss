@@ -1,0 +1,13 @@
+ion-segment.md{
+    border: 1px solid var(--ion-background-color-step-300);
+    border-radius: 10px;    
+    ion-segment-button{
+        // background-color: var(--ion-background-color-step-100);
+        &+ion-segment-button{
+            border-left: 1px solid var(--ion-background-color-step-300);
+        }
+        &.segment-button-checked{
+
+        }
+    }
+}

@@ -1,0 +1,56 @@
+<ion-header [translucent]="true" >
+  <ion-toolbar color="primary">
+    <ion-title class="text-center ">YOUR PROFILE</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="overflow-auto">
+    <div class="px-4">
+      <div class="text-center text-black text-lg font-medium font-roboto mt-3">Personal Information</div>
+      <div class="bg-[#F5F7F9] relative rounded-lg border-[#E8EDF1] border mt-3 py-6 flex flex-col justify-center items-center">
+        <div class="absolute right-3 top-3" [routerLink]="'edit'">
+          <ion-icon name="create-outline"></ion-icon>
+        </div>
+        <img src="/assets/imgs/avatar-colored.png" alt="">
+        <div class="text-lg font-medium font-roboto text-black mt-3">Sarah Ghanim</div>
+      </div>
+      <div class="mt-3">
+        <div class="flex items-center  ">
+          <!-- <ion-icon name="information-circle"></ion-icon> -->
+          <span class="text-sm"> Full Name</span>
+        </div>
+        <ion-input fill="outline" class="outline-no-float" placeholder="Enter text"
+          style="--input-height: 40px"></ion-input>
+      </div>
+      <div class="mt-3">
+        <div class="flex items-center  ">
+          <span class="text-sm"> Mobile No.</span>
+        </div>
+        <ion-input fill="outline" class="outline-no-float" placeholder="Enter text"
+          style="--input-height: 40px"></ion-input>
+      </div>
+      <div class="mt-3">
+        <div class="flex items-center  ">
+          <span class="text-sm"> QID</span>
+        </div>
+        <ion-input fill="outline" class="outline-no-float" placeholder="Enter text"
+          style="--input-height: 40px"></ion-input>
+      </div>
+      <div class="mt-3 relative">
+        <div class="flex items-center">
+          <span class="text-sm"> QID Expiry Date</span>
+        </div>
+        <div class="relative">
+          <ion-icon name="calendar" class="absolute right-3 top-3 z-10"></ion-icon>
+          <ion-input type="date" fill="outline" class="outline-no-float" style="--input-height: 40px"
+            [(ngModel)]="selectedDate"></ion-input>
+        </div>
+      </div>
+      <div class="mt-3 flex justify-center">
+        <ion-button color="primary" class="btn-def font-roboto capitalize text-base !font-medium tracking-tight"
+          style="min-height: 45px;--padding-start: 1.75rem; --padding-end:1.75rem; --padding-top: 0.3rem; --padding-bottom: 0.3rem">Save</ion-button>
+      </div>
+    </div>
+  </div>
+</ion-content>

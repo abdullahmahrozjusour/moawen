@@ -1,0 +1,148 @@
+<ion-content>
+  <div class="overflow-auto px-4">
+    <div class="py-3 sticky top-2 bg-white text-black  font-roboto text-lg leading-6 tracking-tight">
+      <span>Welcome to Payments,</span> <span class="text-secondary font-semibold block">Sarah Ghanim</span>
+      <span class="block text-xs">Effortlessly manage your payments and invoices in
+        one place.</span>
+    </div>  
+
+
+    <div class="mt-4">
+      <div class="p-3 rounded-lg  bg-[#539AB7] min-h-[155px] card" style="--background: url('/assets/imgs/blue-line-bg.jpg');">
+        <div class="text-lg text-white font-roboto font-medium">Your Balance</div>
+        <div class="font-bold font-roboto text-4xl text-white text-center mt-5">QAR 1500</div>
+      </div> 
+    </div>
+    <div class="grid  gap-2 my-3 justify-center">
+      <ion-button (click)="openWithdrawModal()" color="success" class="btn-def font-roboto capitalize text-base !font-medium tracking-tight"
+        style="min-height: 45px;--padding-start: 1.75rem; --padding-end:1.75rem; --padding-top: 0.3rem; --padding-bottom: 0.3rem">
+        Withdraw Balance</ion-button>
+    </div>
+
+    <div class="flex justify-between items-center font-roboto mb-3">
+      <div class="text-xl text-black font-medium">Recent Transactions</div>
+      <div class="text-[#539AB7] text-xs font-medium">View All</div>
+    </div>
+    <ion-accordion-group>
+      <ion-accordion value="first" class="mb-2">
+        <ion-item slot="header" color="light">
+          <div class="flex w-full justify-between font-roboto items-center">
+            <div class="text-primary font-semibold">QAR 500</div>
+            <div class="text-xs text-primary leading-3">
+              Paid
+              <span class="block text-[8px]">02-03-2024 | 11:30 am</span>
+            </div>
+            <ion-button color="success" class="btn-def font-roboto capitalize text-[10px] !font-medium tracking-tight"
+              style="min-height: 23px;--padding-start: 0.5rem; --padding-end:0.5rem; --padding-top: 0.3rem; --padding-bottom: 0.3rem">
+              Paid</ion-button>
+          </div>
+        </ion-item>
+        <div class="ion-padding" slot="content">
+          <div class="flex justify-between">
+            <div class="flex flex-col gap-2">
+              <div class="font-roboto text-black leading-4 text-sm">
+                Transaction ID
+                <span class="block text-[#273B4A]">9843782305910-38</span>
+              </div>
+              <div class="font-roboto text-black leading-4 text-sm">
+                Description
+                <span class="block text-[#273B4A]">Once the customer pays the cost</span>
+              </div>
+              <div class="font-roboto text-black leading-4 text-sm">
+                Date & Time
+                <span class="block text-[#273B4A]">02-03-2024 10:35 am</span>
+              </div>
+            </div>
+            <div>
+              <div class="font-roboto text-black leading-4 text-sm text-right">
+                Application No.
+                <span class="block text-[#273B4A]">4237623</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ion-accordion>
+      <ion-accordion value="second" class="mb-2">
+        <ion-item slot="header" color="light">
+          <div class="flex w-full justify-between font-roboto items-center">
+            <div class="text-primary font-semibold">QAR 500</div>
+            <div class="text-xs text-primary leading-3">
+              Paid
+              <span class="block text-[8px]">02-03-2024 | 11:30 am</span>
+            </div>
+            <ion-button color="secondary" class="btn-def font-roboto capitalize text-[10px] !font-medium tracking-tight"
+              style="min-height: 23px;--padding-start: 0.5rem; --padding-end:0.5rem; --padding-top: 0.3rem; --padding-bottom: 0.3rem">
+              Refund</ion-button>
+          </div>
+        </ion-item>
+        <div class="ion-padding" slot="content">
+          <div class="flex justify-between">
+            <div class="flex flex-col gap-2">
+              <div class="font-roboto text-black leading-4 text-sm">
+                Transaction ID
+                <span class="block text-[#273B4A]">9843782305910-38</span>
+              </div>
+              <div class="font-roboto text-black leading-4 text-sm">
+                Description
+                <span class="block text-[#273B4A]">Once the customer pays the cost</span>
+              </div>
+              <div class="font-roboto text-black leading-4 text-sm">
+                Date & Time
+                <span class="block text-[#273B4A]">02-03-2024 10:35 am</span>
+              </div>
+            </div>
+            <div>
+              <div class="font-roboto text-black leading-4 text-sm text-right">
+                Application No.
+                <span class="block text-[#273B4A]">4237623</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ion-accordion>
+      <ion-accordion value="third" class="mb-2">
+        <ion-item slot="header" color="light">
+          <div class="flex w-full justify-between font-roboto items-center">
+            <div class="text-primary font-semibold">QAR 500</div>
+            <div class="text-xs text-primary leading-3">
+              Paid
+              <span class="block text-[8px]">02-03-2024 | 11:30 am</span>
+            </div>
+            <ion-button color="success" class="btn-def font-roboto capitalize text-[10px] !font-medium tracking-tight"
+              style="min-height: 23px;--padding-start: 0.5rem; --padding-end:0.5rem; --padding-top: 0.3rem; --padding-bottom: 0.3rem">
+              To be paid</ion-button>
+          </div>
+        </ion-item>
+        <div class="ion-padding" slot="content">
+          <div class="flex justify-between">
+            <div class="flex flex-col gap-2">
+              <div class="font-roboto text-black leading-4 text-sm">
+                Transaction ID
+                <span class="block text-[#273B4A]">9843782305910-38</span>
+              </div>
+              <div class="font-roboto text-black leading-4 text-sm">
+                Description
+                <span class="block text-[#273B4A]">Once the customer pays the cost</span>
+              </div>
+              <div class="font-roboto text-black leading-4 text-sm">
+                Date & Time
+                <span class="block text-[#273B4A]">02-03-2024 10:35 am</span>
+              </div>
+            </div>
+            <div>
+              <div class="font-roboto text-black leading-4 text-sm text-right">
+                Application No.
+                <span class="block text-[#273B4A]">4237623</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ion-accordion>
+    </ion-accordion-group>
+    <div class="flex justify-center my-3">
+      <ion-button color="primary" class="btn-def font-roboto capitalize text-base !font-medium tracking-tight"
+        style="min-height: 45px;--padding-start: 0.75rem; --padding-end:0.75rem; --padding-top: 0.3rem; --padding-bottom: 0.3rem">
+        Show More</ion-button>
+    </div>
+  </div>
+</ion-content>

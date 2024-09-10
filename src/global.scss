@@ -91,6 +91,30 @@ ion-tab-bar#primary-tabs {
 
     ion-tab-button {
         --background: #fff;
+        position: relative;
+        &.tab-selected{
+            ion-icon{
+                --color: #fff;
+                color: #fff;
+                
+            }
+            &:before{
+                background: #031841;
+            }
+        }
+        &:before {
+            content: '';
+            position: absolute;
+            height: 40px;
+            width: 40px;
+            top: 0;
+            left: 0;
+            background: #F5F5F5;
+            right: 0;
+            margin: auto;
+            bottom: 0;
+            border-radius: 50%;
+        }
     }
 }
 
@@ -146,4 +170,15 @@ ion-radio.radio-mw {
 
 .card-grey {
     @apply bg-[#E8EDF1] rounded-lg;
+}
+
+.outline-no-float{
+    min-height: var(--input-height) !important;
+    border-color: var(--ion-color-step-300, var(--ion-background-color-step-300, #b3b3b3));
+    &.sc-ion-input-ios-h, &.ios {
+        border: 1px solid var(--ion-color-step-300, var(--ion-background-color-step-300, #b3b3b3));
+        --padding-end: 13px;
+        --padding-start: 12px;
+        border-radius: 5px;
+    }
 }

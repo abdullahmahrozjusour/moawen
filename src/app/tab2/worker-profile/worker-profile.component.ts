@@ -9,7 +9,7 @@ import { ReplacementFormComponent } from '../replacement-form/replacement-form.c
 })
 export class WorkerProfileComponent  implements OnInit {
 
-  constructor(private modalController: ModalController) {}
+  constructor(private modalController: ModalController, private navCtrl: NavController) {}
 
   // navigateToTab3() {
   //   this.navCtrl.navigateRoot('/home/tab3');
@@ -26,5 +26,7 @@ export class WorkerProfileComponent  implements OnInit {
     return await modal.present();
   }
   ngOnInit() {}
-
+  navigateToPrev() {
+     this.navCtrl.navigateRoot('/home/tab2');
+  }
 }

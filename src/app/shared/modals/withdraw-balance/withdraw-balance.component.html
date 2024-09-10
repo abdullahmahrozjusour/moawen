@@ -1,0 +1,49 @@
+<!-- <ion-header class="ion-no-border">
+  <ion-toolbar style="--background: #fff; --border-color: #fff;">
+    <ion-icon slot="end" name="close-sharp" class="text-lg text-primary" (click)="cancel()"></ion-icon>
+    <ion-title class="text-center text-lg font-medium text-primary ">
+      <div class="flex items-center justify-center"><ion-icon name="card-outline" class="text-2xl me-2"></ion-icon>
+        Payment</div>
+    </ion-title>
+
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content>
+  <div class="flex flex-col p-4">
+    <ion-icon slot="end" name="close-sharp" class="text-lg text-primary self-end" (click)="cancel()"></ion-icon>
+    <div class="text-center text-xl">Withdraw Balance</div>
+  </div>
+  <div class="px-2 flex flex-col  ">
+    <div class=" px-2 py-4   font-roboto  text-primary  ">
+      <div>
+        <div class="flex items-center mb-1">
+          <!-- <ion-icon name="information-circle"></ion-icon> -->
+          <span class="text-sm"> Available Balance</span>
+        </div>
+        <ion-input fill="outline" class="outline-no-float" placeholder="Enter text" style="--input-height: 40px"></ion-input>
+      </div>
+      <div class="mt-3">
+        <div class="flex items-center mb-1">
+           <span class="text-sm"> Enter Amount</span>
+        </div>
+        <ion-input fill="outline" class="outline-no-float" placeholder="Enter text" style="--input-height: 40px"></ion-input>
+      </div>
+       
+      <div class="flex gap-3 my-2 items-start">
+        <ion-icon name="alert-circle" class="text-2xl flex items-start"></ion-icon>
+        <span class="font-medium text-sm">The amount will be transferred to your bank within 10 working days</span>
+      </div>
+      <div class="flex justify-center gap-4">
+        <ion-button   color="primary"
+        class="btn-def font-roboto capitalize text-base !font-medium tracking-tight"
+        style="min-height: 45px;--padding-start: 1.75rem; --padding-end:1.75rem; --padding-top: 0.3rem; --padding-bottom: 0.3rem" (click)="cancel()">Cancel</ion-button> 
+        <ion-button   color="success"
+        class="btn-def font-roboto capitalize text-base !font-medium tracking-tight"
+        style="min-height: 45px;--padding-start: 1.75rem; --padding-end:1.75rem; --padding-top: 0.3rem; --padding-bottom: 0.3rem" (click)="openPaymentMethodModal()">Submit</ion-button>
+      </div>
+       
+
+    </div>
+  </div>
+</ion-content>

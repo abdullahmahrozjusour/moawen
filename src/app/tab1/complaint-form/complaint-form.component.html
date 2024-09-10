@@ -1,0 +1,59 @@
+<ion-content [fullscreen]="true">
+    <div class="overflow-auto">
+      <div class="px-4">
+        <div class="mt-4">
+            <div class="text-secondary font-semibold font-roboto text-lg text-center">New Complaint Request   
+              <span class="block text-primary font-medium text-base leading-4">Select at-least one complaint type to <br>   proceed for submission</span>
+            </div>
+          </div> 
+         
+        
+        <div class="mt-4">
+          <div class="flex items-center  ">
+            <!-- <ion-icon name="information-circle"></ion-icon> -->
+            <span class="text-sm text-black font-medium font-roboto"> Complaint type <small class="text-[red] font-bold">* </small></span>
+          </div>
+          
+            <ion-select aria-label="Fruit" placeholder="Select Type" labelPlacement="stacked"  fill="outline" class="outline-no-float" style="--input-height: 40px">
+              <ion-select-option value="apple">Apple</ion-select-option>
+              <ion-select-option value="banana">Banana</ion-select-option>
+              <ion-select-option value="orange">Orange</ion-select-option>
+            </ion-select>
+        </div> 
+        <div class="mt-3">
+            <div class="flex items-center  ">
+              <!-- <ion-icon name="information-circle"></ion-icon> -->
+              <span class="text-sm text-black font-medium font-roboto"> Select Worker <small class="text-[red] font-bold">* </small></span>
+            </div>
+            
+              <ion-select aria-label="Fruit" placeholder="Choose Worker" labelPlacement="stacked"  fill="outline" class="outline-no-float" style="--input-height: 40px">
+                <ion-select-option value="apple">Apple</ion-select-option>
+                <ion-select-option value="banana">Banana</ion-select-option>
+                <ion-select-option value="orange">Orange</ion-select-option>
+              </ion-select>
+          </div> 
+          
+        <div class="mt-3">
+          <div class="flex items-center  ">
+            <!-- <ion-icon name="information-circle"></ion-icon> -->
+            <span class="text-sm text-black font-medium font-roboto"> Choose Worker <span class="font-bold text-[red]">*</span></span>
+          </div>
+          <ion-textarea   fill="outline" class="outline-no-float text-sm"   placeholder="Give a detailed Description of your complaint "></ion-textarea>
+        
+        </div>
+        <div class="mt-3"> 
+          <div class="flex items-center  ">
+            <!-- <ion-icon name="information-circle"></ion-icon> -->
+            <span class="text-sm text-black font-medium font-roboto"> Upload any Document or proof regarding the incident  <small class="font-normal">(optional)</small></span>
+          </div>
+          <ion-input fill="outline" class="outline-no-float" placeholder="Street" type="file"
+            style="--input-height: 40px"></ion-input>
+        </div>  
+         
+        <div class="mt-3 flex justify-center">
+          <ion-button (click)="navigateToComList()" color="success" class="btn-def font-roboto capitalize text-base !font-medium tracking-tight"
+            style="min-height: 45px;--padding-start: 1.75rem; --padding-end:1.75rem; --padding-top: 0.3rem; --padding-bottom: 0.3rem">Submit</ion-button>
+        </div>
+      </div>
+    </div>
+  </ion-content>

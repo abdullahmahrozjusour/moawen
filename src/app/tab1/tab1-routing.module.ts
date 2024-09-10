@@ -6,6 +6,9 @@ import { ViewWorkerComponent } from './view-worker/view-worker.component';
 import { WorkerContractComponent } from './worker-contract/worker-contract.component';
 import { TrackingListComponent } from './tracking-list/tracking-list.component';
 import { WorkerStatusComponent } from './worker-status/worker-status.component';
+import { ComplaintsComponent } from './complaints/complaints.component';
+import { ComplaintFormComponent } from './complaint-form/complaint-form.component';
+import { ComplaintListComponent } from './complaint-list/complaint-list.component';
 
 const routes: Routes = [
   {
@@ -32,7 +35,18 @@ const routes: Routes = [
     path: 'worker-status',
     component: WorkerStatusComponent
   },
-  
+  {
+    path: 'complaints',
+    component: ComplaintsComponent,
+  },
+  {
+    path: 'form',
+    component: ComplaintFormComponent
+  },
+  {
+    path: 'complaints-list',
+    component: ComplaintListComponent
+  }
 ];
 
 @NgModule({

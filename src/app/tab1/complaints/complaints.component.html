@@ -1,0 +1,31 @@
+<ion-content [fullscreen]="true">
+  <div class="grid grid-cols-1 gap-3 h-full w-full bg-slate-50 p-4 content-center overflow-auto">
+    <div class="mt-4">
+      <div class="text-secondary font-semibold font-roboto text-lg text-center">Complaints   
+        <span class="block text-primary font-medium text-base leading-4">Submit a new complaint or follow <br>up on your complaints</span>
+      </div>
+    </div>
+    <div class="text-center text-primary font-medium text-base mt-2">Select Type</div>
+
+    <div class="flex flex-col items-center justify-between p-3 blue-bg gap-3" (click)="navigateToComForm()">
+      <div class="text-white font-roboto font-medium text-base">Submit a complaint</div>
+      <div>
+        <img src="/assets/imgs/icons/complain.svg" alt="">
+      </div>
+      <ion-button color="light" class="btn-def capitalize text-xs !font-normal"
+        style="    min-height: 35px;--padding-start: 2rem; --padding-end:2rem;  --border-style: solid;  --border-width: 1px;"
+        >Submit a Complaint</ion-button>
+    </div>
+    <div class="flex flex-col items-center justify-between p-3 dark-bg gap-3"(click)="navigateToComList()">
+      <div class="text-white font-roboto font-medium text-base">Follow up on complaints</div>
+      <div>
+        <img src="/assets/imgs/icons/folder.svg" alt="">
+      </div>
+      <ion-button color="secondary" class="btn-def capitalize text-xs !font-normal"
+        style="    min-height: 35px;--padding-start: 2.5rem; --padding-end:2rem;  --border-style: solid;  --border-width: 1px;"
+        [routerLink]="['']">View Complaints</ion-button>
+    </div>
+
+  </div>
+
+</ion-content>

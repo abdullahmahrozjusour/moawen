@@ -16,4 +16,13 @@ export class Tab1Page {
   navigateToWorkers() {
     this.navCtrl.navigateRoot('/home/tab2');
   }
+  navigateToProfile() {
+    this.navCtrl.navigateRoot('/home/profile');
+  }
+  navigateToWallet() {
+    this.navCtrl.navigateRoot('/home/wallet');
+  }
+  navigateToBrows() {
+    this.navCtrl.navigateRoot('/home/tab3/brows-local');
+  }
 }
