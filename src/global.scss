@@ -81,7 +81,16 @@ ion-button.btn-def {
     --border-color: #BAC7D5;
     border: 1px solid #BAC7D5;
 }
-
+.ion-header-white{
+    --background: #fff;
+    --border-color: #fff;
+    min-height: 25px;
+    &.md{
+        height: 0px;
+        max-height: 0;
+        min-height: 0;
+    }
+}
 ion-tab-bar#primary-tabs {
     --background: #fff;
     width: 90%;
