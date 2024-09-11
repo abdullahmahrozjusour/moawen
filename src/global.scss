@@ -85,6 +85,7 @@ ion-button.btn-def {
     --background: #fff;
     --border-color: #fff;
     min-height: 25px;
+    max-height: 25px;
     &.md{
         height: 0px;
         max-height: 0;
