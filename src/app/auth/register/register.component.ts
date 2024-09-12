@@ -52,7 +52,7 @@ export class RegisterComponent  implements OnInit {
     
     this.coreSer.post('generate-otp', { params: data }).subscribe({
       next: resp => console.log('Next |Done', JSON.stringify(resp)),
-      error: errpr => console.log(JSON.stringify(errpr))
+      error: error => console.log(JSON.stringify(error), 'abd')   
     })
 
 
