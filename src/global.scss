@@ -47,7 +47,7 @@
 
 html,
 body {
-    --ion-font-family: 'Acumin Variable Concept';
+    --ion-font-family: 'Roboto', sans-sarif;
 
 }
 
@@ -62,7 +62,7 @@ body {
 }
 
 ion-button.btn-def {
-    --padding-top: 0.6em;
+    --padding-top: 0.35em;
     --padding-bottom: 0.35em;
     font-weight: 600;
     --border-radius: 60px;
