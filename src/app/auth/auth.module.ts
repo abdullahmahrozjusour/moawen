@@ -9,9 +9,7 @@ import { AuthPageRoutingModule } from './auth-routing.module';
 import { AuthPage } from './auth.page';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { CoreService } from '../services/core.service'; 
-import {HttpHeaders, HttpParams, HttpResponse} from "@angular/common/http";
-import {HttpClient, HttpHandler} from '@angular/common/http';
+import { CoreService } from '../services/http/core.service';
 
 
 import { NgOtpInputModule } from 'ng-otp-input';
@@ -24,20 +22,20 @@ import { NgOtpInputModule } from 'ng-otp-input';
     IonicModule,
     AuthPageRoutingModule,
     NgOtpInputModule
-    
+
   ],
   exports: [
     LoginComponent,
     RegisterComponent
   ],
   declarations: [
-    AuthPage, 
+    AuthPage,
     LoginComponent,
     RegisterComponent
   ],
   providers:[
     CoreService,
-    
+
   ]
 })
 export class AuthPageModule { }

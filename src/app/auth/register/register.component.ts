@@ -1,83 +1,100 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 
-import { CoreService } from '../../services/core.service';
 
 import { NgOtpInputComponent, NgOtpInputConfig } from 'ng-otp-input';
-import { HttpHeaders } from '@angular/common/http';
+import { ToastService } from 'src/app/services/toast.service';
+import { LoaderService } from 'src/app/services/loader.service';
+import { AuthService } from 'src/app/services/http/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss'],
+    selector: 'app-register',
+    templateUrl: './register.component.html',
+    styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent  implements OnInit {
-  otp: string | undefined;
-  showOtpComponent = true;
-  focusToFirstElementAfterValueUpdate:boolean=false;
-  @ViewChild(NgOtpInputComponent, { static: false}) ngOtpInput:NgOtpInputComponent | undefined;
-  config :NgOtpInputConfig = {
-    allowNumbersOnly: true,
-    length: 6,
-    isPasswordInput: false,
-    disableAutoFocus: false,
-    placeholder: ''
-  };
-  form: any;
+    otp: string | undefined;
+    showOtpComponent = true;
+    focusToFirstElementAfterValueUpdate:boolean=false;
+    @ViewChild(NgOtpInputComponent, { static: false}) ngOtpInput:NgOtpInputComponent | undefined;
 
-  constructor(private fb: FormBuilder,
-    private coreSer: CoreService) { 
-      this.createForm();
+    config :NgOtpInputConfig = {
+        allowNumbersOnly: true,
+        length: 6,
+        isPasswordInput: false,
+        disableAutoFocus: false,
+        placeholder: ''
+    };
+    form: any;
+
+    constructor(private fb: FormBuilder,
+    private authService: AuthService,
+    private toastService: ToastService,
+    private router: Router,
+    private loaderService: LoaderService) {
+        this.createForm();
     }
 
-  ngOnInit() {}
-  
-  onOtpChange(otp:any) {
+    ngOnInit() {}
+
+    onOtpChange(otp:any) {
     this.otp = otp;
-  }
-
-  getOtp() {
-    
-    const data = {
-      "qid": this.form.value.qId,
-      "name": this.form.value.fName,
-      "mobileNumber": this.form.value.mobileNo,
-      "type": "customer"
     }
 
-    console.log(data.qid, 'Data qid');
-    console.log(data.name, 'Data qid');
-    
-    
-    this.coreSer.post('generate-otp', { params: data }).subscribe({
-      next: resp => console.log('Next |Done', JSON.stringify(resp)),
-      error: error => console.log(JSON.stringify(error), 'abd')   
-    })
+    getOtp() {
+        const data = {
+            "qid": this.form.value.qId,
+            "name": this.form.value.fName,
+            "mobileNumber": this.form.value.mobileNo,
+            "type": "customer"
+        }
 
-
-  }
-
-  signUpRequest(){
-    const data = {
-      "qId": this.form.value.qId,
-      "firstName": this.form.value.fName,
-      "phoneNumber": this.form.value.mobileNo,
-      "token": this.otp
+        this.loaderService.showLoading();
+        this.authService.otp(data).subscribe({
+            next: resp => {
+                this.toastService.presentToast('top',resp.errors);
+                this.loaderService.hideLoading();
+                console.log('Next |Done', JSON.stringify(resp));
+            },
+            error: error => {
+                this.toastService.presentToast('top', error.errors);
+                console.log(JSON.stringify(error.error), 'abd')
+            }
+        });
     }
 
-    this.coreSer.post('sign-up', { params: data }).subscribe((res) => {
-      // console.log(res);
-      console.log('API DONE.....!!!');
-    })
-  }
+    signUpRequest(){
+        const data = {
+            "qId": this.form.value.qId,
+            "firstName": this.form.value.fName,
+            "phoneNumber": this.form.value.mobileNo,
+            "token": this.otp
+        }
 
-  private createForm() {
-    this.form = this.fb.group({
-      qId: ['', [Validators.required, Validators.minLength(11), Validators.maxLength(11)]],
-      fName: ['', [Validators.required]],
-      mobileNo: ['', [Validators.required]]
-    });
-  }
+        this.loaderService.showLoading();
+        this.authService.register(data).subscribe({
+            next: res => {
+            console.log(res,'API DONE.....!!!');
+                this.toastService.presentToast('top','Successfully Sign up!');
+                this.loaderService.hideLoading();
+                this.router.navigate(['/login']);
+            },
+            error: error => {
+                this.toastService.presentToast('top', error.errors);
+                console.log(error,'API DONE.....!!!');
+            }
+        });
+    }
 
+    private createForm() {
+        this.form = this.fb.group({
+            qId: ['', [Validators.required, Validators.minLength(11), Validators.maxLength(11)]],
+            fName: ['', [Validators.required]],
+            mobileNo: ['', [Validators.required]],
+            termsCondition: [, [Validators.required]],
+            privacyPolicy: [, [Validators.required]],
+        });
+    }
 }

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import {AuthGuard} from "./gaurds";
 
 const routes: Routes = [
   {
@@ -8,17 +9,22 @@ const routes: Routes = [
   },
   {
     path: 'home',
+    canActivateChild: [AuthGuard],
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
   },
   {
     path: 'shared',
+    canActivateChild: [AuthGuard],
     loadChildren: () => import('./shared/shared.module').then( m => m.SharedPageModule)
-  },  {
+  },
+  {
     path: 'wallet',
+    canActivateChild: [AuthGuard],
     loadChildren: () => import('./wallet/wallet.module').then( m => m.WalletPageModule)
   },
   {
     path: 'profile',
+    canActivateChild: [AuthGuard],
     loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
   }
 
@@ -30,7 +36,7 @@ const routes: Routes = [
   //   path: '',
   //   loadChildren: () => import('./welcome/welcome.module').then( m => m.WelcomePageModule)
   // },
- 
+
 ];
 @NgModule({
   imports: [

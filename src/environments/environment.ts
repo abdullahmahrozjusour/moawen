@@ -4,8 +4,20 @@
 
 export const environment = {
   production: false,
-  apiHostUrl:'',
-  mediaURL:''
+  appBASEUrl: '/',
+  cookie: {
+      name: '_moa',
+      expires: 30,
+      path: '/',
+      domain: '.mustaqeltest.jusour.qa',
+      secure: false,
+      same_site: 'strict'
+  },
+  tokenExpiry: '3600', // Token expires in 1 hour (3600 seconds)
+  tokenExpiryMin: '900', // Minimum expiry (15 minutes)
+  auth_cookie: '_moa',
+  apiHostUrl: 'https://dwptest.jusour.qa',
+  mediaURL: 'https://dwptest.jusour.qa/storage/' /** put slash at last **/
 };
 
 /*

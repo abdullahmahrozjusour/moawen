@@ -1,86 +1,148 @@
 <ion-content [fullscreen]="true" class="bg-splash">
 
-  <div class="w-full h-full  flex flex-col justify-between items-center">
+    <div class="w-full h-full  flex flex-col justify-between items-center">
 
-    <div class="header-welcome flex justify-center w-full px-8 mt-4">
-      <div class="flex justify-center items-center flex-col">
-        <a routerLink="/"><img src="./assets/imgs/moawen-logo.png" alt="moawen-logo" class="mb-4"></a>
-        <span class="text-tahiti text-sm text-center w-full">Your Bridge to Smarter Hiring.</span>
-      </div>
-    </div>
-    <div class="px-8 w-full mt-4">
-      <div class="card w-full bg-tahiti p-4 rounded-xl">
-        <div>
-          <h2 class="text-xl font-medium font-roboto">Sign Up</h2>
-        </div>
-        
-        <div class="form mt-4" [formGroup]="form">
-          <div class="relative">
-            <ion-input label="Enter your QID number" class="input-outlined" label-placement="floating" fill="outline"
-            [formControl]="form.controls.qId"
-              placeholder="Enter text"></ion-input>
-            <span class="absolute right-4 top-4 z-10">
-              <img src="/assets/imgs/icons/list-icon.png" alt="">
-            </span>
-          </div>
-          <div class="relative mt-2">
-            <ion-input label="Full Name" [formControl]="form.controls.fName" class="input-outlined" label-placement="floating" fill="outline"
-              placeholder="Enter text"></ion-input>
-            <span class="absolute right-4 top-4 z-10">
-              <img src="/assets/imgs/icons/user-icon.png" alt="">
-            </span>
-          </div>
-          <div class="flex items-end gap-1">
-            <div class="relative mt-2">
-              <ion-input label="Mobile No." [formControl]="form.controls.mobileNo" class="input-outlined" label-placement="floating" fill="outline"
-                placeholder="Enter text"></ion-input>
-              <span class="absolute right-4 top-4 z-10">
-                <img src="/assets/imgs/icons/mobile-icon.png" alt="">
-              </span>
+        <div class="header-welcome flex justify-center w-full px-8 mt-4">
+            <div class="flex justify-center items-center flex-col">
+                <a routerLink="/"><img src="./assets/imgs/moawen-logo.png" alt="moawen-logo" class="mb-4"></a>
+                <span class="text-tahiti text-sm text-center w-full">Your Bridge to Smarter Hiring.</span>
             </div>
-            <ion-button color="success"   class="btn-def uppercase text-sm whitespace-nowrap mt-3" (click)="getOtp()">GET OTP</ion-button>
-          </div>
-          <p class="text-[#252A31] font-roboto mt-2 font-normal">Enter the OTP code sent to <br>
-            your phone here</p>
-          <div class=" my-2 ">
-            <ng-otp-input  class="custom-otp-field" fill="outline" (onInputChange)="onOtpChange($event)"  [config]="config"></ng-otp-input>
-            <!-- <ion-input class="input-outlined no-float" fill="outline"  ></ion-input>
-            <ion-input class="input-outlined no-float" fill="outline"  ></ion-input>
-            <ion-input class="input-outlined no-float" fill="outline"  ></ion-input>
-            <ion-input class="input-outlined no-float" fill="outline"  ></ion-input>
-            <ion-input class="input-outlined no-float" fill="outline"  ></ion-input>
-            <ion-input class="input-outlined no-float" fill="outline"  ></ion-input> -->
-          </div>
-          <div >
-            <ion-checkbox labelPlacement="end">I agree on Terms & Conditions</ion-checkbox>
-            <br>
-            <ion-checkbox labelPlacement="end">I agree on Privacy Policy</ion-checkbox> 
-          </div>
-          <ion-button color="success" class="btn-def capitalize text-lg w-full" (click)="signUpRequest()">Sign Up</ion-button>
-          <a routerLink="/login" class="w-full text-center text-white mx-auto block underline text-base font-normal font-roboto">Already a User? <span class="font-medium">Login</span></a>
         </div>
-      </div>
-    </div>
-    <div class="footer-welcome mb-6">
 
-      <div class="our-comps flex flex-row items-center justify-around mt-4 mb-2">
-        <a href="" target="_blank">
-          <img src="./assets/imgs/mol-logo.png" alt="">
-        </a>
-        <a href="" target="_blank" class="self-end">
-          <img src="./assets/imgs/jusour-logo.png" alt="">
-        </a>
-      </div>
-      <ul class="flex gap-4 mb-4">
-        <li><a href="" class="text-xs text-white flex gap-1 underline font-roboto items-center"><span
-              class="icon-f"><img src="/assets/imgs/icons/about.png" alt=""></span>About
-            Moawen</a></li>
-        <li><a href="" class="text-xs text-white flex gap-1 underline font-roboto items-center"><span
-              class="icon-f"><img src="/assets/imgs/icons/contact.png" alt=""></span>Contact Us</a></li>
-        <li><a href="" class="text-xs text-white flex gap-1 underline font-roboto items-center"><span
-              class="icon-f"><img src="/assets/imgs/icons/assisatance.png" alt=""></span>For Assistance</a></li>
-      </ul>
-      <p class="text-center text-white text-xs font-roboto font-normal mb-3">All rights reserved &copy; maowen | 2024</p>
+        <div class="px-8 w-full mt-4">
+            <div class="card w-full bg-tahiti p-4 rounded-xl">
+                <div>
+                    <h2 class="text-xl font-medium font-roboto">Sign Up</h2>
+                </div>
+
+                <div class="form mt-4" [formGroup]="form">
+                    <div class="relative">
+                        <ion-input label="Enter your QID number" placeholder="Enter text" class="input-outlined"
+                        label-placement="floating" fill="outline"
+                        [formControl]="form.controls.qId">
+                        </ion-input>
+
+                        <span class="absolute right-4 top-4 z-10">
+                            <img src="/assets/imgs/icons/list-icon.png" alt="">
+                        </span>
+                    </div>
+
+                    <div class="relative mt-2">
+                        <ion-input label="Full Name" class="input-outlined" placeholder="Enter text"
+                        label-placement="floating"
+                        fill="outline"
+                        [formControl]="form.controls.fName" >
+                        </ion-input>
+
+                        <span class="absolute right-4 top-4 z-10">
+                            <img src="/assets/imgs/icons/user-icon.png" alt="">
+                        </span>
+                    </div>
+
+                    <div class="flex items-end gap-1">
+                        <div class="relative mt-2">
+                            <ion-input label="Mobile No." placeholder="Enter text" class="input-outlined"
+                            label-placement="floating" fill="outline"
+                            [formControl]="form.controls.mobileNo">
+                            </ion-input>
+                            <span class="absolute right-4 top-4 z-10">
+                                <img src="/assets/imgs/icons/mobile-icon.png" alt="">
+                            </span>
+                        </div>
+
+                        <ion-button color="success"   class="btn-def uppercase text-sm whitespace-nowrap mt-3"
+                            (click)="getOtp()"
+                            [disabled]="form.controls.qId.invalid ||
+                            form.controls.fName.invalid ||
+                            form.controls.mobileNo.invalid">
+                            GET OTP
+                        </ion-button>
+                    </div>
+
+                    <p class="text-[#252A31] font-roboto mt-2 font-normal">
+                        Enter the OTP code sent to <br>
+                        your phone here
+                    </p>
+
+                    <div class=" my-2 ">
+                        <ng-otp-input  class="custom-otp-field" fill="outline"
+                        (onInputChange)="onOtpChange($event)"
+                        [config]="config">
+                        </ng-otp-input>
+                    </div>
+
+                    <div>
+                        <ion-checkbox labelPlacement="end" [formControl]="form.controls.termsCondition">
+                            I agree on Terms & Conditions
+                        </ion-checkbox>
+
+                        <br>
+
+                        <ion-checkbox labelPlacement="end" [formControl]="form.controls.privacyPolicy">
+                            I agree on Privacy Policy
+                        </ion-checkbox>
+                    </div>
+
+                    <ion-button color="success" class="btn-def capitalize text-lg w-full"
+                    (click)="signUpRequest()"
+                    [disabled]="form.invalid ||
+                    form.controls.termsCondition.value !== true ||
+                    form.controls.privacyPolicy.value  !== true">
+                    Sign Up
+                    </ion-button>
+
+                    <a class="w-full text-center text-white mx-auto block underline text-base font-normal font-roboto"
+                    routerLink="/login" >
+                        Already a User?
+                        <span class="font-medium">
+                            Login
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-welcome mb-6">
+            <div class="our-comps flex flex-row items-center justify-around mt-4 mb-2">
+                <a href="" target="_blank">
+                    <img src="./assets/imgs/mol-logo.png" alt="">
+                </a>
+                <a href="" target="_blank" class="self-end">
+                    <img src="./assets/imgs/jusour-logo.png" alt="">
+                </a>
+            </div>
+
+            <ul class="flex gap-4 mb-4">
+                <li>
+                    <a href="" class="text-xs text-white flex gap-1 underline font-roboto items-center">
+                        <span class="icon-f">
+                            <img src="/assets/imgs/icons/about.png" alt="">
+                        </span>
+                        About Moawen
+                    </a>
+                </li>
+
+                <li>
+                    <a href="" class="text-xs text-white flex gap-1 underline font-roboto items-center">
+                        <span class="icon-f">
+                            <img src="/assets/imgs/icons/contact.png" alt="">
+                        </span>
+                        Contact Us
+                    </a>
+                </li>
+
+                <li>
+                    <a href="" class="text-xs text-white flex gap-1 underline font-roboto items-center">
+                        <span class="icon-f">
+                            <img src="/assets/imgs/icons/assisatance.png" alt="">
+                        </span>
+                        For Assistance
+                    </a>
+                </li>
+            </ul>
+
+            <p class="text-center text-white text-xs font-roboto font-normal mb-3">
+                All rights reserved &copy; maowen | 2024
+            </p>
+        </div>
     </div>
-  </div>
 </ion-content>
