@@ -101,8 +101,8 @@ export class LoginComponent implements OnInit {
 
     this.authService.login(data).subscribe({
       next: (res) => {
+        console.log(res.access_token)
         this.toastService.presentToast('top', 'Login Success')
-        // const ExpireTime = HelperService.isNull(res.response.expireTime) ? 90 : res.response.expireTime;
         this.authHelper.addAuthToken(res.access_token);
         this.router.navigate(['/home/tab1']);
         this.loaderService.hideLoading();

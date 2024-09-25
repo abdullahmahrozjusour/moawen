@@ -1,7 +1,7 @@
-import {Injectable} from '@angular/core';
-import {Router} from '@angular/router';
+import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
-import {CookieService} from 'ngx-cookie-service';
+import { CookieService } from 'ngx-cookie-service';
 import { AppVars } from '../vars/vars.const';
 import { AuthService } from './http/auth.service';
 
@@ -44,27 +44,10 @@ export class AuthHelperService {
     }
 
     addAuthToken(token: string): void {
-        this.cookieService.set(
-            this.appVars.env['cookie'].name,
-            token,
-            // parseInt(this.cookieService.get(this.appVars.env.tokenExpiryMin)),
-            this.appVars.env['cookie'].path,
-            this.appVars.env['cookie'].domain,
-            this.appVars.env['cookie'].secure,
-            this.appVars.env['cookie'].same_site,
-        );
+        this.cookieService.set(this.appVars.env['cookie'].name, token);
+    }
 
-        /**
-         * store jwt expire time (MIN)
-         */
-        this.cookieService.set(
-            // this.appVars.env.tokenExpiryMin,
-            // expiryTime.toString(),
-            // expiryTime,
-            this.appVars.env['cookie'].path,
-            this.appVars.env['cookie'].domain,
-            this.appVars.env['cookie'].secure,
-            this.appVars.env['cookie'].same_site,
-        );
+    isLoggedIn(): boolean {
+        return this.cookieService.check(this.appVars.env['cookie'].name);
     }
 }
