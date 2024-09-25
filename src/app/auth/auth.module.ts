@@ -13,6 +13,8 @@ import { CoreService } from '../services/http/core.service';
 
 
 import { NgOtpInputModule } from 'ng-otp-input';
+import { TranslateModule } from '@ngx-translate/core';
+import { SharedPageModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
@@ -21,7 +23,9 @@ import { NgOtpInputModule } from 'ng-otp-input';
     ReactiveFormsModule,
     IonicModule,
     AuthPageRoutingModule,
-    NgOtpInputModule
+    NgOtpInputModule,
+    TranslateModule,
+    SharedPageModule
 
   ],
   exports: [

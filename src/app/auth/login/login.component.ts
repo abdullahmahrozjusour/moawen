@@ -63,7 +63,7 @@ export class LoginComponent implements OnInit {
       },
       error: error => {
         this.loaderService.hideLoading();
-        this.toastService.showToastByStatusCode('top', error.status)
+        this.toastService.showToastByStatusCode('top', error.status, error.error.errors)
       }
     });
   }

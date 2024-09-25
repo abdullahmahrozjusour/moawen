@@ -6,6 +6,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { SharedPageRoutingModule } from './shared-routing.module';
 import { ContractDetailsComponent, PaymentComponent, PaymentMethodeComponent, AddNewPaymentCardComponent, MessageComponent, ProfileViewComponent, WithdrawBalanceComponent } from './modals';
+import { LanguageSwitcherComponent } from './language-switcher/language-switcher.component';
 
 
 @NgModule({
@@ -15,7 +16,7 @@ import { ContractDetailsComponent, PaymentComponent, PaymentMethodeComponent, Ad
     IonicModule,
     SharedPageRoutingModule
   ],
-  declarations: [PaymentComponent, PaymentMethodeComponent, ContractDetailsComponent, AddNewPaymentCardComponent, MessageComponent, ProfileViewComponent, WithdrawBalanceComponent],
-  exports: [PaymentComponent, PaymentMethodeComponent, ContractDetailsComponent, AddNewPaymentCardComponent, MessageComponent, ProfileViewComponent, WithdrawBalanceComponent]
+  declarations: [PaymentComponent, PaymentMethodeComponent, ContractDetailsComponent, AddNewPaymentCardComponent, MessageComponent, ProfileViewComponent, WithdrawBalanceComponent, LanguageSwitcherComponent],
+  exports: [PaymentComponent, PaymentMethodeComponent, ContractDetailsComponent, AddNewPaymentCardComponent, MessageComponent, ProfileViewComponent, WithdrawBalanceComponent, LanguageSwitcherComponent]
 })
 export class SharedPageModule { }
