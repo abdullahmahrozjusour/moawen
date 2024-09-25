@@ -5,36 +5,36 @@
                 <a routerLink="/">
                     <img src="./assets/imgs/moawen-logo.png" alt="moawen-logo" class="mb-4">
                 </a>
-                <span class="text-tahiti text-sm text-center w-full">Your Bridge to Smarter Hiring.</span>
+                <span class="text-tahiti text-sm text-center w-full">{{ 'Your Bridge to Smarter Hiring' | translate }}</span>
             </div>
         </div>
 
         <div class="px-8 w-full mt-4">
             <div class="card w-full bg-tahiti p-4 rounded-xl">
-                <div>
-                    <h2 class="text-xl font-medium font-roboto">Sign In</h2>
+                <div class="flex justify-between">
+                    <h2 class="text-xl font-medium font-roboto">{{'Login' | translate}}</h2>
+                    <app-language-switcher></app-language-switcher>
                 </div>
 
                 <form [formGroup]="form">
                     <div class="form mt-4">
                         <div class="relative">
-                            <ion-input label="Enter your QID number" class="input-outlined" placeholder="Enter text"
+                            <ion-input [label]="'Login' | translate" class="input-outlined" placeholder="Enter text"
                                 label-placement="floating" fill="outline" [formControl]="form.controls.qId"
                                 (keydown)="restrictInput($event)" maxlength="11"></ion-input> 
 
-                            <span class="absolute ltr:right-4 rtl:left-4 top-4 z-10">
+                            <span class="absolute end-4 top-4 z-10">
                                 <img src="/assets/imgs/icons/list-icon.png" alt="">
                             </span>
                         </div>
 
                         <ion-button color="success" class="btn-def uppercase text-lg mt-3" (click)="getOtp()"
                             [disabled]="form.invalid">
-                            GET OTP
+                            {{'GET OTP' | translate}}
                         </ion-button>
 
                         <p class="text-[#252A31] font-roboto mt-4 font-normal">
-                            Enter the OTP code sent to <br>
-                            your phone here
+                            {{'Enter the OTP code sent to your phone here' | translate}}
                         </p>
 
                         <div class="my-2">
@@ -44,14 +44,14 @@
                         </div>
 
                         <ion-button color="success" class="btn-def capitalize text-lg w-full" (click)="onSubmit()"
-                            [disabled]="form.invalid">
-                            Sign in
+                            [disabled]="form.invalid"> 
+                            {{'Sign In' | translate}}
                         </ion-button>
 
                         <a routerLink="/register"
                             class="w-full text-center text-white mx-auto block underline text-base font-normal font-roboto">
-                            New Here?
-                            <span class="font-medium">Sign Up</span>
+                             
+                            <span class="font-medium">{{'Sign Up' | translate}}</span>
                         </a>
                     </div>
                 </form>
@@ -75,7 +75,7 @@
                         <span class="icon-f">
                             <img src="/assets/imgs/icons/about.png" alt="">
                         </span>
-                        About Moawen
+                        {{'About Moawen' | translate}}
                     </a>
                 </li>
 
@@ -84,7 +84,7 @@
                         <span class="icon-f">
                             <img src="/assets/imgs/icons/contact.png" alt="">
                         </span>
-                        Contact Us
+                        {{'Contact Us' | translate}} 
                     </a>
                 </li>
 
@@ -92,14 +92,14 @@
                     <a href="" class="text-xs text-white flex gap-1 underline font-roboto items-center">
                         <span class="icon-f">
                             <img src="/assets/imgs/icons/assisatance.png" alt="">
-                        </span>
-                        For Assistance
+                        </span> 
+                        {{'For Assistance' | translate}} 
                     </a>
                 </li>
             </ul>
 
-            <p class="text-center text-white text-xs font-roboto font-normal mb-3">
-                All rights reserved &copy; maowen | 2024
+            <p class="text-center text-white text-xs font-roboto font-normal mb-3"> 
+                {{'All rights reserved maowen' | translate}} 
             </p>
         </div>
     </div>

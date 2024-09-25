@@ -5,57 +5,53 @@
         <div class="header-welcome flex justify-center w-full px-8 mt-4">
             <div class="flex justify-center items-center flex-col">
                 <a routerLink="/"><img src="./assets/imgs/moawen-logo.png" alt="moawen-logo" class="mb-4"></a>
-                <span class="text-tahiti text-sm text-center w-full">Your Bridge to Smarter Hiring.</span>
+                <span class="text-tahiti text-sm text-center w-full">{{ 'Your Bridge to Smarter Hiring' | translate }}</span>
             </div>
         </div>
 
         <div class="px-8 w-full mt-4">
             <div class="card w-full bg-tahiti p-4 rounded-xl">
-                <div>
-                    <h2 class="text-xl font-medium font-roboto">Sign Up</h2>
+                <div class="flex justify-between">
+                    <h2 class="text-xl font-medium font-roboto"> {{'Sign Up' | translate}}</h2>
+                    <app-language-switcher></app-language-switcher>
                 </div>
 
                 <div class="form mt-4" [formGroup]="form">
                     <div class="relative">
-                        <ion-input label="Enter your QID number" placeholder="Enter text" class="input-outlined"
-                        label-placement="floating" fill="outline"
-                        [formControl]="form.controls.qId">
+                        <ion-input [label]="'Login' | translate" placeholder="Enter text" class="input-outlined"
+                            label-placement="floating" fill="outline" [formControl]="form.controls.qId">
                         </ion-input>
 
-                        <span class="absolute right-4 top-4 z-10">
+                        <span class="absolute end-4 top-4 z-10">
                             <img src="/assets/imgs/icons/list-icon.png" alt="">
                         </span>
                     </div>
 
                     <div class="relative mt-2">
-                        <ion-input label="Full Name" class="input-outlined" placeholder="Enter text"
-                        label-placement="floating"
-                        fill="outline"
-                        [formControl]="form.controls.fName" >
+                        <ion-input [label]="'Full Name' | translate" class="input-outlined" placeholder="Enter text"
+                            label-placement="floating" fill="outline" [formControl]="form.controls.fName">
                         </ion-input>
 
-                        <span class="absolute right-4 top-4 z-10">
+                        <span class="absolute end-4 top-4 z-10">
                             <img src="/assets/imgs/icons/user-icon.png" alt="">
                         </span>
                     </div>
 
-                    <div class="flex items-end gap-1">
+                    <div class="flex flex-wrap items-end gap-1">
                         <div class="relative mt-2">
-                            <ion-input label="Mobile No." placeholder="Enter text" class="input-outlined"
-                            label-placement="floating" fill="outline"
-                            [formControl]="form.controls.mobileNo">
+                            <ion-input [label]="'Mobile No' | translate" placeholder="Enter text" class="input-outlined"
+                                label-placement="floating" fill="outline" [formControl]="form.controls.mobileNo">
                             </ion-input>
-                            <span class="absolute right-4 top-4 z-10">
+                            <span class="absolute end-4 top-4 z-10">
                                 <img src="/assets/imgs/icons/mobile-icon.png" alt="">
                             </span>
                         </div>
 
-                        <ion-button color="success"   class="btn-def uppercase text-sm whitespace-nowrap mt-3"
-                            (click)="getOtp()"
-                            [disabled]="form.controls.qId.invalid ||
+                        <ion-button color="success" class="btn-def uppercase text-sm whitespace-nowrap mt-3"
+                            (click)="getOtp()" [disabled]="form.controls.qId.invalid ||
                             form.controls.fName.invalid ||
                             form.controls.mobileNo.invalid">
-                            GET OTP
+                            {{'GET OTP' | translate}}
                         </ion-button>
                     </div>
 
@@ -65,9 +61,8 @@
                     </p>
 
                     <div class=" my-2 ">
-                        <ng-otp-input  class="custom-otp-field" fill="outline"
-                        (onInputChange)="onOtpChange($event)"
-                        [config]="config">
+                        <ng-otp-input class="custom-otp-field" fill="outline" (onInputChange)="onOtpChange($event)"
+                            [config]="config">
                         </ng-otp-input>
                     </div>
 
@@ -83,16 +78,15 @@
                         </ion-checkbox>
                     </div>
 
-                    <ion-button color="success" class="btn-def capitalize text-lg w-full"
-                    (click)="signUpRequest()"
-                    [disabled]="form.invalid ||
+                    <ion-button color="success" class="btn-def capitalize text-lg w-full" (click)="signUpRequest()"
+                        [disabled]="form.invalid ||
                     form.controls.termsCondition.value !== true ||
                     form.controls.privacyPolicy.value  !== true">
-                    Sign Up
+                        Sign Up
                     </ion-button>
 
                     <a class="w-full text-center text-white mx-auto block underline text-base font-normal font-roboto"
-                    routerLink="/login" >
+                        routerLink="/login">
                         Already a User?
                         <span class="font-medium">
                             Login
@@ -102,10 +96,11 @@
             </div>
         </div>
         <div class="footer-welcome mb-6">
-            <div class="our-comps flex flex-row items-center justify-around mt-4 mb-2">
+            <div class="our-comps flex flex-row items-center justify-around mt-8 mb-4">
                 <a href="" target="_blank">
                     <img src="./assets/imgs/mol-logo.png" alt="">
                 </a>
+
                 <a href="" target="_blank" class="self-end">
                     <img src="./assets/imgs/jusour-logo.png" alt="">
                 </a>
@@ -117,7 +112,7 @@
                         <span class="icon-f">
                             <img src="/assets/imgs/icons/about.png" alt="">
                         </span>
-                        About Moawen
+                        {{'About Moawen' | translate}}
                     </a>
                 </li>
 
@@ -126,7 +121,7 @@
                         <span class="icon-f">
                             <img src="/assets/imgs/icons/contact.png" alt="">
                         </span>
-                        Contact Us
+                        {{'Contact Us' | translate}}
                     </a>
                 </li>
 
@@ -135,13 +130,13 @@
                         <span class="icon-f">
                             <img src="/assets/imgs/icons/assisatance.png" alt="">
                         </span>
-                        For Assistance
+                        {{'For Assistance' | translate}}
                     </a>
                 </li>
             </ul>
 
             <p class="text-center text-white text-xs font-roboto font-normal mb-3">
-                All rights reserved &copy; maowen | 2024
+                {{'All rights reserved maowen' | translate}}
             </p>
         </div>
     </div>
