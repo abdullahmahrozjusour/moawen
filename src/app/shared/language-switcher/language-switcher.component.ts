@@ -7,9 +7,21 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./language-switcher.component.scss']
 })
 export class LanguageSwitcherComponent {
-  languages = ['ar', 'en']; // Add other languages here if needed
+  selectedLanguage: string = 'en'; // Default selected language
 
-  constructor(private translate: TranslateService) {}
+  constructor(private translate: TranslateService) {
+    this.translate.setDefaultLang(this.selectedLanguage);
+    this.translate.use(this.selectedLanguage);
+  }
+
+  languageChanged(event: Event) {
+    const lang = (event.target as HTMLInputElement).value; // Get the selected language
+    if (lang) {
+      this.selectedLanguage = lang; // Update the selected language
+      console.log('Selected Language:', this.selectedLanguage);
+      this.switchLanguage(this.selectedLanguage);
+    }
+  }
 
   switchLanguage(lang: string) {
     this.translate.use(lang);

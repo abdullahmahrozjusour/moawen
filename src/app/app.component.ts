@@ -17,12 +17,5 @@ export class AppComponent {
     this.translate.setDefaultLang('ar');
     const browserLang = this.translate.getBrowserLang() || 'ar';
     this.translate.use(browserLang.match(/en|fr/) ? browserLang : 'ar');
-
-    // Set initial direction
-    this.setDirection(browserLang);
-  }
-
-  private setDirection(lang: string) {
-    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
   }
 }

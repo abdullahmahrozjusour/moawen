@@ -1,5 +1,13 @@
-<div class="language-switcher">
-  <button *ngFor="let lang of languages" (click)="switchLanguage(lang)">
-    {{ lang | uppercase }} <!-- This will display 'AR', 'EN', etc. -->
-  </button>
+<div class="custom-switcher">
+  <div>
+    <input type="radio" id="eng" name="language" value="en" [(ngModel)]="selectedLanguage"
+      (change)="languageChanged($event)">
+    <label for="eng"> ENG</label>
+  </div>
+  <div>
+    
+    <input type="radio" id="ar" name="language" value="ar" [(ngModel)]="selectedLanguage"
+      (change)="languageChanged($event)">
+      <label for="ar">AR</label>
+  </div> 
 </div>
