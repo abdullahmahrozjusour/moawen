@@ -43,11 +43,11 @@ export class AuthHelperService {
         );
     }
 
-    addAuthToken(token: string, expiryTime: number): void {
+    addAuthToken(token: string): void {
         this.cookieService.set(
             this.appVars.env['cookie'].name,
             token,
-            parseInt(this.cookieService.get(this.appVars.env.tokenExpiryMin)),
+            // parseInt(this.cookieService.get(this.appVars.env.tokenExpiryMin)),
             this.appVars.env['cookie'].path,
             this.appVars.env['cookie'].domain,
             this.appVars.env['cookie'].secure,
@@ -58,9 +58,9 @@ export class AuthHelperService {
          * store jwt expire time (MIN)
          */
         this.cookieService.set(
-            this.appVars.env.tokenExpiryMin,
-            expiryTime.toString(),
-            expiryTime,
+            // this.appVars.env.tokenExpiryMin,
+            // expiryTime.toString(),
+            // expiryTime,
             this.appVars.env['cookie'].path,
             this.appVars.env['cookie'].domain,
             this.appVars.env['cookie'].secure,

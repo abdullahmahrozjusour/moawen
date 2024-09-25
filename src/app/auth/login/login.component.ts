@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 
 import { AuthService } from 'src/app/services/http/auth.service';
 import { ToastService } from 'src/app/services/toast.service';
@@ -10,26 +10,26 @@ import { HelperService } from 'src/app/services/helper.service';
 import { AuthHelperService } from 'src/app/services/auth-helper-service';
 
 @Component({
-    selector: 'app-login',
-    templateUrl: './login.component.html',
-    styleUrls: ['./login.component.scss'],
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.scss'],
 })
 
 export class LoginComponent implements OnInit {
-    form: any;
-    otp: string | undefined;
+  form: any;
+  otp: string | undefined;
 
-    @ViewChild(NgOtpInputComponent, { static: false}) ngOtpInput:NgOtpInputComponent | undefined;
+  @ViewChild(NgOtpInputComponent, { static: false }) ngOtpInput: NgOtpInputComponent | undefined;
 
-    config :NgOtpInputConfig = {
-        allowNumbersOnly: true,
-        length: 6,
-        isPasswordInput: false,
-        disableAutoFocus: false,
-        placeholder: ''
-    };
+  config: NgOtpInputConfig = {
+    allowNumbersOnly: true,
+    length: 6,
+    isPasswordInput: false,
+    disableAutoFocus: false,
+    placeholder: ''
+  };
 
-    constructor(
+  constructor(
     private fb: FormBuilder,
     private authService: AuthService,
     private authHelper: AuthHelperService,
@@ -37,60 +37,80 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private loaderService: LoaderService,
     private helper: HelperService
-    ) {
-        this.createForm();
+  ) {
+    this.createForm();
+  }
+
+  ngOnInit() { }
+
+  onOtpChange(otp: any) {
+    this.otp = otp;
+  }
+
+  getOtp() {
+    const qId = this.form.value.qId;
+    const data = {
+      "qid": qId,
+      "type": "customer"
+    };
+
+    this.loaderService.showLoading();
+    this.authService.otp(data).subscribe({
+      next: resp => {
+        this.toastService.presentToast('top', resp.errors);
+        this.loaderService.hideLoading();
+        console.log('Next | Done', JSON.stringify(resp.status));
+      },
+      error: error => {
+        this.loaderService.hideLoading();
+        this.toastService.showToastByStatusCode('top', error.status)
+      }
+    });
+  }
+
+
+
+  private createForm() {
+    this.form = this.fb.group({
+      qId: ['', [Validators.required, this.digitsValidator]]
+    });
+  }
+
+  digitsValidator(control: AbstractControl): { [key: string]: boolean } | null {
+    const value = control.value;
+    if (value && !/^\d{11}$/.test(value)) {
+      return { invalidDigits: true };
+    }
+    return null;
+  }
+  restrictInput(event: KeyboardEvent) {
+    const input = event.key;
+    if (!/^\d$/.test(input) && input !== 'Backspace') {
+      event.preventDefault();
+    }
+  }
+
+  onSubmit() {
+    const data = {
+      "identifier": this.form.value.qId,
+      "token": this.otp,
+      "type": "customer"
     }
 
-    ngOnInit() { }
+    this.loaderService.showLoading();
 
-    onOtpChange(otp:any) {
-        this.otp = otp;
-    }
-
-    getOtp() {
-        const qId = this.form.value.qId;
-
-        this.loaderService.showLoading();
-        this.authService.otp(qId).subscribe({
-            next: resp => {
-                this.toastService.presentToast('top',resp.errors);
-                this.loaderService.hideLoading();
-                console.log('Next |Done', JSON.stringify(resp));
-            },
-            error: error => {
-                this.toastService.presentToast('top', error.errors);
-                console.log(JSON.stringify(error.error), 'abd')
-            }
-        });
-    }
-
-
-    private createForm() {
-        this.form = this.fb.group({
-            qId: ['', [Validators.required, Validators.minLength(11), Validators.maxLength(11)]]
-        });
-    }
-
-    onSubmit() {
-        const data = {
-            "identifier": this.form.value.qId,
-            "token": this.otp,
-            "type": "customer"
-        }
-
-        this.loaderService.showLoading();
-
-        this.authService.login(data).subscribe({
-            next: (res: {response: { token: any; expireTime: number };}) => {
-            this.toastService.presentToast('top', 'Login Success')
-            const ExpireTime = HelperService.isNull(res.response.expireTime) ? 90 : res.response.expireTime;
-            this.authHelper.addAuthToken(res.response.token, ExpireTime);
-            this.loaderService.hideLoading();
-            this.router.navigate(['/home/tab1']);
-            },
-            error: (res: { error: { message: any; }; }) => {
-            this.toastService.presentToast('top', 'Error! ' + res.error.message);
-            }
-        });
-    }
+    this.authService.login(data).subscribe({
+      next: (res) => {
+        this.toastService.presentToast('top', 'Login Success')
+        // const ExpireTime = HelperService.isNull(res.response.expireTime) ? 90 : res.response.expireTime;
+        this.authHelper.addAuthToken(res.access_token);
+        this.router.navigate(['/home/tab1']);
+        this.loaderService.hideLoading();
+      },
+      error: (res) => {
+        this.loaderService.hideLoading();
+        this.toastService.showToastByStatusCode('top', res.error.status);
+      }
+    });
+  }
 }

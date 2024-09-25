@@ -18,35 +18,16 @@
                 <form [formGroup]="form">
                     <div class="form mt-4">
                         <div class="relative">
-                            <ion-input
-                                label="Enter your QID number" class="input-outlined"placeholder="Enter text"
-                                label-placement="floating"
-                                fill="outline"
-                                [formControl]="form.controls.qId">
-                            </ion-input>
-
-                            <div class="alert"
-                            *ngIf="form.controls.qId && (form.controls.qId.dirty  || form.controls.qId.touched)">
-                                <div *ngIf="form.controls.qId.errors?.['required']">
-                                    Name is required.
-                                </div>
-
-                                <div *ngIf="form.controls.qId.errors?.['minlength']">
-                                    Name must be at least 11 characters long.
-                                </div>
-
-                                <div *ngIf="form.controls.qId.errors?.['minlength']">
-                                    Name must be at least 11 characters long.
-                                </div>
-                            </div>
+                            <ion-input label="Enter your QID number" class="input-outlined" placeholder="Enter text"
+                                label-placement="floating" fill="outline" [formControl]="form.controls.qId"
+                                (keydown)="restrictInput($event)" maxlength="11"></ion-input> 
 
                             <span class="absolute right-4 top-4 z-10">
                                 <img src="/assets/imgs/icons/list-icon.png" alt="">
                             </span>
                         </div>
 
-                        <ion-button color="success" class="btn-def uppercase text-lg mt-3"
-                            (click)="getOtp()"
+                        <ion-button color="success" class="btn-def uppercase text-lg mt-3" (click)="getOtp()"
                             [disabled]="form.invalid">
                             GET OTP
                         </ion-button>
@@ -57,14 +38,12 @@
                         </p>
 
                         <div class="my-2">
-                            <ng-otp-input  class="custom-otp-field" fill="outline"
-                                (onInputChange)="onOtpChange($event)"
+                            <ng-otp-input class="custom-otp-field" fill="outline" (onInputChange)="onOtpChange($event)"
                                 [config]="config">
                             </ng-otp-input>
                         </div>
 
-                        <ion-button color="success" class="btn-def capitalize text-lg w-full"
-                            (click)="onSubmit()"
+                        <ion-button color="success" class="btn-def capitalize text-lg w-full" (click)="onSubmit()"
                             [disabled]="form.invalid">
                             Sign in
                         </ion-button>
