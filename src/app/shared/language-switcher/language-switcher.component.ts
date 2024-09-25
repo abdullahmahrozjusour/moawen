@@ -13,5 +13,10 @@ export class LanguageSwitcherComponent {
 
   switchLanguage(lang: string) {
     this.translate.use(lang);
+    this.setDirection(lang);
+  }
+
+  private setDirection(lang: string) {
+    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
   }
 }
