@@ -1,6 +1,6 @@
 {
     "Your Bridge to Smarter Hiring": "Your Bridge to Smarter Hiring",
-    "Login": "Login",
+    "Login": "Enter your QID number",
     "Sign In": "Sign In",
     "Sign Up": "Sign Up",
     "About Moawen": "About Moawen",
@@ -11,7 +11,7 @@
     "Enter the OTP code sent to your phone here":"Enter the OTP code sent to your phone here",
     "Full Name":"Full Name",
     "Mobile No":"Mobile No",
-    "I agree on Terms & Conditions":"I agree on Terms & Conditions",
+    "I agree on Terms and Conditions":"I agree on Terms & Conditions",
     "I agree on Privacy Policy":"I agree on Privacy Policy",
     "Welcome to":"Welcome to",
     "Your Profile":"Your Profile",
@@ -31,5 +31,7 @@
     "Select Type":"Select Type",
     "All rights reserved maowen":"All rights reserved &copy; maowen | 2024",
     "Hire Now": "Hire Now",
-    "New Here": "New Here"
+    "New Here": "New Here",
+    "QAR": "QAR",
+    "Select":"Select"
   }

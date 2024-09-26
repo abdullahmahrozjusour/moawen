@@ -1,6 +1,6 @@
 {
     "Your Bridge to Smarter Hiring": "جسرك الى استقدام ذكي",
-    "Login": "تسجيل الدخول",
+    "Login": "ادخل رقم البطاقة الشخصية القطرية",
     "Sign In": "تسجيل الدخول",
     "Sign Up": "فتح حساب",
     "About Moawen": "نبذة عن معاون",
@@ -11,7 +11,7 @@
     "Enter the OTP code sent to your phone here":"أدخل رمز المرور لمرة واحدة المرسل للهاتف هنا",
     "Full Name":"الاسم",
     "Mobile No":"رقم الهاتف",
-    "I agree on Terms & Conditions":"أوافق على الشروط والأحكام",
+    "I agree on Terms and Conditions":"أوافق على الشروط والأحكام",
     "I agree on Privacy Policy":"أوافق على سياسة الخصوصية",
     "Welcome to":"أهلا بك في",
     "Your Profile":"حسابك الشخصي",
@@ -26,10 +26,12 @@
     "Your Hiring Request":"طلبات الاستقدام الخاصة بي",
     "Driver":"سائق",
     "Your Shortlist":"القائمة المختصرة",
-    "Meet Your Match":"Meet Your Match:",
-    "Effortless Recruitment Begins Here":"Effortless Recruitment Begins Here",
-    "Select Type":"Select Type",
+    "Meet Your Match":"إستقدم العامل المناسب لك",
+    "Effortless Recruitment Begins Here":"سهولة الاستقدام تبدأ من هنا",
+    "Select Type":"اختر نوع الاستقدام",
     "All rights reserved maowen":"جميع الحقوق محفوظة &copy; معاون | 2024",
     "Hire Now": "قم بالاستقدام",
-    "New Here": "New Here"
+    "New Here": "New Here",
+    "QAR": "ريال قطري",
+    "Select":"اختر"
   }

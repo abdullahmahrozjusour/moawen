@@ -1,13 +1,22 @@
 <div class="custom-switcher">
   <div>
-    <input type="radio" id="eng" name="language" value="en" [(ngModel)]="selectedLanguage"
-      (change)="languageChanged($event)">
-    <label for="eng"> ENG</label>
+    <input 
+      type="radio" 
+      id="eng" 
+      name="language" 
+      value="en" 
+      [(ngModel)]="selectedLanguage"
+      (change)="languageChanged('en')">
+    <label for="eng">ENG</label>
   </div>
   <div>
-    
-    <input type="radio" id="ar" name="language" value="ar" [(ngModel)]="selectedLanguage"
-      (change)="languageChanged($event)">
-      <label for="ar">AR</label>
+    <input 
+      type="radio" 
+      id="ar" 
+      name="language" 
+      value="ar" 
+      [(ngModel)]="selectedLanguage"
+      (change)="languageChanged('ar')">
+    <label for="ar">AR</label>
   </div> 
 </div>
