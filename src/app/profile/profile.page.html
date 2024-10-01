@@ -1,6 +1,10 @@
 <ion-header [translucent]="true" >
   <ion-toolbar color="primary">
-    <ion-title class="text-center ">YOUR PROFILE</ion-title>
+    <ion-buttons slot="end" (click)="onLogout()">
+      <ion-icon name="log-in-outline" class="text-lg text-red-100"></ion-icon>
+      <ion-label class="text-red-700">Logout</ion-label>
+    </ion-buttons>
+    <ion-title slot="start">YOUR PROFILE</ion-title>
   </ion-toolbar>
 </ion-header>
 

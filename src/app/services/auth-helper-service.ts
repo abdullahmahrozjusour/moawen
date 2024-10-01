@@ -50,4 +50,19 @@ export class AuthHelperService {
     isLoggedIn(): boolean {
         return this.cookieService.check(this.appVars.env['cookie'].name);
     }
+    logout() {
+        const cookieName = '_moa'; // Make sure this matches exactly
+        console.log(`Attempting to delete token: ${cookieName}`);
+    
+        // Attempt to delete the cookie with the same path and other settings
+        this.cookieService.delete(cookieName, '/'); // Specify the path if needed
+    
+        // Verify deletion
+        const deletedToken = this.cookieService.get(cookieName);
+        console.log(`Token after deletion: ${deletedToken}`); // Should be empty or undefined
+    
+        // Navigate to login or home
+        this.router.navigate(['/login']);
+    }
+    
 }

@@ -15,6 +15,8 @@ import { WorkerStatusComponent } from './worker-status/worker-status.component';
 import { ComplaintsComponent } from './complaints/complaints.component';
 import { ComplaintFormComponent } from './complaint-form/complaint-form.component';
 import { ComplaintListComponent } from './complaint-list/complaint-list.component';
+import { CoreService } from '../services/http/core.service';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
@@ -23,9 +25,11 @@ import { ComplaintListComponent } from './complaint-list/complaint-list.componen
     FormsModule,
     ExploreContainerComponentModule,
     Tab1PageRoutingModule,
-    SharedPageModule
+    SharedPageModule,
+    TranslateModule
   ],
   exports: [ShortListComponent,ViewWorkerComponent, WorkerContractComponent, TrackingListComponent, WorkerStatusComponent, ComplaintsComponent,ComplaintFormComponent, ComplaintListComponent],
-  declarations: [Tab1Page,ShortListComponent, ViewWorkerComponent, WorkerContractComponent, TrackingListComponent, WorkerStatusComponent, ComplaintsComponent, ComplaintFormComponent, ComplaintListComponent]
+  declarations: [Tab1Page,ShortListComponent, ViewWorkerComponent, WorkerContractComponent, TrackingListComponent, WorkerStatusComponent, ComplaintsComponent, ComplaintFormComponent, ComplaintListComponent],
+  providers:[ CoreService ]
 })
 export class Tab1PageModule {}

@@ -53,8 +53,16 @@ body {
 [dir="rtl"],
 [dir="rtl"] body{
     font-weight: 500;
+    .custom-switcher input#ar +label {
+        background-color: #B9D73D; 
+    }
 }
 
+[dir="ltr"] { 
+    .custom-switcher input#eng +label {
+        background-color: #B9D73D; 
+    }
+}
 .container-center {
     text-align: center;
 
