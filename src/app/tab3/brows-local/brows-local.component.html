@@ -16,171 +16,148 @@
             <ion-icon name="close"></ion-icon>
           </div>
         </div>
-        <div>
+        <div (click)="setOpen(true)">
           <span class="bg-white px-2 rounded h-8 flex items-center justify-between text-xl">
-            <ion-icon name="add-sharp"></ion-icon>
+            <ion-icon name="options-outline"></ion-icon>
           </span>
         </div>
       </div>
     </div>
+
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <div class="grid grid-cols-1 gap-3 pt-0 h-full w-full bg-slate-50 p-4 content-start overflow-auto"> 
-    <div class="card px-3 py-2 flex  flex-col" style="--background: url('/assets/imgs/card-light.jpg');">
+  @if(workers?.dataDw.length != 0){
+  <div class="grid grid-cols-1 gap-3 pt-0 h-full w-full bg-slate-50 p-4 content-start overflow-auto">
+    @for(item of workers?.dataDw; track item.name){
+    <div class="card px-3 py-2 flex  flex-col"  style="--background: url('/assets/imgs/card-light.jpg');">
       <div class="flex gap-4">
         <div>
-          <img src="/assets/imgs/avatar-color.png" alt="">
+          @if(item?.gender == 'Male'){
+          <img src="/assets/imgs/avatar-color.png" class="rounded-full h-12 w-12 object-cover" alt="">
+          }@else {
+          <img src="/assets/imgs/female.png" class="rounded-full h-12 w-12 object-cover" alt="">
+          }
           <div class="flex justify-center mt-1">
             <span
-              class="text-xs text-primary border bg-[#44D357] rounded-lg px-1 w-10 inline-block text-center font-semibold border-white mx-auto">95%</span>
+              class="text-xs text-primary border rounded-lg px-1 w-10 inline-block text-center font-semibold border-white mx-auto" [ngClass]="item?.precentage < 60 ? 'bg-[#BA5D00]' : 'bg-[#44D357]'" >{{item?.precentage}}%</span>
           </div>
         </div>
         <div class="w-full">
           <div class="flex justify-between gap-2 w-full">
             <div class="text-black font-bold text-sm leading-4 mt-2">
               Driver
-              <span class="block font-normal">India</span>
+              <span class="block font-normal">{{item?.nationality}}</span>
             </div>
             <div>
               <img src="/assets/imgs/icons/material-symbols-light.png" alt="">
             </div>
           </div>
-          <div class="text-xs mt-3">Male / Islam / Under 30 / No Kids / Single</div>
-        </div> 
-      </div>
-      <div class="flex justify-end">
-        <ion-button color="primary" class="btn-def capitalize text-xs !font-semibold"
-          style="min-height: 35px;--padding-start: 1.5rem; --padding-end:1.5rem; " (click)="navigateToViewWorker()"
-           >View</ion-button>
-        <ion-button color="light" class="btn-def capitalize text-xs !font-semibold"
-          style="min-height: 35px;--padding-start: 1.5rem; --padding-end:1.5rem; " (click)="navigateToWorkerContract()"
-           >Hire</ion-button>
-      </div>
-    </div>
-    <div class="card px-3 py-2 flex  flex-col" style="--background: url('/assets/imgs/card-light.jpg');">
-      <div class="flex gap-4">
-        <div>
-          <img src="/assets/imgs/avatar-color.png" alt="">
-          <div class="flex justify-center mt-1">
-            <span
-              class="text-xs text-primary border bg-[#44D357] rounded-lg px-1 w-10 inline-block text-center font-semibold border-white mx-auto">95%</span>
-          </div>
+          <div class="text-xs mt-3">{{item?.gender}} / {{item?.religion}} / {{ calculateAge(item?.dob) }} /
+            {{item?.noOfChildren != 0 ? item?.noOfChildren : 'No Kids'}} / {{item?.maritalStatus}}</div>
         </div>
-        <div class="w-full">
-          <div class="flex justify-between gap-2 w-full">
-            <div class="text-black font-bold text-sm leading-4 mt-2">
-              Driver
-              <span class="block font-normal">India</span>
-            </div>
-            <div>
-              <img src="/assets/imgs/icons/material-symbols-light.png" alt="">
-            </div>
-          </div>
-          <div class="text-xs mt-3">Male / Islam / Under 30 / No Kids / Single</div>
-        </div> 
       </div>
       <div class="flex justify-end">
         <ion-button color="primary" class="btn-def capitalize text-xs !font-semibold"
-          style="min-height: 35px;--padding-start: 1.5rem; --padding-end:1.5rem; " (click)="navigateToViewWorker()"
-           >View</ion-button>
-        <ion-button color="light" class="btn-def capitalize text-xs !font-semibold"
-          style="min-height: 35px;--padding-start: 1.5rem; --padding-end:1.5rem; " (click)="navigateToWorkerContract()"
-           >Hire</ion-button>
+          style="min-height: 35px;--padding-start: 1.5rem; --padding-end:1.5rem; "
+          (click)="openWorkerDetailModal(item)">View</ion-button>
+        <!-- <ion-button color="light" class="btn-def capitalize text-xs !font-semibold"
+          style="min-height: 35px;--padding-start: 1.5rem; --padding-end:1.5rem; "
+          (click)="navigateToWorkerContract()">Hire</ion-button> -->
       </div>
     </div>
-    <div class="card px-3 py-2 flex  flex-col" style="--background: url('/assets/imgs/card-light.jpg');">
-      <div class="flex gap-4">
-        <div>
-          <img src="/assets/imgs/avatar-color.png" alt="">
-          <div class="flex justify-center mt-1">
-            <span
-              class="text-xs text-primary border bg-[#44D357] rounded-lg px-1 w-10 inline-block text-center font-semibold border-white mx-auto">95%</span>
-          </div>
-        </div>
-        <div class="w-full">
-          <div class="flex justify-between gap-2 w-full">
-            <div class="text-black font-bold text-sm leading-4 mt-2">
-              Driver
-              <span class="block font-normal">India</span>
-            </div>
-            <div>
-              <img src="/assets/imgs/icons/material-symbols-light.png" alt="">
-            </div>
-          </div>
-          <div class="text-xs mt-3">Male / Islam / Under 30 / No Kids / Single</div>
-        </div> 
-      </div>
-      <div class="flex justify-end">
-        <ion-button color="primary" class="btn-def capitalize text-xs !font-semibold"
-          style="min-height: 35px;--padding-start: 1.5rem; --padding-end:1.5rem; " (click)="navigateToViewWorker()"
-           >View</ion-button>
-        <ion-button color="light" class="btn-def capitalize text-xs !font-semibold"
-          style="min-height: 35px;--padding-start: 1.5rem; --padding-end:1.5rem; " (click)="navigateToWorkerContract()"
-           >Hire</ion-button>
-      </div>
-    </div>
-    <div class="card px-3 py-2 flex  flex-col" style="--background: url('/assets/imgs/card-light.jpg');">
-      <div class="flex gap-4">
-        <div>
-          <img src="/assets/imgs/avatar-color.png" alt="">
-          <div class="flex justify-center mt-1">
-            <span
-              class="text-xs text-primary border bg-[#44D357] rounded-lg px-1 w-10 inline-block text-center font-semibold border-white mx-auto">95%</span>
-          </div>
-        </div>
-        <div class="w-full">
-          <div class="flex justify-between gap-2 w-full">
-            <div class="text-black font-bold text-sm leading-4 mt-2">
-              Driver
-              <span class="block font-normal">India</span>
-            </div>
-            <div>
-              <img src="/assets/imgs/icons/material-symbols-light.png" alt="">
-            </div>
-          </div>
-          <div class="text-xs mt-3">Male / Islam / Under 30 / No Kids / Single</div>
-        </div> 
-      </div>
-      <div class="flex justify-end">
-        <ion-button color="primary" class="btn-def capitalize text-xs !font-semibold"
-          style="min-height: 35px;--padding-start: 1.5rem; --padding-end:1.5rem; " (click)="navigateToViewWorker()"
-           >View</ion-button>
-        <ion-button color="light" class="btn-def capitalize text-xs !font-semibold"
-          style="min-height: 35px;--padding-start: 1.5rem; --padding-end:1.5rem; " (click)="navigateToWorkerContract()"
-           >Hire</ion-button>
-      </div>
-    </div>
-    <div class="card px-3 py-2 flex  flex-col" style="--background: url('/assets/imgs/card-light.jpg');">
-      <div class="flex gap-4">
-        <div>
-          <img src="/assets/imgs/avatar-color.png" alt="">
-          <div class="flex justify-center mt-1">
-            <span
-              class="text-xs text-primary border bg-[#44D357] rounded-lg px-1 w-10 inline-block text-center font-semibold border-white mx-auto">95%</span>
-          </div>
-        </div>
-        <div class="w-full">
-          <div class="flex justify-between gap-2 w-full">
-            <div class="text-black font-bold text-sm leading-4 mt-2">
-              Driver
-              <span class="block font-normal">India</span>
-            </div>
-            <div>
-              <img src="/assets/imgs/icons/material-symbols-light.png" alt="">
-            </div>
-          </div>
-          <div class="text-xs mt-3">Male / Islam / Under 30 / No Kids / Single</div>
-        </div> 
-      </div>
-      <div class="flex justify-end">
-        <ion-button color="primary" class="btn-def capitalize text-xs !font-semibold"
-          style="min-height: 35px;--padding-start: 1.5rem; --padding-end:1.5rem; " (click)="navigateToViewWorker()"
-           >View</ion-button>
-        <ion-button color="light" class="btn-def capitalize text-xs !font-semibold"
-          style="min-height: 35px;--padding-start: 1.5rem; --padding-end:1.5rem; " (click)="navigateToWorkerContract()"
-           >Hire</ion-button>
-      </div>
-    </div>
+    }
   </div>
+  }@else{
+  <p class="bg-[#e2e8f0] px-3 py-2 font-bold">Record Not Found</p>
+  }
+
+  <!-- Filters -->
+  <ion-modal [isOpen]="isModalOpen">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Search Filters</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="clearFilters()">Clear Filters</ion-button>  
+            <ion-button (click)="setOpen(false)">
+              <ion-icon name="close-outline"></ion-icon>
+            </ion-button>
+            
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content >
+        <form [formGroup]="searchForm" (ngSubmit)="fetchAllWorkers()">
+          <ion-item lines="none" class="my-2"> 
+            <ion-select formControlName="nationality" placeholder="Nationality" multiple="true" labelPlacement="stacked"  fill="outline" class="outline-no-float" style="--input-height: 40px">
+              <ion-select-option value="bangladesh">Bangladesh</ion-select-option>
+              <ion-select-option value="pakistan">Pakistan</ion-select-option>
+              <ion-select-option value="uganda">Uganda</ion-select-option>
+            </ion-select>
+          </ion-item>
+
+          <ion-item lines="none" class="my-2">
+            <ion-select formControlName="profession" multiple="true" placeholder="Select Profession"  labelPlacement="stacked"  fill="outline" class="outline-no-float" style="--input-height: 40px">
+              <ion-select-option value="driver">Driver</ion-select-option>
+              <ion-select-option value="domestic_worker">Domestic Worker</ion-select-option>
+            </ion-select>
+          </ion-item>
+
+          <ion-item lines="none" class="my-2">
+            <!-- <ion-label>Select Skills</ion-label> -->
+            <ion-select formControlName="skills" placeholder="Select Skills" multiple="true" multiple="true" labelPlacement="stacked"  fill="outline" class="outline-no-float" style="--input-height: 40px">
+              <ion-select-option value="manual_gear">Familiarity with vehicles equipped with manual gear
+                transmission</ion-select-option>
+              <ion-select-option value="qatari_license">Qatari Driving License</ion-select-option>
+            </ion-select>
+          </ion-item>
+
+          <ion-item lines="none" class="my-2"> 
+            <ion-select formControlName="age" placeholder="Age" labelPlacement="stacked"  fill="outline" class="outline-no-float" style="--input-height: 40px">
+              <ion-select-option value="">Select Age</ion-select-option>
+              <ion-select-option value="18-30">18-30</ion-select-option>
+              <ion-select-option value="31-45">31-45</ion-select-option>
+              <ion-select-option value="45+">45+</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-item lines="none" class="my-2">
+            <ion-select formControlName="married" placeholder="Marital Status" labelPlacement="stacked"  fill="outline" class="outline-no-float" style="--input-height: 40px">
+              <ion-select-option value="0">Unmarried</ion-select-option>
+              <ion-select-option value="1">Married</ion-select-option>
+            </ion-select>
+          </ion-item>
+
+          <ion-item lines="none" class="my-2" >
+            <ion-select formControlName="gender" multiple="true" placeholder="Gender" labelPlacement="stacked"  fill="outline" class="outline-no-float" style="--input-height: 40px">
+              <ion-select-option value="male">Male</ion-select-option>
+              <ion-select-option value="female">Female</ion-select-option>
+            </ion-select>
+          </ion-item>
+
+          <ion-item lines="none" class="my-2">
+            <!-- <ion-label>Religion</ion-label> -->
+            <ion-select formControlName="religion" multiple="true" placeholder="Religion" labelPlacement="stacked"  fill="outline" class="outline-no-float" style="--input-height: 40px">
+              <ion-select-option value="islam">Islam</ion-select-option>
+              <ion-select-option value="christianity">Christianity</ion-select-option>
+              <ion-select-option value="hinduism">Hinduism</ion-select-option>
+              <ion-select-option value="buddhism">Buddhism</ion-select-option>
+              <ion-select-option value="sikhism">Sikhism</ion-select-option>
+            </ion-select>
+          </ion-item>
+
+
+          <ion-item lines="none" class="my-2">
+            <!-- <ion-label>Kids</ion-label> -->
+            <ion-select formControlName="kids" placeholder="Kids" labelPlacement="stacked"  fill="outline" class="outline-no-float" style="--input-height: 40px">
+              <ion-select-option value="0">No Kids</ion-select-option>
+              <ion-select-option value="1">Has Kids</ion-select-option>
+            </ion-select>
+          </ion-item>
+
+          <ion-button expand="full" type="submit">Search Workers</ion-button>
+        </form>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
 </ion-content>

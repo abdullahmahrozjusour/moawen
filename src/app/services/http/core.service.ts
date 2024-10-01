@@ -29,10 +29,7 @@ export class CoreService {
 
   post(path: string, args?: { params?: any }): Observable<any> {
     const httpOptions = {
-      headers: new HttpHeaders({
-        'Accept': 'application/json, text/plain',
-        'Content-Type': 'application/json'
-      })
+      headers: this.createHeaders()
     };
     return this.http.post<any>(this.__url + path, args?.params || null, httpOptions);
   }

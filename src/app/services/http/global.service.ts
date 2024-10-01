@@ -19,8 +19,8 @@ export class GlobalService extends CoreService {
     return this.get('/nationalities');
   }
 
-  searchWorkers(query: any): Observable<any[]> {
-    return this.post('/customer/browseWorkers', { params: { query } });
+  searchWorkers(query: any): Observable<any> {
+    return this.post('/customer/domesticWorker/browseWorkers', { params: { query } });
   }
 
   shortlistWorker(data: any): Observable<any> {

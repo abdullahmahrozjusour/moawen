@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { SharedPageRoutingModule } from './shared-routing.module';
-import { ContractDetailsComponent, PaymentComponent, PaymentMethodeComponent, AddNewPaymentCardComponent, MessageComponent, ProfileViewComponent, WithdrawBalanceComponent } from './modals';
+import { ContractDetailsComponent, PaymentComponent, PaymentMethodeComponent, AddNewPaymentCardComponent, MessageComponent, ProfileViewComponent, WithdrawBalanceComponent, WorkerDetailsComponent } from './modals';
 import { LanguageSwitcherComponent } from './language-switcher/language-switcher.component';
 
 
@@ -16,7 +16,11 @@ import { LanguageSwitcherComponent } from './language-switcher/language-switcher
     IonicModule,
     SharedPageRoutingModule
   ],
-  declarations: [PaymentComponent, PaymentMethodeComponent, ContractDetailsComponent, AddNewPaymentCardComponent, MessageComponent, ProfileViewComponent, WithdrawBalanceComponent, LanguageSwitcherComponent],
-  exports: [PaymentComponent, PaymentMethodeComponent, ContractDetailsComponent, AddNewPaymentCardComponent, MessageComponent, ProfileViewComponent, WithdrawBalanceComponent, LanguageSwitcherComponent]
+  declarations: [PaymentComponent, PaymentMethodeComponent, ContractDetailsComponent, AddNewPaymentCardComponent, MessageComponent, ProfileViewComponent, WithdrawBalanceComponent, LanguageSwitcherComponent,
+    WorkerDetailsComponent
+  ],
+  exports: [PaymentComponent, PaymentMethodeComponent, ContractDetailsComponent, AddNewPaymentCardComponent,
+     MessageComponent, ProfileViewComponent, WithdrawBalanceComponent, LanguageSwitcherComponent,
+     WorkerDetailsComponent]
 })
 export class SharedPageModule { }

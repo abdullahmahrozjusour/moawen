@@ -1,3 +1,4 @@
+export { WorkerDetailsComponent } from './worker-details/worker-details.component';
 export { ProfileViewComponent } from './profile-view/profile-view.component';
 export { AddNewPaymentCardComponent } from './add-new-payment-card/add-new-payment-card.component';
 export { ContractDetailsComponent } from './contract-details/contract-details.component';

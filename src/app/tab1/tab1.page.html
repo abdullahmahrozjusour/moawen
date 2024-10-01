@@ -66,57 +66,30 @@
       <div class="text-center text-lg text-white bg-primary px-3 py-2 rounded-t-lg">{{'Your Hiring Request' | translate}}</div>
       @if(userDetails?.hiringRequest.length != 0){
       <div class="flex flex-col gap-2 max-h-[15rem] overflow-auto">
-        <div class="flex justify-between bg-[#AED036] py-2 px-3 rounded-md items-center" (click)="navigateToBrows()">
-          <div class="flex gap-4 items-center">
-            <img src="/assets/imgs/male-avatar.jpg" class="rounded-full h-12 w-12 object-cover" alt="">
-            <div class="text-primary">
-              <div class="text-md font-roboto font-medium flex flex-col leading-3">Driver <span
-                  class="text-xs font-normal">India/Male</span></div>
+        @for(item of userDetails?.hiringRequest; track item.name){
+          <div class="flex justify-between bg-[#AED036] py-2 px-3 items-center" (click)="navigateToBrows()">
+            <div class="flex gap-4 items-center">
+              @if(item?.gender == 'male'){
+                <img src="/assets/imgs/male-avatar.jpg" class="rounded-full h-12 w-12 object-cover" alt="">
+              }@else {
+                <img src="/assets/imgs/female.png" class="rounded-full h-12 w-12 object-cover" alt="">
+              } 
+              <div class="text-primary">
+                <div class="text-md font-roboto font-medium flex flex-col leading-3">{{item?.title}}<span
+                    class="text-xs font-normal">{{item?.placeOfBirth}}/{{item?.gender}}</span></div>
+              </div>
             </div>
-          </div>
-          <div class="flex gap-4 items-center">
-            <div
-              class="bg-white p-4 flex items-center justify-center text-center rounded-full font-roboto font-medium text-primary h-8 w-8">
-              4</div>
-            <span>
-              <img src="/assets/imgs/icons/right-chev.png" alt="">
-            </span>
-          </div>
-        </div>
-        <div class="flex justify-between bg-[#AED036] py-2 px-3 rounded-md items-center" (click)="navigateToBrows()">
-          <div class="flex gap-4 items-center">
-            <img src="/assets/imgs/male-avatar.jpg" class="rounded-full h-12 w-12 object-cover" alt="">
-            <div class="text-primary">
-              <div class="text-md font-roboto font-medium flex flex-col leading-3">Driver <span
-                  class="text-xs font-normal">India/Male</span></div>
+            <div class="flex gap-4 items-center">
+              <div
+                class="bg-white p-4 flex items-center justify-center text-center rounded-full font-roboto font-medium text-primary h-8 w-8">
+                {{item?.bidders_count}}</div>
+              <span>
+                <img src="/assets/imgs/icons/right-chev.png" alt="">
+              </span>
             </div>
-          </div>
-          <div class="flex gap-4 items-center">
-            <div
-              class="bg-white p-4 flex items-center justify-center text-center rounded-full font-roboto font-medium text-primary h-8 w-8">
-              4</div>
-            <span>
-              <img src="/assets/imgs/icons/right-chev.png" alt="">
-            </span>
-          </div>
-        </div>
-        <div class="flex justify-between bg-[#AED036] py-2 px-3 rounded-md items-center" (click)="navigateToBrows()">
-          <div class="flex gap-4 items-center">
-            <img src="/assets/imgs/male-avatar.jpg" class="rounded-full h-12 w-12 object-cover" alt="">
-            <div class="text-primary">
-              <div class="text-md font-roboto font-medium flex flex-col leading-3">Driver <span
-                  class="text-xs font-normal">India/Male</span></div>
-            </div>
-          </div>
-          <div class="flex gap-4 items-center">
-            <div
-              class="bg-white p-4 flex items-center justify-center text-center rounded-full font-roboto font-medium text-primary h-8 w-8">
-              4</div>
-            <span>
-              <img src="/assets/imgs/icons/right-chev.png" alt="">
-            </span>
-          </div>
-        </div>
+          </div> 
+        }
+       
       </div>}
       @else {
         <p class="bg-[#e2e8f0] px-3 py-2 font-bold">Record Not Found</p>

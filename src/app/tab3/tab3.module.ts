@@ -1,7 +1,7 @@
 import { IonicModule } from '@ionic/angular';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Tab3Page } from './tab3.page';
 import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
 
@@ -17,6 +17,7 @@ import { BrowsLocalComponent } from './brows-local/brows-local.component';
     FormsModule,
     ExploreContainerComponentModule,
     Tab3PageRoutingModule,
+    ReactiveFormsModule
   ],
   exports: [SubmitApplicationComponent, SuccessComponent, BrowsLocalComponent, BrowsLocalComponent ],
   declarations: [Tab3Page, SubmitApplicationComponent, SuccessComponent, BrowsLocalComponent, BrowsLocalComponent ]
