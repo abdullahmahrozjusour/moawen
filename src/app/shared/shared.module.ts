@@ -20,7 +20,7 @@ import { LanguageSwitcherComponent } from './language-switcher/language-switcher
     WorkerDetailsComponent
   ],
   exports: [PaymentComponent, PaymentMethodeComponent, ContractDetailsComponent, AddNewPaymentCardComponent,
-     MessageComponent, ProfileViewComponent, WithdrawBalanceComponent, LanguageSwitcherComponent,
-     WorkerDetailsComponent]
+    MessageComponent, ProfileViewComponent, WithdrawBalanceComponent, LanguageSwitcherComponent,
+    WorkerDetailsComponent]
 })
 export class SharedPageModule { }
