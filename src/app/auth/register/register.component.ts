@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, Validators, AbstractControl } from '@angular/forms';
 
 
 import { NgOtpInputComponent, NgOtpInputConfig } from 'ng-otp-input';
@@ -14,13 +14,13 @@ import { Router } from '@angular/router';
     templateUrl: './register.component.html',
     styleUrls: ['./register.component.scss'],
 })
-export class RegisterComponent  implements OnInit {
+export class RegisterComponent implements OnInit {
     otp: string | undefined;
     showOtpComponent = true;
-    focusToFirstElementAfterValueUpdate:boolean=false;
-    @ViewChild(NgOtpInputComponent, { static: false}) ngOtpInput:NgOtpInputComponent | undefined;
+    focusToFirstElementAfterValueUpdate: boolean = false;
+    @ViewChild(NgOtpInputComponent, { static: false }) ngOtpInput: NgOtpInputComponent | undefined;
 
-    config :NgOtpInputConfig = {
+    config: NgOtpInputConfig = {
         allowNumbersOnly: true,
         length: 6,
         isPasswordInput: false,
@@ -30,17 +30,17 @@ export class RegisterComponent  implements OnInit {
     form: any;
 
     constructor(private fb: FormBuilder,
-    private authService: AuthService,
-    private toastService: ToastService,
-    private router: Router,
-    private loaderService: LoaderService) {
+        private authService: AuthService,
+        private toastService: ToastService,
+        private router: Router,
+        private loaderService: LoaderService) {
         this.createForm();
     }
 
-    ngOnInit() {}
+    ngOnInit() { }
 
-    onOtpChange(otp:any) {
-    this.otp = otp;
+    onOtpChange(otp: any) {
+        this.otp = otp;
     }
 
     getOtp() {
@@ -54,7 +54,7 @@ export class RegisterComponent  implements OnInit {
         this.loaderService.showLoading();
         this.authService.otp(data).subscribe({
             next: resp => {
-                this.toastService.presentToast('top',resp.errors);
+                this.toastService.presentToast('top', resp.errors);
                 this.loaderService.hideLoading();
                 console.log('Next |Done', JSON.stringify(resp));
             },
@@ -65,7 +65,7 @@ export class RegisterComponent  implements OnInit {
         });
     }
 
-    signUpRequest(){
+    signUpRequest() {
         const data = {
             "qId": this.form.value.qId,
             "firstName": this.form.value.fName,
@@ -76,25 +76,46 @@ export class RegisterComponent  implements OnInit {
         this.loaderService.showLoading();
         this.authService.register(data).subscribe({
             next: res => {
-            console.log(res,'API DONE.....!!!');
-                this.toastService.presentToast('top','Successfully Sign up!');
+                console.log(res, 'API DONE.....!!!');
+                this.toastService.presentToast('top', 'Successfully Sign up!');
                 this.loaderService.hideLoading();
                 this.router.navigate(['/login']);
             },
             error: error => {
                 this.toastService.presentToast('top', error.errors);
-                console.log(error,'API DONE.....!!!');
+                console.log(error, 'API DONE.....!!!');
             }
         });
     }
 
     private createForm() {
         this.form = this.fb.group({
-            qId: ['', [Validators.required, Validators.minLength(11), Validators.maxLength(11)]],
+            qId: ['', [Validators.required, this.digitsValidator]],
             fName: ['', [Validators.required]],
-            mobileNo: ['', [Validators.required]],
+            mobileNo: ['', [Validators.required, this.phoneValidate]],
             termsCondition: [, [Validators.required]],
             privacyPolicy: [, [Validators.required]],
         });
+    }
+
+    digitsValidator(control: AbstractControl): { [key: string]: boolean } | null {
+        const value = control.value;
+        if (value && !/^\d{11}$/.test(value)) {
+            return { invalidDigits: true };
+        }
+        return null;
+    }
+    phoneValidate(control: AbstractControl): { [key: string]: boolean } | null {
+        const value = control.value;
+        if (value && !/^\d{8}$/.test(value)) {
+            return { invalidDigits: true };
+        }
+        return null;
+    }
+    restrictInput(event: KeyboardEvent) {
+        const input = event.key;
+        if (!/^\d$/.test(input) && input !== 'Backspace') {
+            event.preventDefault();
+        }
     }
 }
