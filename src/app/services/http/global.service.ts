@@ -36,6 +36,8 @@ export class GlobalService extends CoreService {
   }
 
   getWorkerDetails(dwId: number): Observable<any> {
-    return this.get('/getDomesticWorker', { params: { dwId: dwId.toString() } });
+    return this.get('/customer/domesticWorker/getWorker', { params: { dwId: dwId.toString() } });
   }
 }
+
+ 

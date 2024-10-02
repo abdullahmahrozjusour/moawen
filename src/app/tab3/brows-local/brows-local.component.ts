@@ -15,27 +15,14 @@ import { WorkerDetailsComponent } from 'src/app/shared/modals';
 })
 export class BrowsLocalComponent implements OnInit {
   searchForm!: FormGroup;
+  nationalities: string[] = [];
 
   constructor(private navCtrl: NavController, private globalService: GlobalService,
     private toastService: ToastService, private loaderService: LoaderService, private fb: FormBuilder,
     private modalController: ModalController
 
   ) {
-    this.initializeForm()
-    // this.searchForm = this.fb.group({
-    //   nationality: [[]],
-    //   profession: [[]],
-    //   vpData: [[]],
-    //   gender: [[]],
-    //   religion: [[]],
-    //   currentLocation: [['qatar']],   
-    //   localNationality: [[]],
-    //   skills: [[]],
-    //   married: [''],   
-    //   kids: [''],      
-    //   age: [''],     
-    //   agencyId: [0]
-    // }); 
+    this.initializeForm() 
   }
   workers: any
   dob: string = '';
@@ -80,6 +67,18 @@ export class BrowsLocalComponent implements OnInit {
     });
   }
 
+  fethNationalities(){
+    this.globalService.fetchAllNationalities().subscribe({
+      next: (nationalities) => {
+        console.log(nationalities, 'nationality')
+        // this.nationalities = nationalities
+      },
+      error: (error) => {
+        this.toastService.showToastByStatusCode('top', error.status, error.error.message);
+      }
+    })
+  }
+
   calculateAge(dob: string): number {
     if (!dob) return 0;
     const birthDate = new Date(dob);
@@ -109,11 +108,12 @@ export class BrowsLocalComponent implements OnInit {
   }
 
   clearFilters() {
-    this.initializeForm(); // Reset the form to default values
-    this.fetchAllWorkers(); // Optionally, fetch all workers again
+    this.initializeForm();  
+    this.fetchAllWorkers(); 
   }
   ngOnInit() {
     this.fetchAllWorkers()
+    this.fethNationalities()
   }
 
 }

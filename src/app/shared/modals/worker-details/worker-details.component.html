@@ -42,8 +42,8 @@
         <div class="flex flex-col justify-center items-center">
           <img src="/assets/imgs/avatar-color.png" alt="">
           <div class="text-center font-roboto font-semibold text-black text-lg leading-6 mt-2">
-            {{worker?.firstName}} {{worker?.lastName}}
-            <span class="font-normal block text-sm leading-4 italic">{{worker?.nationality}}</span>
+            {{workerDetail?.firstName}} {{workerDetail?.lastName}}
+            <span class="font-normal block text-sm leading-4 italic">{{workerDetail?.nationality}}</span>
           </div>
         </div>
         <div>
@@ -53,21 +53,21 @@
       <div class="px-5 py-4 flex flex-col gap-y-3 ">
         <div class="bg-white rounded-lg py-2 px-3">
           <div class="text-black font-semibold mb-2">General Information</div>
-          <div class="flex list gap-x-3 gap-y-1">
+          <!-- <div class="flex list gap-x-3 gap-y-1">
             <div class="list-title basis-3/5 text-black font-semibold text-[#252A31]">Application Ref No.</div>
             <div class="list-val text-black font-normal text-[#4F5E71]">: 17203</div>
-          </div>
+          </div> -->
           <div class="flex list gap-x-3 gap-y-1">
             <div class="list-title basis-3/5 text-black font-semibold text-[#252A31]">Current Location</div>
-            <div class="list-val text-black font-normal text-[#4F5E71]">: {{worker?.currentLocation}}</div>
+            <div class="list-val text-black font-normal text-[#4F5E71]">: {{workerDetail?.currentLocation}}</div>
           </div>
           <div class="flex list gap-x-3 gap-y-1">
             <div class="list-title basis-3/5 text-black font-semibold text-[#252A31]">Recruitment Cost</div>
-            <div class="list-val text-black font-normal text-[#4F5E71]">: QAR 8000</div>
+            <div class="list-val text-black font-normal text-[#4F5E71]">: QAR {{workerDetail?.proposal.offerPrice}}</div>
           </div>
           <div class="flex list gap-x-3 gap-y-1">
             <div class="list-title basis-3/5 text-black font-semibold text-[#252A31]">Monthly Salary</div>
-            <div class="list-val text-black font-normal text-[#4F5E71]">: QAR 3000</div>
+            <div class="list-val text-black font-normal text-[#4F5E71]">: QAR {{workerDetail?.proposal.salary}}</div>
           </div>
         </div>
 
@@ -75,20 +75,20 @@
           <div class="text-black font-semibold mb-2">Agency Information</div>
           <div class="flex list flex-wrap gap-y-1">
             <div class="list-title basis-3/12 text-black font-semibold text-[#252A31]">Name</div>
-            <div class="list-val basis-9/12 text-black font-normal text-[#4F5E71]">: Manpower LTD.</div>
+            <div class="list-val basis-9/12 text-black font-normal text-[#4F5E71]">: {{workerDetail?.agency.agencyNameEn}}</div>
           </div>
           <div class="flex list flex-wrap gap-y-1">
             <div class="list-title basis-3/12 text-black font-semibold text-[#252A31]">Phone no.</div>
-            <div class="list-val basis-9/12 text-black font-normal text-[#4F5E71]">: 73915367</div>
+            <div class="list-val basis-9/12 text-black font-normal text-[#4F5E71]">: {{workerDetail?.agency.mobileNumber}}</div>
           </div>
           <div class="flex list flex-wrap gap-y-1">
             <div class="list-title basis-3/12 text-black font-semibold text-[#252A31]">E-mail</div>
-            <div class="list-val basis-9/12 text-black font-normal text-[#4F5E71]">: man.power"&#64;"gmail.com</div>
+            <div class="list-val basis-9/12 text-black font-normal text-[#4F5E71]">: {{workerDetail?.agency.email}}</div>
 
           </div>
           <div class="flex list  gap-y-1">
             <div class="list-title basis-3/12 text-black font-semibold text-[#252A31]">Address</div>
-            <div class="list-val basis-9/12 text-black font-normal text-[#4F5E71]">: Zone 10, street 45, Bldg 1</div>
+            <div class="list-val basis-9/12 text-black font-normal text-[#4F5E71]">: {{workerDetail?.agency.addresses}}</div>
           </div>
         </div>
 
@@ -96,19 +96,19 @@
           <div class="text-black font-semibold mb-2">Worker Information</div>
           <div class="flex list  gap-y-1">
             <div class="list-title basis-3/12 text-black font-semibold text-[#252A31]">Name</div>
-            <div class="list-val basis-9/12 text-black font-normal text-[#4F5E71]">: 17203</div>
+            <div class="list-val basis-9/12 text-black font-normal text-[#4F5E71]">: {{workerDetail?.firstName}} {{workerDetail?.lastName}}</div>
           </div>
           <div class="flex list  gap-y-1">
             <div class="list-title basis-3/12 text-black font-semibold text-[#252A31]">Nationality</div>
-            <div class="list-val basis-9/12 text-black font-normal text-[#4F5E71]">: Indian</div>
+            <div class="list-val basis-9/12 text-black font-normal text-[#4F5E71]">: {{workerDetail?.nationality}}</div>
           </div>
           <div class="flex list  gap-y-1">
             <div class="list-title basis-3/12 text-black font-semibold text-[#252A31]">Address</div>
-            <div class="list-val basis-9/12 text-black font-normal text-[#4F5E71]">: New Delhi, India</div>
+            <div class="list-val basis-9/12 text-black font-normal text-[#4F5E71]">: {{workerDetail?.addresses.address}} {{workerDetail?.addresses.building}} {{workerDetail?.addresses.city}} {{workerDetail?.addresses.country}}</div>
           </div>
           <div class="flex list  gap-y-1">
             <div class="list-title basis-3/12 text-black font-semibold text-[#252A31]">Phone no.</div>
-            <div class="list-val basis-9/12 text-black font-normal text-[#4F5E71]">: +91 93246178</div>
+            <div class="list-val basis-9/12 text-black font-normal text-[#4F5E71]">: {{workerDetail?.communication_info.phoneNumber}}</div>
           </div>
         </div>
         <div class="flex gap-2 justify-center">
