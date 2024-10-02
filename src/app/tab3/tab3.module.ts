@@ -9,6 +9,7 @@ import { Tab3PageRoutingModule } from './tab3-routing.module';
 import { SubmitApplicationComponent } from './submit-application/submit-application.component';
 import { SuccessComponent } from './success/success.component';
 import { BrowsLocalComponent } from './brows-local/brows-local.component';
+import { BrowsSearchComponent } from './brows-search/brows-search.component';
  
 @NgModule({
   imports: [
@@ -19,7 +20,7 @@ import { BrowsLocalComponent } from './brows-local/brows-local.component';
     Tab3PageRoutingModule,
     ReactiveFormsModule
   ],
-  exports: [SubmitApplicationComponent, SuccessComponent, BrowsLocalComponent, BrowsLocalComponent ],
-  declarations: [Tab3Page, SubmitApplicationComponent, SuccessComponent, BrowsLocalComponent, BrowsLocalComponent ]
+  exports: [SubmitApplicationComponent, SuccessComponent, BrowsLocalComponent, BrowsLocalComponent,BrowsSearchComponent ],
+  declarations: [Tab3Page, SubmitApplicationComponent, SuccessComponent, BrowsLocalComponent, BrowsLocalComponent, BrowsSearchComponent ]
 })
 export class Tab3PageModule { }

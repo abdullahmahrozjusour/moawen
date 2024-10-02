@@ -1,12 +1,13 @@
 import { Component, OnInit, ViewChild  } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { ModalController, NavController } from '@ionic/angular';
+import { ModalController, NavController, NavParams } from '@ionic/angular';
 import { GlobalService } from 'src/app/services/http/global.service';
 import { LoaderService } from 'src/app/services/loader.service';
 import { ToastService } from 'src/app/services/toast.service';
 import { IonModal } from '@ionic/angular';
 import { OverlayEventDetail } from '@ionic/core/components';
 import { WorkerDetailsComponent } from 'src/app/shared/modals';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-brows-local',
@@ -15,14 +16,20 @@ import { WorkerDetailsComponent } from 'src/app/shared/modals';
 })
 export class BrowsLocalComponent implements OnInit {
   searchForm!: FormGroup;
-  nationalities: string[] = [];
+  nationalities: any = [];
+  
 
   constructor(private navCtrl: NavController, private globalService: GlobalService,
     private toastService: ToastService, private loaderService: LoaderService, private fb: FormBuilder,
-    private modalController: ModalController
+    private modalController: ModalController,private router: Router,
 
   ) {
-    this.initializeForm() 
+    const navigation = this.router.getCurrentNavigation();
+    if (navigation?.extras?.state) {
+      const query = navigation.extras.state['query'];
+      this.fetchAllWorkers(query);
+      console.log(query)
+    }
   }
   workers: any
   dob: string = '';
@@ -33,45 +40,44 @@ export class BrowsLocalComponent implements OnInit {
     this.navCtrl.navigateRoot('/home/tab1/worker-contract');
   }
 
-  private initializeForm() {
-    this.searchForm = this.fb.group({
-      nationality: [[]],
-      profession: [[]],
-      vpData: [[]],
-      gender: [[]],
-      religion: [[]],
-      currentLocation: [['qatar']],
-      localNationality: [[]],
-      skills: [[]],
-      married: [''],
-      kids: [''],
-      age: [''],
-      agencyId: [0],
-    });
-  }
+  // private initializeForm() {
+  //   this.searchForm = this.fb.group({
+  //     nationality: [[]],
+  //     profession: [[]],
+  //     vpData: [[]],
+  //     gender: [[]],
+  //     religion: [[]],
+  //     currentLocation: [['qatar']],
+  //     localNationality: [[]],
+  //     skills: [[]],
+  //     married: [''],
+  //     kids: [''],
+  //     age: [''],
+  //     agencyId: [0],
+  //   });
+  // }
 
-  fetchAllWorkers() {
-    const query = this.searchForm.value;
-    this.loaderService.showLoading() 
+  fetchAllWorkers(query: any) {
+    this.loaderService.showLoading();
     this.globalService.searchWorkers(query).subscribe({
       next: (workers) => {
         console.log('Workers found:', workers.response);
-        this.workers = workers.response,
+        this.workers = workers.response;
         this.isModalOpen = false;
-        this.loaderService.hideLoading() 
+        this.loaderService.hideLoading();
       },
       error: (error) => {
         this.toastService.showToastByStatusCode('top', error.status, error.error.message);
-        this.loaderService.hideLoading() 
-      }
+        this.loaderService.hideLoading();
+      },
     });
   }
 
   fethNationalities(){
     this.globalService.fetchAllNationalities().subscribe({
       next: (nationalities) => {
-        console.log(nationalities, 'nationality')
-        // this.nationalities = nationalities
+        // console.log(nationalities.response, 'nationality')
+        this.nationalities = nationalities.response;
       },
       error: (error) => {
         this.toastService.showToastByStatusCode('top', error.status, error.error.message);
@@ -108,12 +114,12 @@ export class BrowsLocalComponent implements OnInit {
   }
 
   clearFilters() {
-    this.initializeForm();  
-    this.fetchAllWorkers(); 
+    // this.initializeForm();  
+    // this.fetchAllWorkers(); 
   }
   ngOnInit() {
-    this.fetchAllWorkers()
-    this.fethNationalities()
+    // this.fetchAllWorkers()
+    // this.fethNationalities()
   }
 
 }

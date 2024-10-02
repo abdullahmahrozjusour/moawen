@@ -15,7 +15,7 @@ export class GlobalService extends CoreService {
     return this.post('/recruitment/application', { params: data });
   }
 
-  fetchAllNationalities(): Observable<any[]> {
+  fetchAllNationalities(): Observable<any> {
     return this.get('/nationalities');
   }
 

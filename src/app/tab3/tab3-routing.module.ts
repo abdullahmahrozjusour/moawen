@@ -5,6 +5,7 @@ import { SubmitApplicationComponent } from './submit-application/submit-applicat
 import { SuccessComponent } from './success/success.component';
 import { BrowsLocalComponent } from './brows-local/brows-local.component';
 import { ShortListComponent } from '../tab1/short-list/short-list.component';
+import { BrowsSearchComponent } from './brows-search/brows-search.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,10 @@ const routes: Routes = [
   {
     path: 'brows-local',
     component: BrowsLocalComponent
+  },
+  {
+    path: 'brows-search',
+    component: BrowsSearchComponent,
   }
 ];
 
