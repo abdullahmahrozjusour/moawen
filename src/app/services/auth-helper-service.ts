@@ -31,8 +31,8 @@ export class AuthHelperService {
         this.deleteCookie(this.appVars.env['cookie'].name);
         this.deleteCookie(this.appVars.env.tokenExpiry);
         this.deleteCookie(this.appVars.env.tokenExpiryMin);
-        this.router.navigate(['/endorsement']);
-        window.location.href = '//' + window.location.host + '/endorsement';
+        // this.router.navigate(['/endorsement']);
+        // window.location.href = '//' + window.location.host + '/endorsement';
     }
 
     deleteCookie(name: string) {
@@ -44,7 +44,7 @@ export class AuthHelperService {
     }
 
     addAuthToken(token: string): void {
-        this.cookieService.set(this.appVars.env['cookie'].name, token);
+        this.cookieService.set(this.appVars.env['cookie'].name, token, { path: this.appVars.env['cookie'].path, sameSite: 'Strict' });
     }
 
     isLoggedIn(): boolean {
@@ -52,10 +52,10 @@ export class AuthHelperService {
     }
     logout() {
         const cookieName = this.appVars.env['cookie'].name;
+        this.cookieService.delete(cookieName, this.appVars.env['cookie'].path); // Adjust path if needed
 
-        this.cookieService.delete(cookieName, '/');
-
-        const deletedToken = this.cookieService.get(cookieName);
+        const deletedToken = this.cookieService.get(cookieName); // Should return undefined
+        console.log('After deletion:', deletedToken);
 
         this.router.navigate(['/login']);
     }
