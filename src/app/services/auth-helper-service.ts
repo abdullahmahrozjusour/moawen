@@ -52,11 +52,7 @@ export class AuthHelperService {
     }
     logout() {
         const cookieName = this.appVars.env['cookie'].name;
-        this.cookieService.delete(cookieName, this.appVars.env['cookie'].path); // Adjust path if needed
-
-        const deletedToken = this.cookieService.get(cookieName); // Should return undefined
-        console.log('After deletion:', deletedToken);
-
+        this.cookieService.delete(cookieName, this.appVars.env['cookie'].path); 
         this.router.navigate(['/login']);
     }
 
