@@ -16,9 +16,7 @@ export class Tab1Page implements OnInit {
   ) {}
   userDetails: any;
 
-  ngOnInit(): void {
-    this.fetchUserDetails();
-  }
+  
   fetchUserDetails(): void {
     this.loaderService.showLoading();
     this.globalService.resolveUser().subscribe({
@@ -31,8 +29,7 @@ export class Tab1Page implements OnInit {
         this.toastService.showToastByStatusCode('top', error.status, error.error.message);
         this.loaderService.hideLoading()
       }
-    });
-    
+    }); 
   }
   navigateToTab3() {
     this.navCtrl.navigateRoot('/home/tab3');
@@ -48,5 +45,9 @@ export class Tab1Page implements OnInit {
   }
   navigateToBrows() {
     this.navCtrl.navigateRoot('/home/tab3/brows-local');
+  }
+
+  ngOnInit(): void {
+    this.fetchUserDetails();
   }
 }
