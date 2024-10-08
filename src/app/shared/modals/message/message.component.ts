@@ -13,10 +13,10 @@ export class MessageComponent  implements OnInit {
   constructor(private navCtrl:NavController, private modalController: ModalController, private navParams: NavParams ) { }
   navigateToBrows() {
     this.modalController.dismiss();
-    this.navCtrl.navigateRoot('/home/tab1/your-shortlist');
+    this.navCtrl.navigateRoot('dashboard/your-shortlist');
   }
   dismiss() {
-    
+
     this.modalController.dismiss();
   }
   ngOnInit() {

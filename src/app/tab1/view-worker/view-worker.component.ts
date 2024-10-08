@@ -10,7 +10,7 @@ export class ViewWorkerComponent  implements OnInit {
 
   constructor(private navCtrl:NavController) { }
   navigateToWorkerContract() {
-    this.navCtrl.navigateRoot('/home/tab1/worker-contract');
+    this.navCtrl.navigateRoot('dashboard/worker-contract');
   }
 
   ngOnInit() {}

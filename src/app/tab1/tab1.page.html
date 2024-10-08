@@ -6,100 +6,123 @@
 
 <ion-content [fullscreen]="true">
   <div class="grid grid-cols-2 gap-3 h-full w-full bg-slate-50 p-4 content-baseline overflow-auto">
-    <div class="col-span-2" (click)="navigateToTab3()">
+    <div class="col-span-2" (click)="navigationToggle('hireNow')">
       <div class="bg-blend-normal flex items-end p-4 justify-end">
         <ion-button color="success" class="btn-def capitalize text-sm">{{'Hire Now' | translate}}</ion-button>
       </div>
     </div>
-    <div class="flex flex-col items-center justify-between p-2 d-card" (click)="navigateToProfile()">
+
+    <div class="flex flex-col items-center justify-between p-2 d-card" (click)="navigationToggle('profile')">
       <div class="text-white font-roboto font-medium text-sm">{{'Your Profile' | translate}}</div>
+
       <div>
         <img src="/assets/imgs/avatar-colored.png" alt="">
       </div>
+
       <div class="text-xs italic">{{userDetails?.customerNameEn}}</div>
+
       <ion-button color="primary" class="btn-def capitalize text-xs !font-normal"
         style="    min-height: 27px;--padding-start: 1.5rem; --padding-end:1.5rem; --border-style: solid;  --border-width: 1px;  "
         [routerLink]="['']">{{'Edit Profile' | translate}}</ion-button>
     </div>
+
     <div class="flex flex-col items-center justify-between p-2 d-card" [routerLink]="['tracking-list']">
       <div class="text-white font-roboto font-medium text-center text-sm">{{'Recruitment Tracking' | translate}}</div>
+
       <div class="mt-2">
         <img src="/assets/imgs/icons/map-icon.png" alt="">
       </div>
+
       <ion-button color="primary" class="btn-def capitalize text-xs !font-normal"
         style="min-height: 27px;--padding-start: 1.5rem; --padding-end:1.5rem; --border-style: solid;  --border-width: 1px;"
         [routerLink]="['']">{{'View all' | translate}}</ion-button>
     </div>
-    <div class="flex flex-col items-center justify-between p-2 d-card" (click)="navigateToWorkers()">
+
+    <div class="flex flex-col items-center justify-between p-2 d-card" (click)="navigationToggle('worker')">
       <div class="text-white font-roboto font-medium text-center text-sm">{{'Your Workers' | translate}}</div>
+
       <div class="mt-2">
         <img src="/assets/imgs/icons/workers-icon.png" alt="">
       </div>
+
       <div></div>
+
       <ion-button color="primary" class="btn-def capitalize text-xs !font-normal"
         style="min-height: 27px;--padding-start: 1.5rem; --padding-end:1.5rem; --border-style: solid;  --border-width: 1px;"
         [routerLink]="['']">{{'View all' | translate}}</ion-button>
     </div>
+
     <div class="flex flex-col items-center justify-between p-2 d-card" [routerLink]="'complaints'">
       <div class="text-white font-roboto font-medium text-center text-sm">{{'Complaints' | translate}}</div>
+
       <div class="mt-2">
         <img src="/assets/imgs/icons/complaint-icon.png" alt="">
       </div>
+
       <ion-button color="primary" class="btn-def capitalize text-xs !font-normal"
         style="min-height: 27px;--padding-start: 0.2rem; --padding-end:0.2rem;     --border-style: solid;  --border-width: 1px;"
         [routerLink]="['']">{{'Register a Complaint'| translate}}</ion-button>
     </div>
+
     <div class="col-span-2 ">
       <div class="flex justify-between blue-bg py-2 px-3">
         <div class="text-white">
           <div>{{'Your Wallet' | translate}}</div>
+
           <div class="text-3xl font-roboto font-bold italic">{{'QAR' | translate}} {{userDetails?.accountBalance}}</div>
         </div>
+
         <div class="flex items-end flex-col justify-end">
           <ion-button fill="outline" color="light" class="btn-def capitalize text-xs !font-normal"
             style="min-height: 27px;--padding-start: 1rem; --padding-top:0.5rem; --padding-bottom:0.5rem; --padding-end:1rem; --border-width:1px"
-            (click)="navigateToWallet()">{{'View Transactions' | translate}}</ion-button>
+            (click)="navigationToggle('wallet')">{{'View Transactions' | translate}}</ion-button>
         </div>
       </div>
     </div>
+
     <div class="col-span-2">
       <div class="text-center text-lg text-white bg-primary px-3 py-2 rounded-t-lg">{{'Your Hiring Request' | translate}}</div>
+
       @if(userDetails?.hiringRequest.length != 0){
       <div class="flex flex-col gap-2 max-h-[15rem] overflow-auto">
         @for(item of userDetails?.hiringRequest; track item.name){
-          <div class="flex justify-between bg-[#AED036] py-2 px-3 items-center" (click)="navigateToBrows()">
+          <div class="flex justify-between bg-[#AED036] py-2 px-3 items-center" (click)="navigationToggle('brows-local')">
             <div class="flex gap-4 items-center">
               @if(item?.gender == 'male'){
                 <img src="/assets/imgs/male-avatar.jpg" class="rounded-full h-12 w-12 object-cover" alt="">
               }@else {
                 <img src="/assets/imgs/female.png" class="rounded-full h-12 w-12 object-cover" alt="">
-              } 
+              }
+
               <div class="text-primary">
                 <div class="text-md font-roboto font-medium flex flex-col leading-3">{{item?.title}}<span
                     class="text-xs font-normal">{{item?.placeOfBirth}}/{{item?.gender}}</span></div>
               </div>
             </div>
+
             <div class="flex gap-4 items-center">
               <div
                 class="bg-white p-4 flex items-center justify-center text-center rounded-full font-roboto font-medium text-primary h-8 w-8">
-                {{item?.bidders_count}}</div>
+                {{item?.bidders_count}}
+              </div>
+
               <span>
                 <img src="/assets/imgs/icons/right-chev.png" alt="">
               </span>
             </div>
-          </div> 
+          </div>
         }
-       
       </div>}
       @else {
-        <p class="bg-[#e2e8f0] px-3 py-2 font-bold">Record Not Found</p>
+        <p class="bg-[#e2e8f0] px-3 py-2 font-bold">{{'Record Not Found' | translate}}</p>
       }
+
       <div class="flex justify-center mt-4">
         <ion-button color="primary" class="btn-def capitalize text-xs !font-normal" [routerLink]="['your-shortlist']"
-          style="min-height: 35px;--padding-start: 1.5rem; --padding-end:1.5rem; ">{{'Your Shortlist' |
-          translate}}</ion-button>
+          style="min-height: 35px;--padding-start: 1.5rem; --padding-end:1.5rem; ">
+          {{'Your Shortlist' | translate}}
+        </ion-button>
       </div>
     </div>
   </div>
-
 </ion-content>

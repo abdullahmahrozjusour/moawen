@@ -43,9 +43,11 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() { }
 
+
   onOtpChange(otp: any) {
     this.otp = otp;
   }
+
 
   getOtp() {
     const qId = this.form.value.qId;
@@ -69,12 +71,12 @@ export class LoginComponent implements OnInit {
   }
 
 
-
   private createForm() {
     this.form = this.fb.group({
       qId: ['', [Validators.required, this.digitsValidator]]
     });
   }
+
 
   digitsValidator(control: AbstractControl): { [key: string]: boolean } | null {
     const value = control.value;
@@ -83,12 +85,15 @@ export class LoginComponent implements OnInit {
     }
     return null;
   }
+
+
   restrictInput(event: KeyboardEvent) {
     const input = event.key;
     if (!/^\d$/.test(input) && input !== 'Backspace') {
       event.preventDefault();
     }
   }
+
 
   onSubmit() {
     const data = {
@@ -101,11 +106,12 @@ export class LoginComponent implements OnInit {
 
     this.authService.login(data).subscribe({
       next: (res) => {
-        console.log(res.access_token)
+        this.loaderService.hideLoading();
         this.toastService.presentToast('top', 'Login Success')
         this.authHelper.addAuthToken(res.access_token);
-        this.router.navigate(['/home/tab1']);
-        this.loaderService.hideLoading();
+        this.router.navigate(['dashboard']).then(() => {
+          window.location.reload();
+        });
       },
       error: (res) => {
         this.loaderService.hideLoading();

@@ -79,7 +79,7 @@ export class RegisterComponent implements OnInit {
                 console.log(res, 'API DONE.....!!!');
                 this.toastService.presentToast('top', 'Successfully Sign up!');
                 this.loaderService.hideLoading();
-                this.router.navigate(['/login']);
+                this.router.navigate(['/auth/login']);
             },
             error: error => {
                 this.toastService.presentToast('top', error.errors);

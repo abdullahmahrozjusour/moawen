@@ -8,12 +8,12 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['./submit-application.component.scss'],
 })
 export class SubmitApplicationComponent  implements OnInit {
-  
+
   canDismiss = false;
 
   constructor(private navCtrl:NavController) { }
   navigateToSuccess() {
-    this.navCtrl.navigateRoot('/home/tab3/success');
+    this.navCtrl.navigateRoot('hireNow/success');
   }
   ngOnInit() {}
 

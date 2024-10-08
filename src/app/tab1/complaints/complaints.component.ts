@@ -11,10 +11,10 @@ export class ComplaintsComponent  implements OnInit {
   constructor(private navCtrl: NavController) {}
 
   navigateToComForm() {
-    this.navCtrl.navigateRoot('/home/tab1/form');
+    this.navCtrl.navigateRoot('dashboard/form');
   }
   navigateToComList() {
-    this.navCtrl.navigateRoot('/home/tab1/complaints-list');
+    this.navCtrl.navigateRoot('dashboard/complaints-list');
   }
   ngOnInit() {}
 

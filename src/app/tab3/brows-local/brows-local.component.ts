@@ -17,7 +17,10 @@ import { Router } from '@angular/router';
 export class BrowsLocalComponent implements OnInit {
   searchForm!: FormGroup;
   nationalities: any = [];
-  
+  workers: any
+  dob: string = '';
+  searchQuery: any;
+
 
   constructor(private navCtrl: NavController, private globalService: GlobalService,
     private toastService: ToastService, private loaderService: LoaderService, private fb: FormBuilder,
@@ -26,36 +29,23 @@ export class BrowsLocalComponent implements OnInit {
   ) {
     const navigation = this.router.getCurrentNavigation();
     if (navigation?.extras?.state) {
-      const query = navigation.extras.state['query'];
-      this.fetchAllWorkers(query);
-      console.log(query)
+      this.searchQuery = navigation.extras.state['query'];
+      this.fetchAllWorkers(this.searchQuery);
+      console.log(this.searchQuery,'zaid')
     }
   }
-  workers: any
-  dob: string = '';
+
+
   navigateToViewWorker() {
-    this.navCtrl.navigateRoot('/home/tab1/view-worker');
-  }
-  navigateToWorkerContract() {
-    this.navCtrl.navigateRoot('/home/tab1/worker-contract');
+    this.navCtrl.navigateRoot('dashboard/view-worker');
   }
 
-  // private initializeForm() {
-  //   this.searchForm = this.fb.group({
-  //     nationality: [[]],
-  //     profession: [[]],
-  //     vpData: [[]],
-  //     gender: [[]],
-  //     religion: [[]],
-  //     currentLocation: [['qatar']],
-  //     localNationality: [[]],
-  //     skills: [[]],
-  //     married: [''],
-  //     kids: [''],
-  //     age: [''],
-  //     agencyId: [0],
-  //   });
-  // }
+
+
+  navigateToWorkerContract() {
+    this.navCtrl.navigateRoot('dashboard/worker-contract');
+  }
+
 
   fetchAllWorkers(query: any) {
     this.loaderService.showLoading();
@@ -73,6 +63,7 @@ export class BrowsLocalComponent implements OnInit {
     });
   }
 
+
   fethNationalities(){
     this.globalService.fetchAllNationalities().subscribe({
       next: (nationalities) => {
@@ -84,6 +75,7 @@ export class BrowsLocalComponent implements OnInit {
       }
     })
   }
+
 
   calculateAge(dob: string): number {
     if (!dob) return 0;
@@ -101,8 +93,8 @@ export class BrowsLocalComponent implements OnInit {
 
   isModalOpen = false;
 
-  setOpen(isOpen: boolean) {
-    this.isModalOpen = isOpen;
+  setOpen() {
+    this.navCtrl.navigateBack('hireNow/brows-search')
   }
 
   async openWorkerDetailModal(worker: any) {
@@ -114,12 +106,29 @@ export class BrowsLocalComponent implements OnInit {
   }
 
   clearFilters() {
-    // this.initializeForm();  
-    // this.fetchAllWorkers(); 
+    // this.initializeForm();
+    // this.fetchAllWorkers();
   }
   ngOnInit() {
     // this.fetchAllWorkers()
     // this.fethNationalities()
+  }
+
+  shortlistWorker(worker: any) {
+    const	requestBody ={
+        "delete" : true, 		// if true then shortlisted and if false then unshortlisted
+        "dwAgencyId" : worker.agencyId,		// domestic worker agency id
+        "dwId" : worker.id	      // domestic worker id
+      }
+
+    this.globalService.shortlistWorker(requestBody).subscribe({
+      next: () => {
+
+      },
+      error: () => {
+
+      }
+    })
   }
 
 }

@@ -3,29 +3,92 @@
     <div class="p-4">
       <div class="cstm-input">
         <div class="flex gap-1">
-          <div class="tag">
-            <span>Islam</span>
-            <ion-icon name="close"></ion-icon>
-          </div>
-          <div class="tag">
-            <span>Islam</span>
-            <ion-icon name="close"></ion-icon>
-          </div>
-          <div class="tag">
-            <span>Islam</span>
-            <ion-icon name="close"></ion-icon>
-          </div>
+          @if (searchQuery.age !== '') {
+            <div class="tag">
+              <span>{{searchQuery.age}}</span>
+              <ion-icon name="close"></ion-icon>
+            </div>
+          }
+
+          @if (searchQuery.gender && searchQuery.gender.length > 0) {
+            @for (gender of searchQuery.gender; track $index) {
+              <div class="tag">
+                <span>{{gender}}</span>
+                <ion-icon name="close"></ion-icon>
+              </div>
+            }
+          }
+
+          @if (searchQuery.kids !== '') {
+            <div class="tag">
+              <span>{{searchQuery.kids == '1' ? 'Has Kids' : 'No kids'}}</span>
+              <ion-icon name="close"></ion-icon>
+            </div>
+          }
+
+          @if (searchQuery.married !== '') {
+            <div class="tag">
+              <span>{{searchQuery.married == '1' ? 'Married' : 'Unmarried'}}</span>
+              <ion-icon name="close"></ion-icon>
+            </div>
+          }
+
+          @if (searchQuery.nationality && searchQuery.nationality.length > 0) {
+            @for (nationality of searchQuery.nationality; track $index) {
+              <div class="tag">
+                <span>{{nationality}}</span>
+                <ion-icon name="close"></ion-icon>
+              </div>
+            }
+          }
+
+          @if (searchQuery.profession && searchQuery.profession.length > 0) {
+            @for (prof of searchQuery.profession; track $index) {
+              <div class="tag">
+                <span>{{prof}}</span>
+                <ion-icon name="close"></ion-icon>
+              </div>
+            }
+          }
+
+          @if (searchQuery.religion && searchQuery.religion.length > 0) {
+            @for (religion of searchQuery.religion; track $index) {
+              <div class="tag">
+                <span>{{religion}}</span>
+                <ion-icon name="close"></ion-icon>
+              </div>
+            }
+          }
+
+          @if (searchQuery.skills && searchQuery.skills.length > 0) {
+            @for (skill of searchQuery.skills; track $index) {
+              <div class="tag">
+                <span>{{skill}}</span>
+                <ion-icon name="close"></ion-icon>
+              </div>
+            }
+          }
+
+          @if (searchQuery.vpData && searchQuery.vpData.length > 0) {
+            @for (vps of searchQuery.vpData; track $index) {
+              <div class="tag">
+                <span>{{vps}}</span>
+                <ion-icon name="close"></ion-icon>
+              </div>
+            }
+          }
         </div>
-        <div (click)="setOpen(true)">
+
+        <div (click)="setOpen()">
           <span class="bg-white px-2 rounded h-8 flex items-center justify-between text-xl">
             <ion-icon name="options-outline"></ion-icon>
           </span>
         </div>
       </div>
     </div>
-
   </ion-toolbar>
 </ion-header>
+
 <ion-content>
   @if(workers?.dataDw.length != 0){
   <div class="grid grid-cols-1 gap-3 pt-0 h-full w-full bg-slate-50 p-4 content-start overflow-auto">
@@ -38,25 +101,30 @@
           }@else {
           <img src="/assets/imgs/female.png" class="rounded-full h-12 w-12 object-cover" alt="">
           }
+
           <div class="flex justify-center mt-1">
             <span
               class="text-xs text-primary border rounded-lg px-1 w-10 inline-block text-center font-semibold border-white mx-auto" [ngClass]="item?.precentage < 60 ? 'bg-[#BA5D00]' : 'bg-[#44D357]'" >{{item?.precentage}}%</span>
           </div>
         </div>
+
         <div class="w-full">
           <div class="flex justify-between gap-2 w-full">
             <div class="text-black font-bold text-sm leading-4 mt-2">
               Driver
               <span class="block font-normal">{{item?.nationality}}</span>
             </div>
-            <div>
+
+            <div (click)="shortlistWorker(item)">
               <img src="/assets/imgs/icons/material-symbols-light.png" alt="">
             </div>
           </div>
+
           <div class="text-xs mt-3">{{item?.gender}} / {{item?.religion}} / {{ calculateAge(item?.dob) }} /
             {{item?.noOfChildren != 0 ? item?.noOfChildren : 'No Kids'}} / {{item?.maritalStatus}}</div>
         </div>
       </div>
+
       <div class="flex justify-end">
         <ion-button color="primary" class="btn-def capitalize text-xs !font-semibold"
           style="min-height: 35px;--padding-start: 1.5rem; --padding-end:1.5rem; "
@@ -79,21 +147,21 @@
         <ion-toolbar>
           <ion-title>Search Filters</ion-title>
           <ion-buttons slot="end">
-            <ion-button (click)="clearFilters()">Clear Filters</ion-button>  
-            <ion-button (click)="setOpen(false)">
+            <ion-button (click)="clearFilters()">Clear Filters</ion-button>
+            <ion-button (click)="setOpen()">
               <ion-icon name="close-outline"></ion-icon>
             </ion-button>
-            
+
           </ion-buttons>
         </ion-toolbar>
       </ion-header>
       <ion-content >
         <!-- <form [formGroup]="searchForm" (ngSubmit)="fetchAllWorkers()">
-          <ion-item lines="none" class="my-2"> 
+          <ion-item lines="none" class="my-2">
             <ion-select formControlName="nationality" placeholder="Nationality" multiple="true" labelPlacement="stacked"  fill="outline" class="outline-no-float" style="--input-height: 40px">
               @for(item of nationalities; track item.name){
                 <ion-select-option [value]="item?.slug">{{item?.name}}</ion-select-option>
-              } 
+              }
             </ion-select>
           </ion-item>
 
@@ -112,7 +180,7 @@
             </ion-select>
           </ion-item>
 
-          <ion-item lines="none" class="my-2"> 
+          <ion-item lines="none" class="my-2">
             <ion-select formControlName="age" placeholder="Age" labelPlacement="stacked"  fill="outline" class="outline-no-float" style="--input-height: 40px">
               <ion-select-option value="">Select Age</ion-select-option>
               <ion-select-option value="18-30">18-30</ion-select-option>

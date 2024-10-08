@@ -1,4 +1,4 @@
-<ion-content [fullscreen]="true"> 
+<ion-content [fullscreen]="true">
   <div class="w-full h-full bg-splash flex flex-col justify-between items-center">
 
     <div class="header-welcome flex justify-between w-full px-8 mt-16">
@@ -8,12 +8,12 @@
       </div>
       <app-language-switcher></app-language-switcher>
     </div>
-    
+
     <div class="footer-welcome mb-6">
       <div class="btn-wrap">
-        <ion-button color="success" class="btn-login capitalize text-lg" [routerLink]="['/login']">{{'Sign In' | translate}}</ion-button>
-        <a routerLink="/register" class="w-full text-center text-white mx-auto block underline text-base">{{'Sign Up'| translate}}</a>
-      </div> 
+        <ion-button color="success" class="btn-login capitalize text-lg" [routerLink]="['login']">{{'Sign In' | translate}}</ion-button>
+        <a [routerLink]="['register']" class="w-full text-center text-white mx-auto block underline text-base">{{'Sign Up'| translate}}</a>
+      </div>
       <div class="our-comps flex flex-row items-center justify-around mt-20 mb-4">
         <a href="" target="_blank">
           <img src="./assets/imgs/mol-logo.png" alt="">

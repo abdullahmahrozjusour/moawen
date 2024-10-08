@@ -14,7 +14,7 @@ export class ReplacementFormComponent  implements OnInit {
   }
   navigateToShortlist() {
     this.cancel();
-    this.navCtrl.navigateRoot('/home/tab1/your-shortlist');
+    this.navCtrl.navigateRoot('dashboard/your-shortlist');
   }
   ngOnInit() {}
 

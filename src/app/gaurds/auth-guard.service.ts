@@ -16,9 +16,9 @@ export class AuthGuard implements CanActivate, CanActivateChild {
     const authCookieExists = this.cookieService.check(this.appVars.env['auth_cookie']);
 
     // Redirect if trying to access login or register while authenticated
-    if (authCookieExists && ['/login', '/register', '/'].includes(state.url)) {
+    if (authCookieExists && ['/login', '/register', '/auth', '/auth/login', '/auth/register'].includes(state.url)) {
       console.log('User is logged in; redirecting to home...');
-      this.router.navigate(['/home/tab1']);
+      this.router.navigate(['/dashboard']);
       return false;
     }
     return true;
@@ -29,7 +29,7 @@ export class AuthGuard implements CanActivate, CanActivateChild {
 
     if (!authCookieExists && state.url !== '/login') {
       console.log('User is not logged in; redirecting to login...');
-      this.router.navigate(['/login']);
+      this.router.navigate(['/auth']);
       return false;
     }
 

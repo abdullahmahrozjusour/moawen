@@ -11,12 +11,22 @@ import { ToastService } from 'src/app/services/toast.service';
 })
 export class BrowsSearchComponent implements OnInit {
 
-  searchForm: FormGroup;
+  searchForm!: FormGroup;
   nationalities: any = [];
   constructor(private fb: FormBuilder, private navCtrl: NavController,
     private globalService: GlobalService, private toastService: ToastService,
     private modalCtrl: ModalController
   ) {
+  }
+
+
+  ngOnInit() {
+    this.searchFormBuild();
+    this.fethNationalities()
+  }
+
+
+  searchFormBuild(){
     this.searchForm = this.fb.group({
       nationality: [[]],
       profession: [[]],
@@ -28,16 +38,18 @@ export class BrowsSearchComponent implements OnInit {
       skills: [[]],
       married: [''],
       kids: [''],
-      age: [''],
-      agencyId: [0],
+      age: ['']
     });
   }
 
+
   applyFilter() {
-    this.navCtrl.navigateForward('/home/tab3/brows-local', {
+    this.navCtrl.navigateForward('hireNow/brows-local', {
       state: { query: this.searchForm.value },
     });
   }
+
+
   fethNationalities() {
     this.globalService.fetchAllNationalities().subscribe({
       next: (nationalities) => {
@@ -49,27 +61,29 @@ export class BrowsSearchComponent implements OnInit {
       }
     })
   }
+
+
   close() {
     return this.modalCtrl.dismiss(null, 'cancel');
   }
+
+
   selectedFilters() {
 
     this.close()
   }
+
 
   getSelectedValues(controlName: string) {
     const value = this.searchForm.get(controlName)?.value;
     return Array.isArray(value) ? value : [value]; // Ensure it returns an array
   }
 
+
   removeSelected(controlName: string, item: any) {
     const currentValues = this.getSelectedValues(controlName);
     const updatedValues = currentValues.filter(value => value !== item);
     this.searchForm.get(controlName)?.setValue(updatedValues);
-  }
-
-  ngOnInit() {
-    this.fethNationalities()
   }
 
 }

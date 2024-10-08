@@ -10,7 +10,7 @@ export class SuccessComponent  implements OnInit {
 
   constructor(private navCtrl:NavController) { }
   navigateToBrows() {
-    this.navCtrl.navigateRoot('/home/tab3/brows-local');
+    this.navCtrl.navigateRoot('hireNow/brows-local');
   }
 
   ngOnInit() {}

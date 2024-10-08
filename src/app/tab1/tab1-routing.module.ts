@@ -9,11 +9,15 @@ import { WorkerStatusComponent } from './worker-status/worker-status.component';
 import { ComplaintsComponent } from './complaints/complaints.component';
 import { ComplaintFormComponent } from './complaint-form/complaint-form.component';
 import { ComplaintListComponent } from './complaint-list/complaint-list.component';
+import { UserResolver } from './tab1.resolver';
 
 const routes: Routes = [
   {
     path: '',
     component: Tab1Page,
+    resolve: {
+      userResolver: UserResolver
+    }
   },
   {
     path: 'your-shortlist',
@@ -51,6 +55,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [UserResolver]
 })
 export class Tab1PageRoutingModule {}

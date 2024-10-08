@@ -10,7 +10,7 @@ export class TrackingListComponent  implements OnInit {
 
   constructor(private navCtrl:NavController) { }
   navigateToWorkerStatus() {
-    this.navCtrl.navigateRoot('/home/tab1/worker-status');
+    this.navCtrl.navigateRoot('dashboard/worker-status');
   }
 
   ngOnInit() {}

@@ -24,7 +24,6 @@ export class TokenInterceptor implements HttpInterceptor {
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         const cookie = this.cookieService.get(this.appVars.env['auth_cookie']);
-        console.log(cookie);
         request = request.clone({
             setHeaders: {
                 Authorization: `Bearer ${cookie}`,
@@ -60,7 +59,7 @@ export class ApiInterceptor implements HttpInterceptor {
                         // Force logout
                         this.authHelperService.logout();
                         // Redirect to login
-                        this.router.navigate(['/login']);
+                        this.router.navigate(['/auth/login']);
                     } else if (err.status === 307 || err.status === 302) {
                         this.authHelperService.logout();
                     } else if (err.status === 401) {

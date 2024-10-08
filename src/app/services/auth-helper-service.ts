@@ -52,8 +52,8 @@ export class AuthHelperService {
     }
     logout() {
         const cookieName = this.appVars.env['cookie'].name;
-        this.cookieService.delete(cookieName, this.appVars.env['cookie'].path); 
-        this.router.navigate(['/login']);
+        this.cookieService.delete(cookieName, this.appVars.env['cookie'].path);
+        this.router.navigate(['/auth/login']);
     }
 
 }

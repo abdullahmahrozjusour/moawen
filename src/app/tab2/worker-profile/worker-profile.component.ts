@@ -12,7 +12,7 @@ export class WorkerProfileComponent  implements OnInit {
   constructor(private modalController: ModalController, private navCtrl: NavController) {}
 
   // navigateToTab3() {
-  //   this.navCtrl.navigateRoot('/home/tab3');
+  //   this.navCtrl.navigateRoot('/tab3');
   // }
   isActive = false;
 
@@ -26,7 +26,8 @@ export class WorkerProfileComponent  implements OnInit {
     return await modal.present();
   }
   ngOnInit() {}
+
   navigateToPrev() {
-     this.navCtrl.navigateRoot('/home/tab2');
+     this.navCtrl.navigateRoot('worker');
   }
 }
